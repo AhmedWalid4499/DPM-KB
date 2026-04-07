@@ -1192,37 +1192,337 @@
     <div class="divider cisco"></div>
   </div>
 
-  <div class="alert blue" style="margin-bottom:28px;">
+  <style>
+    /* ── Management platform deep-dive styles ── */
+    .mgmt-platform {
+      background: #fff; border: 1px solid #E8E8E8;
+      border-radius: 16px; overflow: hidden;
+      margin-bottom: 40px;
+      box-shadow: 0 2px 20px rgba(0,0,0,0.06);
+    }
+    .mgmt-platform-header {
+      padding: 28px 32px 24px;
+      display: flex; align-items: flex-start; gap: 20px;
+    }
+    .mgmt-platform-icon {
+      width: 56px; height: 56px; border-radius: 14px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 26px; flex-shrink: 0;
+    }
+    .mgmt-platform-intro {}
+    .mgmt-platform-tag {
+      font-size: 10px; font-weight: 700; letter-spacing: 1.2px;
+      text-transform: uppercase; padding: 3px 10px; border-radius: 20px;
+      display: inline-block; margin-bottom: 7px;
+    }
+    .mgmt-platform-title {
+      font-size: 24px; font-weight: 700; margin-bottom: 6px;
+    }
+    .mgmt-platform-tagline {
+      font-size: 14px; color: var(--gray-mid); line-height: 1.6;
+    }
+
+    .mgmt-platform-body { padding: 0 32px 32px; }
+    .mgmt-platform-body > p {
+      font-size: 14px; color: #444; line-height: 1.8;
+      border-top: 1px solid #F0F0F0; padding-top: 22px; margin-bottom: 24px;
+    }
+
+    /* Feature pillar grid */
+    .mgmt-pillars {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px;
+      margin-bottom: 28px;
+    }
+    @media(max-width:760px){ .mgmt-pillars { grid-template-columns: 1fr 1fr; } }
+    @media(max-width:480px){ .mgmt-pillars { grid-template-columns: 1fr; } }
+
+    .mgmt-pillar {
+      border-radius: 12px; padding: 18px 18px 16px;
+      border: 1px solid;
+    }
+    .mgmt-pillar-icon { font-size: 22px; margin-bottom: 10px; }
+    .mgmt-pillar-title {
+      font-size: 13px; font-weight: 700; margin-bottom: 8px;
+    }
+    .mgmt-pillar-desc {
+      font-size: 12px; line-height: 1.7; color: #555;
+    }
+
+    /* Hardware models table */
+    .mgmt-hw-table {
+      background: #F8F9FA; border-radius: 10px; padding: 18px 20px;
+      margin-bottom: 24px;
+    }
+    .mgmt-hw-table-title {
+      font-size: 11px; font-weight: 700; letter-spacing: 1px;
+      text-transform: uppercase; color: var(--gray-mid); margin-bottom: 14px;
+    }
+    .mgmt-hw-row {
+      display: grid; grid-template-columns: 1fr 1fr 1fr;
+      gap: 0; border-bottom: 1px solid #E8E8E8; padding: 10px 0;
+      font-size: 13px; align-items: start;
+    }
+    .mgmt-hw-row:last-child { border-bottom: none; }
+    .mgmt-hw-row:first-child { font-size: 11px; font-weight: 700; color: var(--gray-mid); text-transform: uppercase; letter-spacing: 0.5px; }
+    .mgmt-hw-row span:first-child { font-weight: 700; }
+
+    /* Meraki product line cards */
+    .meraki-products {
+      display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+      margin-bottom: 24px;
+    }
+    @media(max-width:760px){ .meraki-products { grid-template-columns: 1fr 1fr; } }
+    .meraki-product {
+      border-radius: 12px; border: 1px solid; padding: 16px;
+    }
+    .meraki-product-series {
+      font-size: 22px; font-weight: 800; margin-bottom: 4px;
+    }
+    .meraki-product-name {
+      font-size: 12px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.5px; margin-bottom: 10px;
+    }
+    .meraki-product-models {
+      font-size: 11px; color: #666; font-family: var(--mono);
+      margin-bottom: 10px; line-height: 1.6;
+    }
+    .meraki-product-desc { font-size: 12px; color: #555; line-height: 1.6; }
+
+    /* Comparison table */
+    .mgmt-compare {
+      border-radius: 12px; overflow: hidden; border: 1px solid #E0E0E0;
+      margin-top: 8px;
+    }
+    .mgmt-compare-header {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      background: #1A1A1A; padding: 14px 18px;
+      font-size: 12px; font-weight: 700; color: rgba(255,255,255,0.7);
+      text-transform: uppercase; letter-spacing: 0.5px;
+    }
+    .mgmt-compare-row {
+      display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+      padding: 12px 18px; border-bottom: 1px solid #F0F0F0;
+      font-size: 13px; align-items: start;
+    }
+    .mgmt-compare-row:last-child { border-bottom: none; }
+    .mgmt-compare-row:nth-child(even) { background: #FAFAFA; }
+    .mgmt-compare-row span:first-child { color: var(--gray-mid); font-size: 12px; }
+    .mgmt-compare-row .cc  { color: var(--cisco-blue); font-weight: 600; }
+    .mgmt-compare-row .mer { color: #00A86B; font-weight: 600; }
+    .yes { color: #00A86B; font-weight: 700; }
+    .no  { color: #CC2200; font-weight: 700; }
+
+    /* Catalyst Centre — blue theme */
+    .cc-header  { background: linear-gradient(135deg, #0A1F2D 0%, #0D4070 100%); }
+    .cc-tag     { background: rgba(27,160,215,0.25); color: #7DD3F0; }
+    .cc-title   { color: var(--cisco-blue); }
+    .cc-icon    { background: var(--cisco-pale); }
+    .cc-pillar  { background: rgba(27,160,215,0.04); border-color: rgba(27,160,215,0.18); }
+    .cc-pillar .mgmt-pillar-title { color: var(--cisco-blue); }
+
+    /* Meraki — green theme */
+    .mr-header  { background: linear-gradient(135deg, #042910 0%, #065A20 100%); }
+    .mr-tag     { background: rgba(0,168,107,0.25); color: #5DE8B5; }
+    .mr-title   { color: #00A86B; }
+    .mr-icon    { background: var(--green-pale); }
+    .mr-pillar  { background: rgba(0,168,107,0.04); border-color: rgba(0,168,107,0.18); }
+    .mr-pillar .mgmt-pillar-title { color: #00A86B; }
+  </style>
+
+  <!-- Comparison callout -->
+  <div class="alert blue" style="margin-bottom:36px;">
     <span class="alert-icon">💡</span>
-    <p><strong>Quick distinction:</strong> <strong>Catalyst Center</strong> manages traditional IOS-XE hardware you already own — same Catalyst switches and 9800 WLCs covered on this page. <strong>Meraki</strong> is an entirely separate cloud-only product line where hardware and management are sold together and configured exclusively from a browser.</p>
+    <p><strong>The key distinction:</strong> <strong>Catalyst Center</strong> is a management layer you put on top of traditional IOS-XE hardware you already own — your existing Catalyst switches and 9800 WLCs. <strong>Meraki</strong> is a completely separate product line where hardware and management are inseparable — you buy Meraki devices and manage them exclusively through Cisco's Meraki cloud. You cannot manage a Meraki switch from Catalyst Center, or a Catalyst switch from the Meraki dashboard. They are two different business models sold to different types of customer.</p>
   </div>
 
-  <div class="grid-2">
-    <div class="card" style="border-top:3px solid var(--cisco-blue);">
-      <div class="card-icon" style="background:var(--cisco-pale);">🧠</div>
-      <h3 style="color:var(--cisco-blue);">Catalyst Center (formerly DNAC)</h3>
-      <p>On-premises management appliance for all Cisco IOS-XE devices. Provides automated discovery, zero-touch provisioning, SD-Access fabric, AI-driven assurance, and a full REST API. When engineers say "DNAC" they mean this — renamed Catalyst Center in 2023.</p>
-      <ul class="spec-list" style="margin-top:12px;">
-        <li><div class="spec-dot"></div><span>Auto-discovers all Catalyst devices via CDP/LLDP</span></li>
-        <li><div class="spec-dot"></div><span>SD-Access: VXLAN + ISE + Catalyst Center for Zero Trust campus</span></li>
-        <li><div class="spec-dot"></div><span>Push configs, VLANs, and firmware to hundreds of devices at once</span></li>
-        <li><div class="spec-dot"></div><span>AI assurance: predicts and flags network issues before users notice</span></li>
-        <li><div class="spec-dot"></div><span>REST API for integration with ServiceNow, Ansible, Python scripts</span></li>
-      </ul>
+  <!-- ════════════════════════════════
+       CATALYST CENTER
+  ════════════════════════════════ -->
+  <div class="mgmt-platform">
+    <div class="mgmt-platform-header cc-header">
+      <div class="mgmt-platform-icon cc-icon">🧠</div>
+      <div class="mgmt-platform-intro">
+        <div class="mgmt-platform-tag cc-tag">On-Premises Management Platform</div>
+        <div class="mgmt-platform-title cc-title">Catalyst Center</div>
+        <div class="mgmt-platform-tagline" style="color:rgba(255,255,255,0.65);">Formerly called DNA Center (DNAC) — renamed in 2023. The single management platform for all Cisco IOS-XE campus and branch infrastructure.</div>
+      </div>
     </div>
-    <div class="card" style="border-top:3px solid #00A86B;">
-      <div class="card-icon" style="background:var(--green-pale);">☁️</div>
-      <h3 style="color:#00A86B;">Cisco Meraki</h3>
-      <p>Cloud-managed networking — every Meraki device (MR APs, MS switches, MX firewalls, MG cellular, MV cameras) is configured entirely from dashboard.meraki.com. Zero-touch deployment: claim the device in the dashboard, power it on, it self-configures. Popular for distributed retail, branches, and SMB.</p>
-      <ul class="spec-list" style="margin-top:12px;">
-        <li><div class="spec-dot"></div><span>MR series — WiFi 6/6E APs (MR46, MR57, MR78 outdoor)</span></li>
-        <li><div class="spec-dot"></div><span>MS series — switches (MS120, MS250, MS350, MS410)</span></li>
-        <li><div class="spec-dot"></div><span>MX series — security/firewall (MX67, MX250, MX450)</span></li>
-        <li><div class="spec-dot"></div><span>Auto VPN — one checkbox creates hub-and-spoke IPSec between all MX</span></li>
-        <li><div class="spec-dot"></div><span>Annual licence per device required — device stops working if lapsed</span></li>
-      </ul>
+
+    <div class="mgmt-platform-body">
+      <p>Catalyst Center is a physical or virtual appliance that sits in your data center and manages every Cisco IOS-XE device on your network — Catalyst switches, ISR/ASR routers, Catalyst 9800 WLCs, and Cisco access points. Think of it as the "brain" of a Cisco campus. When engineers mention <strong>"DNAC"</strong>, they almost always mean Catalyst Center — the old name is still widely used in conversations even though Cisco officially renamed it. Understanding Catalyst Center is critical because it transforms how a large Cisco network is operated: instead of SSH-ing into individual switches one by one, a network engineer uses Catalyst Center to push configurations, templates, and firmware to hundreds of devices simultaneously from a single dashboard.</p>
+
+      <div class="mgmt-pillars">
+        <div class="mgmt-pillar cc-pillar">
+          <div class="mgmt-pillar-icon">🔍</div>
+          <div class="mgmt-pillar-title">Network Discovery &amp; Inventory</div>
+          <div class="mgmt-pillar-desc">Catalyst Center automatically discovers all devices on the network using CDP and LLDP. It maps the physical topology — which switch connects to which, which APs are on which switch port. The live inventory shows every device's model, serial, IOS-XE version, and health status. No manual spreadsheet needed.</div>
+        </div>
+        <div class="mgmt-pillar cc-pillar">
+          <div class="mgmt-pillar-icon">⚡</div>
+          <div class="mgmt-pillar-title">Zero-Touch Provisioning (PnP)</div>
+          <div class="mgmt-pillar-desc">New Cisco switches and routers can be pre-staged in Catalyst Center before they physically arrive at a site. When the device is unpacked and powered on, it contacts Catalyst Center (via DHCP option 43 or DNS), authenticates, downloads its configuration, and is fully deployed — with no engineer needed on-site. This is called Plug and Play (PnP).</div>
+        </div>
+        <div class="mgmt-pillar cc-pillar">
+          <div class="mgmt-pillar-icon">🗂️</div>
+          <div class="mgmt-pillar-title">Templates &amp; Config Management</div>
+          <div class="mgmt-pillar-desc">Engineers write configuration templates using Velocity or Jinja2 scripting language. A template might define the standard VLAN layout, QoS policy, spanning tree settings, and AAA config for all branch switches. When a new branch is deployed, you apply the template — the device is fully configured to standard in seconds. No copy-pasting CLIs.</div>
+        </div>
+        <div class="mgmt-pillar cc-pillar">
+          <div class="mgmt-pillar-icon">🏗️</div>
+          <div class="mgmt-pillar-title">SD-Access (Software-Defined Access)</div>
+          <div class="mgmt-pillar-desc">SD-Access is Cisco's Zero Trust campus fabric. Catalyst Center, combined with Cisco ISE (Identity Services Engine), uses VXLAN to create a single logical overlay network across the entire campus. Devices are authenticated via 802.1X — their identity determines their network segment, not which physical port they plug into. SGTs (Security Group Tags) enforce policy. Catalyst Center is the orchestrator that builds and manages this fabric.</div>
+        </div>
+        <div class="mgmt-pillar cc-pillar">
+          <div class="mgmt-pillar-icon">📡</div>
+          <div class="mgmt-pillar-title">Wireless Assurance</div>
+          <div class="mgmt-pillar-desc">Catalyst Center receives telemetry from Catalyst 9800 WLCs and all connected APs — client connection events, roaming events, signal strength, channel utilisation, and error rates. The AI engine analyses this data to detect coverage gaps, AP failures, and roaming issues. It can trace exactly why a specific client's WiFi was slow at 3pm on Tuesday.</div>
+        </div>
+        <div class="mgmt-pillar cc-pillar">
+          <div class="mgmt-pillar-icon">🤖</div>
+          <div class="mgmt-pillar-title">AI Network Analytics &amp; REST API</div>
+          <div class="mgmt-pillar-desc">Machine learning analyses network telemetry to establish baselines and alert on anomalies — before users notice. Catalyst Center also exposes a full REST API (called Intent API) so automation tools like Ansible, Python scripts, and ITSM platforms like ServiceNow can trigger configuration changes, query device status, or open tickets automatically when issues occur.</div>
+        </div>
+      </div>
+
+      <!-- Hardware models -->
+      <div class="mgmt-hw-table">
+        <div class="mgmt-hw-table-title">Catalyst Center Appliance Models</div>
+        <div class="mgmt-hw-row"><span>Model</span><span>Scale</span><span>Notes</span></div>
+        <div class="mgmt-hw-row"><span>DN1-HW-APL (Gen 1)</span><span>Up to 5,000 devices</span><span>Legacy — still in production use</span></div>
+        <div class="mgmt-hw-row"><span>DN2-HW-APL (Gen 2)</span><span>Up to 10,000 devices</span><span>Current standard appliance</span></div>
+        <div class="mgmt-hw-row"><span>DN2-HW-APL-L (Large)</span><span>Up to 25,000 devices</span><span>3-node cluster for very large enterprise</span></div>
+        <div class="mgmt-hw-row"><span>Catalyst Center VM</span><span>Up to 5,000 devices</span><span>Runs on VMware ESXi — smaller deployments</span></div>
+        <div class="mgmt-hw-row"><span>Catalyst Center Cloud</span><span>SaaS option</span><span>Cisco-hosted — no appliance required</span></div>
+      </div>
+
+      <!-- Comparison table -->
+      <div class="mgmt-hw-table-title" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);margin-bottom:12px;">Catalyst Center vs. Direct CLI Management</div>
+      <div class="mgmt-compare">
+        <div class="mgmt-compare-header"><span>Task</span><span>CLI (without CC)</span><span>Catalyst Center</span></div>
+        <div class="mgmt-compare-row"><span>Deploy new branch switch</span><span>SSH in, paste config manually (30–60 min)</span><span class="cc">PnP — 5 min, zero touch</span></div>
+        <div class="mgmt-compare-row"><span>Push VLAN change to 50 switches</span><span>Script or SSH to each one individually</span><span class="cc">Template push — &lt;2 minutes</span></div>
+        <div class="mgmt-compare-row"><span>IOS-XE firmware update</span><span>Manual SCP + reload per device</span><span class="cc">Bulk upgrade with maintenance window scheduling</span></div>
+        <div class="mgmt-compare-row"><span>Troubleshoot slow WiFi client</span><span>Check logs on WLC + AP manually</span><span class="cc">Client 360° view — full connection timeline</span></div>
+        <div class="mgmt-compare-row"><span>Network topology map</span><span>Draw it manually in Visio</span><span class="cc">Auto-generated and always live</span></div>
+        <div class="mgmt-compare-row"><span>Compliance audit</span><span>Pull configs manually, compare by hand</span><span class="cc">Compliance dashboard — instant report</span></div>
+      </div>
     </div>
   </div>
+
+  <!-- ════════════════════════════════
+       MERAKI
+  ════════════════════════════════ -->
+  <div class="mgmt-platform">
+    <div class="mgmt-platform-header mr-header">
+      <div class="mgmt-platform-icon mr-icon">☁️</div>
+      <div class="mgmt-platform-intro">
+        <div class="mgmt-platform-tag mr-tag">Cloud-Managed Networking Platform</div>
+        <div class="mgmt-platform-title mr-title">Cisco Meraki</div>
+        <div class="mgmt-platform-tagline" style="color:rgba(255,255,255,0.65);">A completely separate product line acquired by Cisco in 2012. Every device is managed exclusively via dashboard.meraki.com — no CLI, no on-premises controller.</div>
+      </div>
+    </div>
+
+    <div class="mgmt-platform-body">
+      <p>Meraki is often misunderstood as "Cisco with a cloud dashboard." It is much more than that — it is a fundamentally different networking model. With traditional Cisco, you buy hardware and manage it yourself using IOS-XE, SSH, and optionally Catalyst Center. With Meraki, you buy hardware <em>and a cloud management subscription together</em> — the two are inseparable. Every Meraki device runs a lightweight OS and maintains a permanent tunnel to Meraki's cloud. All configuration lives in Meraki's cloud dashboard (dashboard.meraki.com) — there is no local configuration stored on the device. This means <strong>you can configure, monitor, and troubleshoot every device globally from any web browser, anywhere in the world.</strong> Zero-touch deployment: claim the device serial in the dashboard, ship it to a remote site, and when it powers on it configures itself automatically. No engineer needed on-site. This is why Meraki is extremely popular for <strong>distributed retail chains, multi-site enterprises, and organisations without dedicated IT staff at each location</strong>.</p>
+
+      <!-- Product line cards -->
+      <div class="mgmt-hw-table-title" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);margin-bottom:16px;">Meraki Product Lines</div>
+      <div class="meraki-products">
+
+        <div class="meraki-product" style="border-color:rgba(0,168,107,0.25);background:rgba(0,168,107,0.03);">
+          <div class="meraki-product-series" style="color:#00A86B;">MR</div>
+          <div class="meraki-product-name" style="color:#00A86B;">Wireless APs</div>
+          <div class="meraki-product-models">MR28 · MR36 · MR46 · MR57<br>MR78 (outdoor) · MR86 (outdoor)</div>
+          <div class="meraki-product-desc">WiFi 6 and 6E indoor and outdoor APs. The MR46 is the most common office AP. Dashboard shows client heatmaps, channel utilisation, and real-time client locations. Automatic RF optimisation adjusts channels and power across all APs.</div>
+        </div>
+
+        <div class="meraki-product" style="border-color:rgba(27,160,215,0.25);background:rgba(27,160,215,0.03);">
+          <div class="meraki-product-series" style="color:var(--cisco-blue);">MS</div>
+          <div class="meraki-product-name" style="color:var(--cisco-blue);">Switches</div>
+          <div class="meraki-product-models">MS120 · MS210 · MS250 · MS350<br>MS390 (StackWise) · MS410 · MS425</div>
+          <div class="meraki-product-desc">Access to core switches, all managed from the dashboard. VLANs, port profiles, PoE scheduling, and 802.1X are all configured from the browser — no CLI. The MS390 series supports StackWise stacking and is compatible with Catalyst Center (hybrid model).</div>
+        </div>
+
+        <div class="meraki-product" style="border-color:rgba(238,49,36,0.2);background:rgba(238,49,36,0.03);">
+          <div class="meraki-product-series" style="color:#CC2200;">MX</div>
+          <div class="meraki-product-name" style="color:#CC2200;">Security Appliances</div>
+          <div class="meraki-product-models">MX67 · MX68 · MX75 · MX85<br>MX95 · MX105 · MX250 · MX450</div>
+          <div class="meraki-product-desc">NGFW + SD-WAN in one box. <strong>Auto VPN</strong> is a killer feature — enable it with one checkbox and all MX appliances automatically build a full-mesh or hub-and-spoke IPSec VPN between all sites, no configuration required. Built-in IDS/IPS, content filtering, and AMP malware protection.</div>
+        </div>
+
+        <div class="meraki-product" style="border-color:rgba(255,140,66,0.25);background:rgba(255,140,66,0.03);">
+          <div class="meraki-product-series" style="color:#E67300;">MG</div>
+          <div class="meraki-product-name" style="color:#E67300;">Cellular Gateways</div>
+          <div class="meraki-product-models">MG21 · MG41<br>MG51 (5G)</div>
+          <div class="meraki-product-desc">4G LTE and 5G cellular uplinks managed from the same dashboard. Used as primary WAN at locations without fixed broadband, or as automatic failover backup for the MX appliance when the main internet link goes down.</div>
+        </div>
+
+        <div class="meraki-product" style="border-color:rgba(150,80,255,0.25);background:rgba(150,80,255,0.03);">
+          <div class="meraki-product-series" style="color:#7C3AED;">MV</div>
+          <div class="meraki-product-name" style="color:#7C3AED;">Smart Cameras</div>
+          <div class="meraki-product-models">MV2 · MV12 · MV32<br>MV63 · MV93 (outdoor)</div>
+          <div class="meraki-product-desc">PoE security cameras that store footage locally on the camera (no separate NVR required) and can be viewed from the Meraki dashboard. AI-powered motion detection and object recognition. Same licence model as network devices.</div>
+        </div>
+
+        <div class="meraki-product" style="border-color:rgba(255,200,0,0.3);background:rgba(255,200,0,0.03);">
+          <div class="meraki-product-series" style="color:#B07D00;">MT</div>
+          <div class="meraki-product-name" style="color:#B07D00;">IoT Sensors</div>
+          <div class="meraki-product-models">MT10 · MT11 · MT12<br>MT14 · MT20 · MT30</div>
+          <div class="meraki-product-desc">Environmental sensors (temperature, humidity, water leak detection, door open/close) that report to the Meraki dashboard. Used in server rooms, warehouses, and retail environments. Alert via email, SMS, or webhook when thresholds are exceeded.</div>
+        </div>
+
+      </div>
+
+      <div class="mgmt-pillars">
+        <div class="mgmt-pillar mr-pillar">
+          <div class="mgmt-pillar-icon">🔑</div>
+          <div class="mgmt-pillar-title">The Licence Model — Critical to Understand</div>
+          <div class="mgmt-pillar-desc">Every Meraki device requires an annual or multi-year cloud management licence (Enterprise or Advanced Security). <strong>If the licence expires, the device enters a read-only mode and eventually stops forwarding traffic.</strong> This is the most common commercial objection from customers — they are locked into a recurring cost. Orange Business DPMs must understand this risk for contract renewals.</div>
+        </div>
+        <div class="mgmt-pillar mr-pillar">
+          <div class="mgmt-pillar-icon">🌐</div>
+          <div class="mgmt-pillar-title">Auto VPN — One-Click Hub-and-Spoke</div>
+          <div class="mgmt-pillar-desc">Meraki's most popular feature. Every MX security appliance registers with Meraki's cloud. Enable Auto VPN on each MX and they automatically negotiate IPSec tunnels with every other MX in the organisation — full mesh or hub-and-spoke. What takes hours of configuration in traditional IOS is done in under a minute. This is why Meraki dominates the distributed enterprise market.</div>
+        </div>
+        <div class="mgmt-pillar mr-pillar">
+          <div class="mgmt-pillar-icon">📍</div>
+          <div class="mgmt-pillar-title">Location Analytics</div>
+          <div class="mgmt-pillar-desc">Meraki APs passively scan WiFi probe requests from nearby devices (even those not connected) to track footfall patterns. The dashboard shows heatmaps of where people spend time in a building — valuable for retailers measuring in-store customer behaviour. All data is anonymised and aggregated.</div>
+        </div>
+        <div class="mgmt-pillar mr-pillar">
+          <div class="mgmt-pillar-icon">🔒</div>
+          <div class="mgmt-pillar-title">Systems Manager (MDM)</div>
+          <div class="mgmt-pillar-desc">Meraki's built-in Mobile Device Management platform. Enrol company laptops, phones, and tablets into Systems Manager to enforce security policies, push apps, and remotely wipe lost devices — all from the same Meraki dashboard used to manage the network. Tight integration with WiFi: a device not enrolled in MDM can be automatically placed in a guest VLAN.</div>
+        </div>
+        <div class="mgmt-pillar mr-pillar">
+          <div class="mgmt-pillar-icon">🏪</div>
+          <div class="mgmt-pillar-title">Who Buys Meraki?</div>
+          <div class="mgmt-pillar-desc">Meraki is dominant in <strong>retail chains</strong> (manage 500 stores from one dashboard with no IT staff per store), <strong>healthcare</strong> (simple compliance, easy guest WiFi), <strong>education</strong> (intuitive for non-expert IT admins), and <strong>SMB</strong>. Large enterprise with complex routing requirements often find Meraki's simplified model too restrictive and choose Catalyst + Catalyst Center instead.</div>
+        </div>
+        <div class="mgmt-pillar mr-pillar">
+          <div class="mgmt-pillar-icon">⚠️</div>
+          <div class="mgmt-pillar-title">Limitations Customers Ask About</div>
+          <div class="mgmt-pillar-desc">No traditional CLI (limited SSH debug access available). Advanced BGP/MPLS routing not supported on MX. Full routing flexibility requires Catalyst hardware instead. Meraki dashboard requires internet connectivity for config changes (though traffic still flows if cloud is temporarily unreachable). Licence dependency is the biggest long-term commercial risk.</div>
+        </div>
+      </div>
+
+      <!-- Catalyst Center vs Meraki comparison -->
+      <div class="mgmt-hw-table-title" style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--gray-mid);margin-bottom:12px;">Catalyst Center vs. Meraki — At a Glance</div>
+      <div class="mgmt-compare">
+        <div class="mgmt-compare-header"><span>Consideration</span><span>Catalyst Center</span><span>Meraki</span></div>
+        <div class="mgmt-compare-row"><span>What hardware it manages</span><span class="cc">Catalyst switches, ISR/ASR routers, 9800 WLCs</span><span class="mer">Only Meraki hardware</span></div>
+        <div class="mgmt-compare-row"><span>Where management lives</span><span class="cc">On-premises appliance (or Cisco-hosted SaaS)</span><span class="mer">Meraki cloud only (dashboard.meraki.com)</span></div>
+        <div class="mgmt-compare-row"><span>CLI access</span><span class="cc">Full IOS-XE CLI via SSH — always available</span><span class="mer">No CLI — dashboard only (limited debug SSH)</span></div>
+        <div class="mgmt-compare-row"><span>Recurring cost model</span><span class="cc">One-time appliance + optional software licence</span><span class="mer">Annual per-device subscription (mandatory)</span></div>
+        <div class="mgmt-compare-row"><span>Zero-touch deployment</span><span class="cc">Yes — via PnP agent in IOS-XE</span><span class="mer">Yes — via Meraki cloud claim</span></div>
+        <div class="mgmt-compare-row"><span>Complex routing (BGP/MPLS)</span><span class="cc">Full support via IOS-XE CLI + Catalyst Center</span><span class="mer">Limited — not suited for complex WAN routing</span></div>
+        <div class="mgmt-compare-row"><span>Best fit</span><span class="cc">Large enterprise, complex campus, data center</span><span class="mer">Distributed SMB/retail, simple multi-site</span></div>
+        <div class="mgmt-compare-row"><span>Upfront cost</span><span class="cc">Higher (appliance + IOS-XE hardware)</span><span class="mer">Lower upfront, but recurring annual cost</span></div>
+        <div class="mgmt-compare-row"><span>What happens if expired/offline</span><span class="cc">Network keeps running — CC is management only</span><span class="mer">Devices enter read-only, traffic may stop</span></div>
+      </div>
+    </div>
+  </div>
+
 </div><!-- /management -->
 
 </div><!-- /content-wide -->
