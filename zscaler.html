@@ -182,58 +182,199 @@
       <div class="divider" style="background:#005DAA;"></div>
       <p>Zscaler bundles its services under the <strong>Zero Trust Exchange</strong> platform. Here are the four you'll encounter most often at Orange Business.</p>
     </div>
-    <div class="grid-2">
 
-      <div class="pillar-card zia-card">
-        <div class="pillar-icon">🌐</div>
-        <h3>ZIA — Zscaler Internet Access</h3>
-        <p>Secures users accessing the <strong>public internet</strong>. This is the core product — it replaces the traditional perimeter firewall + web proxy. Includes URL filtering, SSL inspection, cloud sandboxing (malware analysis), DNS security, bandwidth control, and DLP. If a customer says "Zscaler", they almost certainly mean ZIA.</p>
-        <ul class="spec-list" style="margin-top:10px;">
-          <li><div class="spec-dot" style="background:#005DAA;"></div><span>Full HTTPS/SSL traffic inspection at cloud scale</span></li>
-          <li><div class="spec-dot" style="background:#005DAA;"></div><span>URL &amp; category filtering (90+ categories)</span></li>
-          <li><div class="spec-dot" style="background:#005DAA;"></div><span>Cloud Sandbox — runs unknown files to detect zero-day malware</span></li>
-          <li><div class="spec-dot" style="background:#005DAA;"></div><span>DNS Security — blocks malicious domains at resolution</span></li>
-          <li><div class="spec-dot" style="background:#005DAA;"></div><span>Bandwidth Control — throttle YouTube, limit Dropbox uploads</span></li>
-        </ul>
+    <style>
+      .zs-pillar {
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid #E8E8E8;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .zs-pillar:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 8px 32px rgba(0,0,0,0.10);
+      }
+      .zs-pillar-header {
+        padding: 28px 28px 22px;
+        display: flex;
+        align-items: center;
+        gap: 18px;
+      }
+      .zs-pillar-icon {
+        width: 60px; height: 60px;
+        border-radius: 14px;
+        display: flex; align-items: center; justify-content: center;
+        font-size: 28px; flex-shrink: 0;
+      }
+      .zs-pillar-title-block { flex: 1; }
+      .zs-pillar-tag {
+        display: inline-block;
+        font-size: 10px; font-weight: 700;
+        letter-spacing: 1.2px; text-transform: uppercase;
+        padding: 3px 10px; border-radius: 20px;
+        margin-bottom: 6px;
+      }
+      .zs-pillar-title {
+        font-size: 22px; font-weight: 700;
+        margin: 0; line-height: 1.2;
+      }
+      .zs-pillar-subtitle {
+        font-size: 13px; margin-top: 3px; opacity: 0.8; font-weight: 500;
+      }
+      .zs-pillar-body {
+        padding: 0 28px 26px;
+      }
+      .zs-pillar-desc {
+        font-size: 14px; line-height: 1.75;
+        color: #444; margin-bottom: 20px;
+        padding-top: 4px;
+      }
+      .zs-chips {
+        display: flex; flex-wrap: wrap; gap: 8px;
+      }
+      .zs-chip {
+        display: inline-flex; align-items: center; gap: 6px;
+        padding: 7px 13px; border-radius: 8px;
+        font-size: 12px; font-weight: 600;
+        border: 1.5px solid;
+      }
+      .zs-chip-dot {
+        width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0;
+      }
+
+      /* ZIA — blue */
+      .zs-zia .zs-pillar-header { background: linear-gradient(135deg, #003F8A 0%, #005DAA 100%); }
+      .zs-zia .zs-pillar-icon   { background: rgba(255,255,255,0.15); }
+      .zs-zia .zs-pillar-tag    { background: rgba(255,255,255,0.2); color: #fff; }
+      .zs-zia .zs-pillar-title  { color: #fff; }
+      .zs-zia .zs-pillar-subtitle { color: rgba(255,255,255,0.75); }
+      .zs-zia .zs-chip          { background: #EBF3FF; border-color: #B8D4F5; color: #004A9F; }
+      .zs-zia .zs-chip-dot      { background: #005DAA; }
+
+      /* ZPA — green */
+      .zs-zpa .zs-pillar-header { background: linear-gradient(135deg, #007A4D 0%, #00A86B 100%); }
+      .zs-zpa .zs-pillar-icon   { background: rgba(255,255,255,0.15); }
+      .zs-zpa .zs-pillar-tag    { background: rgba(255,255,255,0.2); color: #fff; }
+      .zs-zpa .zs-pillar-title  { color: #fff; }
+      .zs-zpa .zs-pillar-subtitle { color: rgba(255,255,255,0.75); }
+      .zs-zpa .zs-chip          { background: #E6F7F1; border-color: #A8DFC8; color: #006B44; }
+      .zs-zpa .zs-chip-dot      { background: #00A86B; }
+
+      /* ZDX — orange */
+      .zs-zdx .zs-pillar-header { background: linear-gradient(135deg, #CC4E00 0%, #FF6200 100%); }
+      .zs-zdx .zs-pillar-icon   { background: rgba(255,255,255,0.15); }
+      .zs-zdx .zs-pillar-tag    { background: rgba(255,255,255,0.2); color: #fff; }
+      .zs-zdx .zs-pillar-title  { color: #fff; }
+      .zs-zdx .zs-pillar-subtitle { color: rgba(255,255,255,0.75); }
+      .zs-zdx .zs-chip          { background: #FFF0E6; border-color: #FFD0A8; color: #A83D00; }
+      .zs-zdx .zs-chip-dot      { background: #FF6200; }
+
+      /* ZCC — purple */
+      .zs-zcc .zs-pillar-header { background: linear-gradient(135deg, #5B21B6 0%, #7C3AED 100%); }
+      .zs-zcc .zs-pillar-icon   { background: rgba(255,255,255,0.15); }
+      .zs-zcc .zs-pillar-tag    { background: rgba(255,255,255,0.2); color: #fff; }
+      .zs-zcc .zs-pillar-title  { color: #fff; }
+      .zs-zcc .zs-pillar-subtitle { color: rgba(255,255,255,0.75); }
+      .zs-zcc .zs-chip          { background: #F3EEFF; border-color: #D4B8FF; color: #5B21B6; }
+      .zs-zcc .zs-chip-dot      { background: #7C3AED; }
+
+      @media (min-width: 700px) {
+        .zs-pillars-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+        .zs-pillars-grid .zs-pillar { margin-bottom: 0; }
+      }
+    </style>
+
+    <div class="zs-pillars-grid">
+
+      <!-- ZIA -->
+      <div class="zs-pillar zs-zia">
+        <div class="zs-pillar-header">
+          <div class="zs-pillar-icon">🌐</div>
+          <div class="zs-pillar-title-block">
+            <div class="zs-pillar-tag">Internet Security</div>
+            <div class="zs-pillar-title">ZIA</div>
+            <div class="zs-pillar-subtitle">Zscaler Internet Access</div>
+          </div>
+        </div>
+        <div class="zs-pillar-body">
+          <p class="zs-pillar-desc">Secures every user accessing the <strong>public internet</strong>. This is the core Zscaler product — it replaces the traditional perimeter firewall and web proxy entirely. When a customer says "Zscaler", they almost certainly mean ZIA.</p>
+          <div class="zs-chips">
+            <span class="zs-chip"><span class="zs-chip-dot"></span>SSL / HTTPS Inspection</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>URL Filtering (90+ categories)</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Cloud Sandbox</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>DNS Security</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>DLP</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Bandwidth Control</span>
+          </div>
+        </div>
       </div>
 
-      <div class="pillar-card zpa-card">
-        <div class="pillar-icon">🔒</div>
-        <h3>ZPA — Zscaler Private Access</h3>
-        <p>Replaces the traditional VPN for accessing <strong>internal corporate applications</strong>. Instead of giving users full network access (as a VPN does), ZPA grants access only to the specific app they need — never exposing the rest of the network. This is the <strong>Zero Trust</strong> approach to remote access.</p>
-        <ul class="spec-list" style="margin-top:10px;">
-          <li><div class="spec-dot" style="background:#00A86B;"></div><span>User connects to specific app, not the whole network</span></li>
-          <li><div class="spec-dot" style="background:#00A86B;"></div><span>App Connector sits next to the internal app — no firewall hole needed</span></li>
-          <li><div class="spec-dot" style="background:#00A86B;"></div><span>App is never exposed to the internet directly</span></li>
-          <li><div class="spec-dot" style="background:#00A86B;"></div><span>Works for on-prem apps AND apps in AWS / Azure / GCP</span></li>
-          <li><div class="spec-dot" style="background:#00A86B;"></div><span>Identity-aware: integrates with Azure AD, Okta, SAML</span></li>
-        </ul>
+      <!-- ZPA -->
+      <div class="zs-pillar zs-zpa">
+        <div class="zs-pillar-header">
+          <div class="zs-pillar-icon">🔒</div>
+          <div class="zs-pillar-title-block">
+            <div class="zs-pillar-tag">Zero Trust Access</div>
+            <div class="zs-pillar-title">ZPA</div>
+            <div class="zs-pillar-subtitle">Zscaler Private Access</div>
+          </div>
+        </div>
+        <div class="zs-pillar-body">
+          <p class="zs-pillar-desc">Replaces the traditional <strong>VPN</strong> for accessing internal corporate apps. Instead of giving users full network access, ZPA grants access only to the specific app they need — the rest of the network stays invisible.</p>
+          <div class="zs-chips">
+            <span class="zs-chip"><span class="zs-chip-dot"></span>App-level access, not network</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>No firewall hole needed</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>On-prem + AWS / Azure / GCP</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Azure AD / Okta / SAML</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>MFA enforced</span>
+          </div>
+        </div>
       </div>
 
-      <div class="pillar-card zdx-card">
-        <div class="pillar-icon">📊</div>
-        <h3>ZDX — Zscaler Digital Experience</h3>
-        <p>Monitors the <strong>end-to-end performance</strong> of every application — from the user's device, through the Zscaler PoP, all the way to the application server. When a user says "Teams is slow", ZDX can tell you exactly where the problem is: the user's WiFi, the ISP, the PoP, or Microsoft's servers.</p>
-        <ul class="spec-list" style="margin-top:10px;">
-          <li><div class="spec-dot" style="background:#FF6200;"></div><span>Real-time latency and packet loss per user, per app</span></li>
-          <li><div class="spec-dot" style="background:#FF6200;"></div><span>Device health monitoring (CPU, RAM, WiFi signal)</span></li>
-          <li><div class="spec-dot" style="background:#FF6200;"></div><span>Path analysis — shows every hop between user and app</span></li>
-          <li><div class="spec-dot" style="background:#FF6200;"></div><span>Pre-built dashboards for Teams, Zoom, Salesforce, O365</span></li>
-          <li><div class="spec-dot" style="background:#FF6200;"></div><span>Alerts when user experience degrades below threshold</span></li>
-        </ul>
+      <!-- ZDX -->
+      <div class="zs-pillar zs-zdx">
+        <div class="zs-pillar-header">
+          <div class="zs-pillar-icon">📊</div>
+          <div class="zs-pillar-title-block">
+            <div class="zs-pillar-tag">Digital Experience</div>
+            <div class="zs-pillar-title">ZDX</div>
+            <div class="zs-pillar-subtitle">Zscaler Digital Experience</div>
+          </div>
+        </div>
+        <div class="zs-pillar-body">
+          <p class="zs-pillar-desc">Monitors <strong>end-to-end app performance</strong> from the user's device to the server. When a user says "Teams is slow", ZDX pinpoints exactly where the problem is — device, ISP, PoP, or Microsoft's servers.</p>
+          <div class="zs-chips">
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Real-time latency per user</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Device health (CPU / RAM / WiFi)</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Hop-by-hop path analysis</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Teams / Zoom / O365 dashboards</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Degradation alerts</span>
+          </div>
+        </div>
       </div>
 
-      <div class="pillar-card zcc-card">
-        <div class="pillar-icon">📱</div>
-        <h3>ZCC — Zscaler Client Connector</h3>
-        <p>The <strong>lightweight app</strong> installed on every user's device (Windows, Mac, iOS, Android) that silently redirects all traffic to Zscaler. Users don't see it or interact with it in normal operation. IT teams deploy it via MDM (Intune, JAMF) or GPO. Without ZCC, ZIA and ZPA don't work on the device.</p>
-        <ul class="spec-list" style="margin-top:10px;">
-          <li><div class="spec-dot" style="background:#7C3AED;"></div><span>Deployed automatically via Intune / JAMF / GPO</span></li>
-          <li><div class="spec-dot" style="background:#7C3AED;"></div><span>Runs silently — user doesn't need to "connect"</span></li>
-          <li><div class="spec-dot" style="background:#7C3AED;"></div><span>Chooses the best PoP automatically based on latency</span></li>
-          <li><div class="spec-dot" style="background:#7C3AED;"></div><span>Supports split tunnelling policies (bypass Zscaler for certain apps)</span></li>
-          <li><div class="spec-dot" style="background:#7C3AED;"></div><span>Sends device health data to ZDX for monitoring</span></li>
-        </ul>
+      <!-- ZCC -->
+      <div class="zs-pillar zs-zcc">
+        <div class="zs-pillar-header">
+          <div class="zs-pillar-icon">📱</div>
+          <div class="zs-pillar-title-block">
+            <div class="zs-pillar-tag">Device Agent</div>
+            <div class="zs-pillar-title">ZCC</div>
+            <div class="zs-pillar-subtitle">Zscaler Client Connector</div>
+          </div>
+        </div>
+        <div class="zs-pillar-body">
+          <p class="zs-pillar-desc">The <strong>lightweight agent</strong> installed on every device (Windows, Mac, iOS, Android) that silently routes all traffic through Zscaler. Users never interact with it. Without ZCC, ZIA and ZPA won't work on the device.</p>
+          <div class="zs-chips">
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Deploy via Intune / JAMF / GPO</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Always-on, no user action</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Auto selects nearest PoP</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Split tunnelling support</span>
+            <span class="zs-chip"><span class="zs-chip-dot"></span>Feeds data to ZDX</span>
+          </div>
+        </div>
       </div>
 
     </div>
