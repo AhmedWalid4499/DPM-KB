@@ -437,24 +437,145 @@
     <div class="section-header">
       <h2>Orange Business + Zscaler — Common Customer Scenarios</h2>
       <div class="divider" style="background:#005DAA;"></div>
+      <p>These are the real conversations you'll have with customers. Recognise the situation, know the Zscaler answer.</p>
     </div>
-    <div class="grid-2">
-      <div class="usecase-card">
-        <h4>🏢 Enterprise replacing MPLS with SD-WAN + Zscaler</h4>
-        <p>Customer has 50 branches all backhauling internet traffic via MPLS to a central DC firewall. Orange Business replaces MPLS with broadband + SD-WAN (Cisco Viptela or Fortinet), and adds Zscaler ZIA at each branch. Traffic goes directly to the internet via Zscaler — MPLS cost drops by 60–80%.</p>
+
+    <style>
+      .scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      @media(max-width:700px){ .scenario-grid { grid-template-columns: 1fr; } }
+
+      .scenario-card {
+        border-radius: 16px; overflow: hidden;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.08);
+        transition: transform 0.2s, box-shadow 0.2s;
+      }
+      .scenario-card:hover { transform: translateY(-4px); box-shadow: 0 10px 36px rgba(0,0,0,0.13); }
+
+      .scenario-header {
+        padding: 24px 24px 18px;
+        display: flex; align-items: flex-start; gap: 16px;
+      }
+      .scenario-emoji {
+        font-size: 36px; line-height: 1; flex-shrink: 0; margin-top: 2px;
+      }
+      .scenario-header-text {}
+      .scenario-tag {
+        font-size: 10px; font-weight: 700; letter-spacing: 1.2px;
+        text-transform: uppercase; padding: 3px 9px; border-radius: 20px;
+        display: inline-block; margin-bottom: 6px;
+      }
+      .scenario-title {
+        font-size: 16px; font-weight: 700; line-height: 1.3;
+        color: #fff;
+      }
+
+      .scenario-body {
+        background: #fff; padding: 20px 24px 22px;
+      }
+      .scenario-body p {
+        font-size: 13px; line-height: 1.75; color: #444; margin-bottom: 14px;
+      }
+      .scenario-products { display: flex; flex-wrap: wrap; gap: 7px; }
+      .scenario-product-tag {
+        font-size: 11px; font-weight: 700; padding: 4px 11px;
+        border-radius: 6px; border: 1.5px solid;
+      }
+
+      /* Card 1 — blue */
+      .sc-1 .scenario-header { background: linear-gradient(135deg, #003580 0%, #0055CC 100%); }
+      .sc-1 .scenario-tag    { background: rgba(255,255,255,0.2); color: #fff; }
+      .sc-1 .scenario-product-tag { color: #0055CC; border-color: #99BBEE; background: #EEF4FF; }
+
+      /* Card 2 — green */
+      .sc-2 .scenario-header { background: linear-gradient(135deg, #005C35 0%, #00A86B 100%); }
+      .sc-2 .scenario-tag    { background: rgba(255,255,255,0.2); color: #fff; }
+      .sc-2 .scenario-product-tag { color: #007A4D; border-color: #99DDC0; background: #EEFAF5; }
+
+      /* Card 3 — purple */
+      .sc-3 .scenario-header { background: linear-gradient(135deg, #4B1DA0 0%, #7C3AED 100%); }
+      .sc-3 .scenario-tag    { background: rgba(255,255,255,0.2); color: #fff; }
+      .sc-3 .scenario-product-tag { color: #5B21B6; border-color: #C4AAEE; background: #F3EEFF; }
+
+      /* Card 4 — dark teal */
+      .sc-4 .scenario-header { background: linear-gradient(135deg, #0A3D4A 0%, #0E7490 100%); }
+      .sc-4 .scenario-tag    { background: rgba(255,255,255,0.2); color: #fff; }
+      .sc-4 .scenario-product-tag { color: #0E7490; border-color: #88CCDD; background: #EAFAFF; }
+    </style>
+
+    <div class="scenario-grid">
+
+      <div class="scenario-card sc-1">
+        <div class="scenario-header">
+          <div class="scenario-emoji">🏢</div>
+          <div class="scenario-header-text">
+            <div class="scenario-tag">SD-WAN Transformation</div>
+            <div class="scenario-title">Enterprise replacing MPLS with SD-WAN + Zscaler</div>
+          </div>
+        </div>
+        <div class="scenario-body">
+          <p>Customer has 50 branches backhauling all internet traffic via MPLS to a central DC firewall. Orange Business replaces MPLS with broadband + SD-WAN (Cisco Viptela or Fortinet), and adds Zscaler ZIA at each branch. Traffic goes directly to the internet via Zscaler — MPLS costs drop by <strong>60–80%</strong>.</p>
+          <div class="scenario-products">
+            <span class="scenario-product-tag">ZIA</span>
+            <span class="scenario-product-tag">SD-WAN</span>
+            <span class="scenario-product-tag">GRE Tunnel to PoP</span>
+          </div>
+        </div>
       </div>
-      <div class="usecase-card">
-        <h4>🏠 Remote workforce securing home users</h4>
-        <p>After COVID, 30% of employees work from home permanently. Old VPN is slow and overloaded. Orange Business deploys Zscaler ZCC on all laptops — home users get the same security policies as office users, with better performance since they hit a local Zscaler PoP instead of a VPN concentrator in a DC.</p>
+
+      <div class="scenario-card sc-2">
+        <div class="scenario-header">
+          <div class="scenario-emoji">🏠</div>
+          <div class="scenario-header-text">
+            <div class="scenario-tag">Remote Workforce</div>
+            <div class="scenario-title">Securing permanent home workers at scale</div>
+          </div>
+        </div>
+        <div class="scenario-body">
+          <p>After COVID, 30% of employees work from home permanently. Old VPN is slow and overloaded. Orange Business deploys Zscaler ZCC on all laptops — home users get the same security policies as office users, with better performance since they hit a local Zscaler PoP instead of a VPN concentrator.</p>
+          <div class="scenario-products">
+            <span class="scenario-product-tag">ZIA</span>
+            <span class="scenario-product-tag">ZCC Agent</span>
+            <span class="scenario-product-tag">ZPA (replaces VPN)</span>
+          </div>
+        </div>
       </div>
-      <div class="usecase-card">
-        <h4>☁️ Moving internal apps to Azure / AWS</h4>
-        <p>Customer is migrating on-prem SAP and internal tools to Azure. Old VPN can't easily secure access to cloud-hosted apps. ZPA App Connectors are deployed in the Azure VNet — users connect via ZPA without any public internet exposure of the app, from anywhere in the world.</p>
+
+      <div class="scenario-card sc-3">
+        <div class="scenario-header">
+          <div class="scenario-emoji">☁️</div>
+          <div class="scenario-header-text">
+            <div class="scenario-tag">Cloud Migration</div>
+            <div class="scenario-title">Moving internal apps to Azure / AWS securely</div>
+          </div>
+        </div>
+        <div class="scenario-body">
+          <p>Customer migrating on-prem SAP and internal tools to Azure. Old VPN can't easily secure access to cloud-hosted apps. ZPA App Connectors are deployed in the Azure VNet — users connect via ZPA without any public internet exposure of the app, from anywhere in the world.</p>
+          <div class="scenario-products">
+            <span class="scenario-product-tag">ZPA</span>
+            <span class="scenario-product-tag">App Connector (Azure)</span>
+            <span class="scenario-product-tag">Zero Trust</span>
+          </div>
+        </div>
       </div>
-      <div class="usecase-card">
-        <h4>🛡️ Regulatory compliance (GDPR, ISO 27001)</h4>
-        <p>Customer needs to prove that all employee internet traffic is logged and inspected for compliance. Zscaler ZIA provides full SSL inspection logs, user-attributed activity reports, and DLP policies that block sensitive data (credit card numbers, PII) from being uploaded to personal cloud storage.</p>
+
+      <div class="scenario-card sc-4">
+        <div class="scenario-header">
+          <div class="scenario-emoji">🛡️</div>
+          <div class="scenario-header-text">
+            <div class="scenario-tag">Compliance</div>
+            <div class="scenario-title">Meeting GDPR &amp; ISO 27001 requirements</div>
+          </div>
+        </div>
+        <div class="scenario-body">
+          <p>Customer needs to prove all employee internet traffic is logged and inspected for compliance. Zscaler ZIA provides full SSL inspection logs, user-attributed activity reports, and DLP policies that block sensitive data (credit cards, PII) from being uploaded to personal cloud storage.</p>
+          <div class="scenario-products">
+            <span class="scenario-product-tag">ZIA</span>
+            <span class="scenario-product-tag">DLP</span>
+            <span class="scenario-product-tag">SSL Inspection Logs</span>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 
