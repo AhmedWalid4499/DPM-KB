@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fortinet — OB Network KB</title>
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-brand">
+    <div class="topnav-logo">OB</div>
+    <div class="topnav-brand-text">Orange <span>Business</span></div>
+  </a>
+  <div class="topnav-links">
+    <a href="index.html"          class="nav-link" id="nav-index">Home</a>
+    <a href="lan-wan-basics.html" class="nav-link" id="nav-lan">LAN / WAN</a>
+    <a href="ip-routing.html"     class="nav-link" id="nav-ip">IP Routing</a>
+    <a href="switching.html"      class="nav-link" id="nav-sw">Switching</a>
+    <a href="wireless.html"       class="nav-link" id="nav-wifi">Wireless</a>
+    <a href="firewalls.html"      class="nav-link" id="nav-fw">Firewalls</a>
+    <a href="zscaler.html"        class="nav-link" id="nav-zs">Zscaler</a>
+    <a href="cisco.html"          class="nav-link vendor-cisco" id="nav-cisco">Cisco</a>
+    <a href="paloalto.html"       class="nav-link vendor-palo"  id="nav-pa">Palo Alto</a>
+    <a href="fortinet.html"       class="nav-link vendor-fort active"  id="nav-ft">Fortinet</a>
+    <a href="glossary.html"       class="nav-link" id="nav-gl">Glossary</a>
+  </div>
+  <div class="topnav-badge">New Hire Guide</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>/</span> Fortinet
+</div>
+
+<div class="page-hero fort-hero">
+  <div class="hero-content">
+    <div class="hero-tag" style="background:rgba(238,49,36,0.2);border-color:rgba(238,49,36,0.4);color:#FF9090;">🔴 Vendor Guide</div>
+    <h1><span class="fort">Fortinet</span> Security Fabric</h1>
+    <p class="hero-sub">FortiGate firewalls, FortiSwitch, FortiAP access points, FortiWLC, FortiManager, and the integrated Security Fabric ecosystem.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="alert fort">
+    <span class="alert-icon">ℹ️</span>
+    <p><strong>FortiOS:</strong> All FortiGate devices run FortiOS. CLI uses a hierarchical config tree: <code>config system interface / edit port1 / set ip 192.168.1.1/24 / end</code>. Key concept: <strong>FortiLink</strong> — a special trunk port that connects a FortiGate to FortiSwitches/FortiAPs, allowing the FortiGate to manage them. Certifications: NSE 1 (free, online) → NSE 4 (associate) → NSE 7/8 (expert).</p>
+  </div>
+
+  <!-- FORTIGATE FIREWALLS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>FortiGate — NGFW / UTM Firewalls</h2>
+      <div class="divider fort"></div>
+    </div>
+    <div class="grid-auto">
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">NGFW</span><span class="device-card-name">FortiGate 40F</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — Desktop</div>
+            <div class="port-row">
+              <div class="port wan" title="WAN1">WAN1</div>
+              <div class="port wan" title="WAN2 — dual ISP failover">WAN2</div>
+              <div class="port eth">LAN1</div><div class="port eth">LAN2</div>
+              <div class="port eth">LAN3</div><div class="port eth">LAN4</div>
+              <div class="port eth">LAN5</div>
+              <div class="port mgmt">MGMT</div><div class="port usb">USB</div>
+            </div>
+            <div class="port-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:#F5A623;"></div>WAN (2 ports)</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#4A9EFF;"></div>LAN switch ports</div>
+            </div>
+          </div>
+          <p class="device-desc">Entry-level FortiGate for micro-branches and home offices. Two dedicated WAN ports enable dual-ISP failover. LAN ports form a hardware switch with FortiLink support.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>2× WAN GE + 5× LAN GE ports</span></li>
+            <li><div class="spec-dot"></div><span>5 Gbps firewall / 1 Gbps NGFW throughput</span></li>
+            <li><div class="spec-dot"></div><span>Dual WAN failover + SD-WAN built-in</span></li>
+            <li><div class="spec-dot"></div><span>FortiGuard subscription: IPS, AV, Web Filter</span></li>
+            <li><div class="spec-dot"></div><span>Manages up to 2 FortiAP via FortiLink</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/next-generation-firewall/fortigate-40f" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">NGFW</span><span class="device-card-name">FortiGate 60F</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel</div>
+            <div class="port-row">
+              <div class="port wan">WAN1</div><div class="port wan">WAN2</div>
+              <div class="port eth">P1</div><div class="port eth">P2</div><div class="port eth">P3</div>
+              <div class="port eth">P4</div><div class="port eth">P5</div><div class="port eth">P6</div><div class="port eth">P7</div>
+              <div class="port mgmt">MGMT</div><div class="port console">CON</div><div class="port usb">USB</div>
+            </div>
+          </div>
+          <p class="device-desc">The most popular FortiGate for small branches. Two dedicated WAN ports, 7 LAN ports forming a hardware switch. NP6Lite ASIC offloads firewall sessions for high throughput-to-cost ratio.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>2× WAN + 7× LAN GE ports</span></li>
+            <li><div class="spec-dot"></div><span>10 Gbps firewall / 1 Gbps NGFW throughput</span></li>
+            <li><div class="spec-dot"></div><span>NP6Lite hardware acceleration</span></li>
+            <li><div class="spec-dot"></div><span>FortiLink: manages FortiSwitches + FortiAPs</span></li>
+            <li><div class="spec-dot"></div><span>SD-WAN with per-app steering policies</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/next-generation-firewall/fortigate-60f" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">NGFW</span><span class="device-card-name">FortiGate 200F</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — 1U Rack</div>
+            <div class="port-row">
+              <div class="port wan">WAN1</div><div class="port wan">WAN2</div>
+              <div class="port eth">P1</div><div class="port eth">P2</div><div class="port eth">P3</div><div class="port eth">P4</div>
+              <div class="port eth">P5</div><div class="port eth">P6</div><div class="port eth">P7</div><div class="port eth">P8</div>
+              <div class="port sfp">SFP1</div><div class="port sfp">SFP2</div><div class="port sfp">SFP3</div><div class="port sfp">SFP4</div>
+              <div class="port ha" title="HA sync port">HA</div>
+              <div class="port mgmt">MGMT</div><div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">Mid-range enterprise FortiGate. NP6 processor offloads firewall sessions to hardware for dramatically higher throughput. Dedicated HA port for active/passive or active/active clustering.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>18× GE RJ45 + 4× SFP ports</span></li>
+            <li><div class="spec-dot"></div><span>27 Gbps firewall (NP6 offload) / 4 Gbps NGFW</span></li>
+            <li><div class="spec-dot"></div><span>HA active/passive or active/active</span></li>
+            <li><div class="spec-dot"></div><span>SSL inspection + DLP + Application Control</span></li>
+            <li><div class="spec-dot"></div><span>Managed via FortiManager for multi-site</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/next-generation-firewall/fortigate-200f" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">NGFW</span><span class="device-card-name">FortiGate 600E</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — 2U Rack</div>
+            <div class="port-row">
+              <div class="port wan">WAN1</div><div class="port wan">WAN2</div>
+              <div class="port sfp">10G-1</div><div class="port sfp">10G-2</div><div class="port sfp">10G-3</div><div class="port sfp">10G-4</div>
+              <div class="port sfp">10G-5</div><div class="port sfp">10G-6</div><div class="port sfp">10G-7</div><div class="port sfp">10G-8</div>
+              <div class="port ha">HA1</div><div class="port ha">HA2</div>
+              <div class="port mgmt">MGMT</div><div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">High-end enterprise / data center FortiGate. NP7 processor provides next-generation hardware acceleration. Used at large enterprise perimeters and data center edges.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>16× GE + 8× 10G SFP+ interfaces</span></li>
+            <li><div class="spec-dot"></div><span>239 Gbps firewall / 27 Gbps NGFW (NP7)</span></li>
+            <li><div class="spec-dot"></div><span>NP7 + CP9 dual ASIC architecture</span></li>
+            <li><div class="spec-dot"></div><span>Full SSL inspection at line rate</span></li>
+            <li><div class="spec-dot"></div><span>Redundant hot-swap PSU + fans</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/next-generation-firewall/fortigate-600e" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORTISWITCH -->
+  <div class="section">
+    <div class="section-header">
+      <h2>FortiSwitch</h2>
+      <div class="divider fort"></div>
+      <p>Managed switches designed to integrate into the Fortinet Security Fabric via FortiLink — managed directly from the FortiGate. See also: <a href="switching.html">Switching concepts →</a></p>
+    </div>
+    <div class="grid-auto">
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">SWITCH</span><span class="device-card-name">FortiSwitch 124E</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — 24-Port Desktop</div>
+            <div class="port-row">
+              <div class="port eth">P1</div><div class="port eth">P2</div><div class="port eth">P3</div><div class="port eth">P4</div>
+              <div class="port eth">P5</div><div class="port eth">P6</div><div class="port eth">P7</div><div class="port eth">P8</div>
+              <span style="color:#555;font-size:9px;font-family:var(--mono);">×24</span>
+              <div class="port sfp">SFP1</div><div class="port sfp">SFP2</div>
+              <div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">Compact 24-port desktop switch for small offices. No PoE — use the 124E-POE variant for PoE. Managed from FortiGate (FortiLink) or standalone WebUI.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>24× 1G + 2× SFP uplink ports</span></li>
+            <li><div class="spec-dot"></div><span>Managed via FortiLink (from FortiGate)</span></li>
+            <li><div class="spec-dot"></div><span>VLAN, STP, 802.1X, QoS</span></li>
+            <li><div class="spec-dot"></div><span>Standalone WebGUI option</span></li>
+            <li><div class="spec-dot"></div><span>Security Fabric integration (NAC policies)</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/switches/fortiswitch" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">SWITCH</span><span class="device-card-name">FortiSwitch 248E-POE</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — 48-Port PoE</div>
+            <div class="port-row">
+              <div class="port poe">P1</div><div class="port poe">P2</div><div class="port poe">P3</div><div class="port poe">P4</div>
+              <div class="port poe">P5</div><div class="port poe">P6</div><div class="port poe">P7</div><div class="port poe">P8</div>
+              <span style="color:#555;font-size:9px;font-family:var(--mono);">×48</span>
+              <div class="port sfp">SFP1</div><div class="port sfp">SFP2</div>
+              <div class="port sfp" style="width:36px;font-size:7px;">10G-1</div>
+              <div class="port sfp" style="width:36px;font-size:7px;">10G-2</div>
+              <div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">Enterprise 48-port PoE+ switch for powering APs, phones, and cameras. 10G uplinks to distribution/core. Full Security Fabric integration enables per-device NAC policies via FortiGate.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>48× 1G PoE+ (802.3at) + 2× SFP + 2× 10G SFP+</span></li>
+            <li><div class="spec-dot"></div><span>760W PoE budget (with dual PSU)</span></li>
+            <li><div class="spec-dot"></div><span>FortiLink managed from FortiGate</span></li>
+            <li><div class="spec-dot"></div><span>Dynamic VLAN assignment from FortiGate NAC</span></li>
+            <li><div class="spec-dot"></div><span>Redundant hot-swap power supply option</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/switches/fortiswitch" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORTIAP -->
+  <div class="section">
+    <div class="section-header">
+      <h2>FortiAP — Access Points</h2>
+      <div class="divider fort"></div>
+      <p>FortiAPs are managed by FortiGate or FortiWLC. See also: <a href="wireless.html">Wireless page →</a></p>
+    </div>
+    <div class="grid-auto">
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">ACCESS POINT</span><span class="device-card-name">FortiAP 431F</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Rear Panel</div>
+            <div class="port-row">
+              <div class="port poe" title="PoE++ primary uplink">PoE++</div>
+              <div class="port eth" title="Secondary GE port">GE1</div>
+              <div class="port eth">GE2</div>
+              <div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">Tri-band WiFi 6 AP for high-density environments. Dedicated 5 GHz backhaul radio option. Managed from FortiGate (acts as WLC) or FortiWLC.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>Tri-band WiFi 6 (802.11ax)</span></li>
+            <li><div class="spec-dot"></div><span>4×4 MU-MIMO on 5 GHz, 4×4 on 2.4 GHz</span></li>
+            <li><div class="spec-dot"></div><span>Up to 3.95 Gbps aggregate throughput</span></li>
+            <li><div class="spec-dot"></div><span>FortiLink managed: zero-touch provisioned by FortiGate</span></li>
+            <li><div class="spec-dot"></div><span>FortiGuard WIDS (rogue AP detection)</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/wireless/fortiap/fortiap-431f" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">ACCESS POINT</span><span class="device-card-name">FortiAP 234F</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Rear Panel — Ceiling Mount</div>
+            <div class="port-row">
+              <div class="port poe">PoE+</div>
+              <div class="port eth">GE1</div>
+              <div class="port usb">USB</div>
+            </div>
+          </div>
+          <p class="device-desc">Standard indoor dual-band AP for typical office coverage. Cost-effective for general deployment. PoE+ powered, ceiling-mount form factor. BLE scanning for asset tracking (optional).</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>Dual-band WiFi 6 (2.4 + 5 GHz)</span></li>
+            <li><div class="spec-dot"></div><span>2×2 MU-MIMO, up to 1.73 Gbps</span></li>
+            <li><div class="spec-dot"></div><span>PoE+ (802.3at, 30W)</span></li>
+            <li><div class="spec-dot"></div><span>BLE 5.0 for IoT/asset scanning</span></li>
+            <li><div class="spec-dot"></div><span>Zero-touch provisioning via FortiCloud</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/wireless/fortiap/fortiap-234f" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">ACCESS POINT</span><span class="device-card-name">FortiAP 432F (Outdoor)</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Outdoor Unit Connectors</div>
+            <div class="port-row">
+              <div class="port poe">PoE++</div>
+              <div class="port eth">GE1</div>
+              <div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">Weather-resistant outdoor AP. IP67 rating. Used for outdoor WiFi coverage, stadiums, campuses, and industrial facilities. External antenna connectors for directional coverage.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>Dual-band WiFi 6 outdoor AP</span></li>
+            <li><div class="spec-dot"></div><span>IP67 weather rating, -40°C to +65°C</span></li>
+            <li><div class="spec-dot"></div><span>4×4 MU-MIMO + OFDMA</span></li>
+            <li><div class="spec-dot"></div><span>External N-type antenna connectors</span></li>
+            <li><div class="spec-dot"></div><span>PoE++ (802.3bt, 60W)</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/wireless/fortiap" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORTIWLC -->
+  <div class="section">
+    <div class="section-header">
+      <h2>FortiWLC — Wireless LAN Controllers</h2>
+      <div class="divider fort"></div>
+    </div>
+    <div class="grid-auto">
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">WLC</span><span class="device-card-name">FortiWLC 50D</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel</div>
+            <div class="port-row">
+              <div class="port eth">GE1</div><div class="port eth">GE2</div>
+              <div class="port mgmt">MGMT</div>
+              <div class="port console">CON</div><div class="port usb">USB</div>
+            </div>
+          </div>
+          <p class="device-desc">Dedicated WLC for deployments where a separate FortiGate WLC is not preferred. Manages FortiAPs centrally with CAPWAP and supports seamless Layer 3 roaming between subnets.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>Manages up to 50 FortiAPs</span></li>
+            <li><div class="spec-dot"></div><span>802.11r/k/v for fast, guided roaming</span></li>
+            <li><div class="spec-dot"></div><span>Centralized CAPWAP + local bridge modes</span></li>
+            <li><div class="spec-dot"></div><span>HA pair for controller redundancy</span></li>
+            <li><div class="spec-dot"></div><span>RADIUS integration for 802.1X WiFi auth</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/wireless/fortiwlc" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-fort">WLC</span><span class="device-card-name">FortiWLC 500D</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — 1U Rack</div>
+            <div class="port-row">
+              <div class="port eth">GE1</div><div class="port eth">GE2</div>
+              <div class="port sfp">SFP1</div><div class="port sfp">SFP2</div>
+              <div class="port ha">HA</div>
+              <div class="port mgmt">MGMT</div><div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">Enterprise WLC for large multi-site wireless deployments. Supports up to 500 FortiAPs. Rack-mounted with HA port for redundant controller pair.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>Manages up to 500 FortiAPs</span></li>
+            <li><div class="spec-dot"></div><span>4× GE + 2× SFP uplinks</span></li>
+            <li><div class="spec-dot"></div><span>HA active/standby controller pair</span></li>
+            <li><div class="spec-dot"></div><span>FortiManager integration for multi-site policies</span></li>
+            <li><div class="spec-dot"></div><span>Spectrum analysis + WIDS (wireless IDS)</span></li>
+          </ul>
+        <a href="https://www.fortinet.com/products/wireless/fortiwlc" target="_blank" rel="noopener" class="device-official-btn fort">🔗 Fortinet Product Page ↗</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- FORTIMANAGER + FORTIANALYZER -->
+  <div class="section">
+    <div class="section-header">
+      <h2>FortiManager &amp; FortiAnalyzer</h2>
+      <div class="divider fort"></div>
+    </div>
+    <div class="grid-2">
+      <div class="card" style="border-top:3px solid var(--fort-red);">
+        <div class="card-icon" style="background:var(--fort-pale);">🖥️</div>
+        <h3>FortiManager</h3>
+        <p>Centralized policy management for multiple FortiGate firewalls, FortiSwitches, and FortiAPs. Create policy packages and push to hundreds of devices. Available as hardware appliance or VM.</p>
+        <ul class="spec-list" style="margin-top:10px;">
+          <li><div class="spec-dot"></div><span>ADOMs — Administrative Domains for multi-tenant</span></li>
+          <li><div class="spec-dot"></div><span>Policy packages pushed to device groups</span></li>
+          <li><div class="spec-dot"></div><span>Zero-touch provisioning for new devices</span></li>
+          <li><div class="spec-dot"></div><span>Manages FortiGate, FortiSwitch, FortiAP, FortiWLC</span></li>
+        </ul>
+      </div>
+      <div class="card" style="border-top:3px solid var(--fort-red);">
+        <div class="card-icon" style="background:var(--fort-pale);">📊</div>
+        <h3>FortiAnalyzer</h3>
+        <p>Centralized log aggregation, analytics, and reporting for all Fortinet products. Correlates events across firewalls, switches, APs, and endpoints to detect threats and demonstrate compliance.</p>
+        <ul class="spec-list" style="margin-top:10px;">
+          <li><div class="spec-dot"></div><span>Receives logs from all FortiGate devices</span></li>
+          <li><div class="spec-dot"></div><span>Security incidents, compliance reports</span></li>
+          <li><div class="spec-dot"></div><span>SIEM-lite: correlation rules + alerts</span></li>
+          <li><div class="spec-dot"></div><span>Available as hardware or VM (Azure/AWS)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Orange <span>Business</span> — Network Knowledge Base &nbsp;·&nbsp; <a href="index.html" style="color:rgba(255,255,255,0.4);">Home</a></p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

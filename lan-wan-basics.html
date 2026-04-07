@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LAN &amp; WAN Basics — OB Network KB</title>
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-brand">
+    <div class="topnav-logo">OB</div>
+    <div class="topnav-brand-text">Orange <span>Business</span></div>
+  </a>
+  <div class="topnav-links">
+    <a href="index.html"          class="nav-link" id="nav-index">Home</a>
+    <a href="lan-wan-basics.html" class="nav-link active" id="nav-lan">LAN / WAN</a>
+    <a href="ip-routing.html"     class="nav-link" id="nav-ip">IP Routing</a>
+    <a href="switching.html"      class="nav-link" id="nav-sw">Switching</a>
+    <a href="wireless.html"       class="nav-link" id="nav-wifi">Wireless</a>
+    <a href="firewalls.html"      class="nav-link" id="nav-fw">Firewalls</a>
+    <a href="zscaler.html"        class="nav-link" id="nav-zs">Zscaler</a>
+    <a href="cisco.html"          class="nav-link vendor-cisco" id="nav-cisco">Cisco</a>
+    <a href="paloalto.html"       class="nav-link vendor-palo"  id="nav-pa">Palo Alto</a>
+    <a href="fortinet.html"       class="nav-link vendor-fort"  id="nav-ft">Fortinet</a>
+    <a href="glossary.html"       class="nav-link" id="nav-gl">Glossary</a>
+  </div>
+  <div class="topnav-badge">New Hire Guide</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>/</span> LAN &amp; WAN Basics
+</div>
+
+<div class="page-hero dark">
+  <div class="hero-content">
+    <div class="hero-tag">🌐 Foundation</div>
+    <h1>LAN &amp; <span>WAN</span> Basics</h1>
+    <p class="hero-sub">Understand how networks are structured, how data travels, and what each device's role is — from a single office to a global enterprise.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- WHAT IS A NETWORK -->
+  <div class="section">
+    <div class="section-header">
+      <h2>What is a Network?</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-icon" style="background:#EAF3FF;">🏢</div>
+        <h3>LAN — Local Area Network</h3>
+        <p>A LAN covers a single building, floor, or campus. All devices are under your control, connected by switches and access points. Speeds are fast — 1 Gbps to 100 Gbps. Examples: an office floor, a data center, a university campus.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:var(--orange-pale);">🌍</div>
+        <h3>WAN — Wide Area Network</h3>
+        <p>A WAN connects multiple LANs across cities, countries, or continents. It uses leased lines, MPLS circuits, or the internet. Orange Business manages WAN services — this is a core part of our business. The internet itself is the world's largest WAN.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:var(--green-pale);">🏙️</div>
+        <h3>MAN — Metropolitan Area Network</h3>
+        <p>A MAN spans a city or metropolitan area — larger than a LAN but smaller than a WAN. Often used to connect multiple offices in the same city over fibre. Sometimes called a campus WAN.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:var(--purple-pale);">☁️</div>
+        <h3>Cloud / SD-WAN</h3>
+        <p>Modern enterprises extend their networks into cloud providers (AWS, Azure, GCP). SD-WAN intelligently routes traffic across multiple WAN links. Orange Business provides managed SD-WAN services to enterprise customers.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- TOPOLOGY DIAGRAM -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Network Topology</h2>
+      <div class="divider"></div>
+      <p>How two office LANs connect across a WAN, with firewalls at each edge.</p>
+    </div>
+    <div class="diagram-box">
+      <svg viewBox="0 0 840 320" xmlns="http://www.w3.org/2000/svg" style="font-family:'Sora',sans-serif;">
+        <!-- WAN Cloud -->
+        <ellipse cx="420" cy="160" rx="95" ry="58" fill="#FFF0E6" stroke="#FF6200" stroke-width="2" stroke-dasharray="6,3"/>
+        <text x="420" y="154" text-anchor="middle" font-size="13" font-weight="600" fill="#CC4E00">INTERNET</text>
+        <text x="420" y="172" text-anchor="middle" font-size="11" fill="#FF8C42">WAN / MPLS</text>
+
+        <!-- Left LAN -->
+        <rect x="15" y="80" width="250" height="180" rx="12" fill="#F5F5F5" stroke="#DCDCDC" stroke-width="1.5"/>
+        <text x="140" y="102" text-anchor="middle" font-size="12" font-weight="600" fill="#3D3D3D">Site A — LAN</text>
+        <!-- Firewall A -->
+        <rect x="95" y="112" width="90" height="30" rx="6" fill="#EE3124"/>
+        <text x="140" y="131" text-anchor="middle" font-size="11" font-weight="600" fill="white">Firewall</text>
+        <!-- Router A -->
+        <rect x="95" y="155" width="90" height="28" rx="6" fill="#1BA0D7"/>
+        <text x="140" y="173" text-anchor="middle" font-size="11" font-weight="600" fill="white">Router</text>
+        <!-- Switch A -->
+        <rect x="95" y="196" width="90" height="26" rx="6" fill="#FF6200"/>
+        <text x="140" y="213" text-anchor="middle" font-size="11" font-weight="600" fill="white">Switch</text>
+        <!-- End devices A -->
+        <rect x="22" y="238" width="46" height="20" rx="4" fill="#E8E8E8" stroke="#C8C8C8"/>
+        <text x="45" y="252" text-anchor="middle" font-size="9" fill="#555">PC</text>
+        <rect x="75" y="238" width="46" height="20" rx="4" fill="#E8E8E8" stroke="#C8C8C8"/>
+        <text x="98" y="252" text-anchor="middle" font-size="9" fill="#555">Server</text>
+        <rect x="130" y="238" width="46" height="20" rx="4" fill="#E8E8E8" stroke="#C8C8C8"/>
+        <text x="153" y="252" text-anchor="middle" font-size="9" fill="#555">AP</text>
+        <rect x="186" y="238" width="46" height="20" rx="4" fill="#E8E8E8" stroke="#C8C8C8"/>
+        <text x="209" y="252" text-anchor="middle" font-size="9" fill="#555">Phone</text>
+        <!-- Lines A -->
+        <line x1="140" y1="142" x2="140" y2="155" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="140" y1="183" x2="140" y2="196" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="140" y1="222" x2="45" y2="238" stroke="#aaa" stroke-width="1.2"/>
+        <line x1="140" y1="222" x2="98" y2="238" stroke="#aaa" stroke-width="1.2"/>
+        <line x1="140" y1="222" x2="153" y2="238" stroke="#aaa" stroke-width="1.2"/>
+        <line x1="140" y1="222" x2="209" y2="238" stroke="#aaa" stroke-width="1.2"/>
+
+        <!-- WAN lines -->
+        <line x1="185" y1="127" x2="328" y2="150" stroke="#FF6200" stroke-width="2" stroke-dasharray="5,3"/>
+        <text x="260" y="130" text-anchor="middle" font-size="10" fill="#FF8C42">WAN Link</text>
+        <line x1="655" y1="127" x2="513" y2="150" stroke="#FF6200" stroke-width="2" stroke-dasharray="5,3"/>
+
+        <!-- Right LAN -->
+        <rect x="575" y="80" width="250" height="180" rx="12" fill="#F5F5F5" stroke="#DCDCDC" stroke-width="1.5"/>
+        <text x="700" y="102" text-anchor="middle" font-size="12" font-weight="600" fill="#3D3D3D">Site B — LAN</text>
+        <rect x="655" y="112" width="90" height="30" rx="6" fill="#EE3124"/>
+        <text x="700" y="131" text-anchor="middle" font-size="11" font-weight="600" fill="white">Firewall</text>
+        <rect x="655" y="155" width="90" height="28" rx="6" fill="#1BA0D7"/>
+        <text x="700" y="173" text-anchor="middle" font-size="11" font-weight="600" fill="white">Router</text>
+        <rect x="655" y="196" width="90" height="26" rx="6" fill="#FF6200"/>
+        <text x="700" y="213" text-anchor="middle" font-size="11" font-weight="600" fill="white">Switch</text>
+        <rect x="582" y="238" width="46" height="20" rx="4" fill="#E8E8E8" stroke="#C8C8C8"/>
+        <text x="605" y="252" text-anchor="middle" font-size="9" fill="#555">PC</text>
+        <rect x="635" y="238" width="46" height="20" rx="4" fill="#E8E8E8" stroke="#C8C8C8"/>
+        <text x="658" y="252" text-anchor="middle" font-size="9" fill="#555">Laptop</text>
+        <rect x="690" y="238" width="46" height="20" rx="4" fill="#E8E8E8" stroke="#C8C8C8"/>
+        <text x="713" y="252" text-anchor="middle" font-size="9" fill="#555">AP</text>
+        <rect x="746" y="238" width="46" height="20" rx="4" fill="#E8E8E8" stroke="#C8C8C8"/>
+        <text x="769" y="252" text-anchor="middle" font-size="9" fill="#555">Phone</text>
+        <line x1="700" y1="142" x2="700" y2="155" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="700" y1="183" x2="700" y2="196" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="700" y1="222" x2="605" y2="238" stroke="#aaa" stroke-width="1.2"/>
+        <line x1="700" y1="222" x2="658" y2="238" stroke="#aaa" stroke-width="1.2"/>
+        <line x1="700" y1="222" x2="713" y2="238" stroke="#aaa" stroke-width="1.2"/>
+        <line x1="700" y1="222" x2="769" y2="238" stroke="#aaa" stroke-width="1.2"/>
+
+        <!-- Legend -->
+        <rect x="15" y="280" width="10" height="8" rx="2" fill="#EE3124"/>
+        <text x="30" y="289" font-size="10" fill="#787878">Firewall</text>
+        <rect x="90" y="280" width="10" height="8" rx="2" fill="#1BA0D7"/>
+        <text x="105" y="289" font-size="10" fill="#787878">Router</text>
+        <rect x="165" y="280" width="10" height="8" rx="2" fill="#FF6200"/>
+        <text x="180" y="289" font-size="10" fill="#787878">Switch</text>
+        <line x1="240" y1="284" x2="258" y2="284" stroke="#FF6200" stroke-width="2" stroke-dasharray="4,2"/>
+        <text x="263" y="289" font-size="10" fill="#787878">WAN Link</text>
+      </svg>
+      <p class="diagram-caption">Two enterprise sites connected via WAN — each with firewall, router, switch, and end devices</p>
+    </div>
+  </div>
+
+  <!-- KEY DEVICES -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Key Network Devices</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <div class="card-icon" style="background:#EAF3FF;">🔀</div>
+        <h3>Router</h3>
+        <p>Connects different networks and routes traffic between them using IP addresses. Every packet going from your LAN to the internet passes through a router. Operates at <strong>Layer 3</strong>. Runs routing protocols like OSPF and BGP. See <a href="ip-routing.html">IP Routing →</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:#F0F0FF;">🔌</div>
+        <h3>Switch</h3>
+        <p>Connects devices within the same LAN using MAC addresses. Learns which device is on which port and forwards traffic only where needed. Operates at <strong>Layer 2</strong>. Supports VLANs to logically segment traffic. See <a href="switching.html">Switching →</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:var(--fort-pale);">🛡️</div>
+        <h3>Firewall</h3>
+        <p>Guards the network perimeter, permitting or blocking traffic based on security policy. Modern Next-Generation Firewalls (NGFW) inspect application-layer traffic, not just ports and IPs. See <a href="firewalls.html">Firewalls →</a></p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:var(--green-pale);">📡</div>
+        <h3>Access Point (AP)</h3>
+        <p>Broadcasts a WiFi signal so wireless devices can join the network. In enterprise environments, APs are centrally managed by a Wireless LAN Controller (WLC) or cloud system. See <a href="wireless.html">Wireless →</a></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- OSI MODEL -->
+  <div class="section">
+    <div class="section-header">
+      <h2>The OSI Model — Simplified</h2>
+      <div class="divider"></div>
+      <p>The OSI model describes how data travels through a network in 7 layers. You'll hear these constantly in networking conversations.</p>
+    </div>
+    <div style="background:#1A1A1A;border-radius:var(--radius);padding:20px;margin-bottom:20px;">
+      <div class="osi-row" style="background:rgba(255,98,0,0.12);"><span class="osi-num" style="color:#FF8C42;">7</span><span class="osi-name">Application</span><span class="osi-desc">HTTP, DNS, FTP, SMTP — what the user's software sees. The "why".</span></div>
+      <div class="osi-row" style="background:rgba(255,98,0,0.08);"><span class="osi-num" style="color:#FF8C42;">6</span><span class="osi-name">Presentation</span><span class="osi-desc">Encryption, compression, data format conversion (e.g. TLS/SSL lives here).</span></div>
+      <div class="osi-row" style="background:rgba(255,98,0,0.05);"><span class="osi-num" style="color:#FF8C42;">5</span><span class="osi-name">Session</span><span class="osi-desc">Manages and maintains connections between applications (sessions, tokens).</span></div>
+      <div class="osi-row" style="background:rgba(74,158,255,0.1);border-left:3px solid #4A9EFF;"><span class="osi-num" style="color:#4A9EFF;">4</span><span class="osi-name">Transport</span><span class="osi-desc">TCP (reliable) and UDP (fast). Port numbers live here — e.g. port 443 = HTTPS.</span></div>
+      <div class="osi-row" style="background:rgba(255,140,66,0.12);border-left:3px solid #FF8C42;"><span class="osi-num" style="color:#FF8C42;">3</span><span class="osi-name">Network</span><span class="osi-desc">IP addresses, routing decisions. Routers and firewalls operate here.</span></div>
+      <div class="osi-row" style="background:rgba(0,168,107,0.1);border-left:3px solid #00A86B;"><span class="osi-num" style="color:#00A86B;">2</span><span class="osi-name">Data Link</span><span class="osi-desc">MAC addresses, Ethernet frames. Switches operate here. VLANs too.</span></div>
+      <div class="osi-row" style="background:rgba(179,136,255,0.1);border-left:3px solid #B388FF;"><span class="osi-num" style="color:#B388FF;">1</span><span class="osi-name">Physical</span><span class="osi-desc">Cables, fibre, electrical signals, radio waves. The actual medium.</span></div>
+    </div>
+    <div class="alert orange">
+      <span class="alert-icon">💡</span>
+      <p><strong>Memory trick:</strong> "All People Seem To Need Data Processing" — Application, Presentation, Session, Transport, Network, Data Link, Physical.</p>
+    </div>
+  </div>
+
+  <!-- NEXT STEPS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>What to learn next</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-3">
+      <a href="ip-routing.html" class="card" style="text-decoration:none;">
+        <div class="card-icon" style="background:var(--orange-pale);">🗺️</div>
+        <h3>IP Routing</h3>
+        <p>Learn how routers decide where to send packets using routing tables, protocols, and subnetting.</p>
+        <span class="card-link">Continue →</span>
+      </a>
+      <a href="switching.html" class="card" style="text-decoration:none;">
+        <div class="card-icon" style="background:#F0F0FF;">🔌</div>
+        <h3>Switching &amp; VLANs</h3>
+        <p>Dive into how switches work, how VLANs segment traffic, and how to stack switches.</p>
+        <span class="card-link">Continue →</span>
+      </a>
+      <a href="cisco.html" class="card" style="text-decoration:none;">
+        <div class="card-icon" style="background:var(--cisco-pale);">🔵</div>
+        <h3>Cisco Devices</h3>
+        <p>See the actual hardware: Catalyst switches, ISR routers, ASA firewalls, Aironet APs.</p>
+        <span class="card-link">Continue →</span>
+      </a>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Orange <span>Business</span> — Network Knowledge Base &nbsp;·&nbsp; <a href="index.html" style="color:rgba(255,255,255,0.4);">Home</a></p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

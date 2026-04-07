@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Palo Alto Networks — OB Network KB</title>
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-brand">
+    <div class="topnav-logo">OB</div>
+    <div class="topnav-brand-text">Orange <span>Business</span></div>
+  </a>
+  <div class="topnav-links">
+    <a href="index.html"          class="nav-link" id="nav-index">Home</a>
+    <a href="lan-wan-basics.html" class="nav-link" id="nav-lan">LAN / WAN</a>
+    <a href="ip-routing.html"     class="nav-link" id="nav-ip">IP Routing</a>
+    <a href="switching.html"      class="nav-link" id="nav-sw">Switching</a>
+    <a href="wireless.html"       class="nav-link" id="nav-wifi">Wireless</a>
+    <a href="firewalls.html"      class="nav-link" id="nav-fw">Firewalls</a>
+    <a href="zscaler.html"        class="nav-link" id="nav-zs">Zscaler</a>
+    <a href="cisco.html"          class="nav-link vendor-cisco" id="nav-cisco">Cisco</a>
+    <a href="paloalto.html"       class="nav-link vendor-palo active"  id="nav-pa">Palo Alto</a>
+    <a href="fortinet.html"       class="nav-link vendor-fort"  id="nav-ft">Fortinet</a>
+    <a href="glossary.html"       class="nav-link" id="nav-gl">Glossary</a>
+  </div>
+  <div class="topnav-badge">New Hire Guide</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>/</span> Palo Alto Networks
+</div>
+
+<div class="page-hero palo-hero">
+  <div class="hero-content">
+    <div class="hero-tag" style="background:rgba(250,90,40,0.2);border-color:rgba(250,90,40,0.4);color:#FFA07A;">🔶 Vendor Guide</div>
+    <h1><span class="palo">Palo Alto</span> Networks</h1>
+    <p class="hero-sub">PA-Series NGFWs, Panorama management, Prisma Cloud security, and GlobalProtect VPN. The #1 market-share NGFW vendor.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="alert palo">
+    <span class="alert-icon">ℹ️</span>
+    <p><strong>PAN-OS:</strong> All PA firewalls run PAN-OS. Key concepts: <strong>Zones</strong> (group interfaces), <strong>Security Policy</strong> (zone-to-zone rules), <strong>App-ID</strong> (application identification), <strong>Commit</strong> (changes are in "candidate" config until you commit). Certification path: PCNSA → PCNSE. Management: WebUI (HTTPS), CLI (SSH), or Panorama (centralised).</p>
+  </div>
+
+  <!-- PA SERIES NGFWs -->
+  <div class="section">
+    <div class="section-header">
+      <h2>PA-Series — Next-Generation Firewalls</h2>
+      <div class="divider palo"></div>
+    </div>
+    <div class="grid-auto">
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-palo">NGFW</span><span class="device-card-name">PA-220</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — Desktop</div>
+            <div class="port-row">
+              <div class="port wan" title="E1/1 — Untrust (WAN/internet)">E1/1</div>
+              <div class="port eth" title="E1/2 — Trust (LAN)">E1/2</div>
+              <div class="port eth">E1/3</div><div class="port eth">E1/4</div>
+              <div class="port eth">E1/5</div><div class="port eth">E1/6</div>
+              <div class="port eth">E1/7</div><div class="port eth">E1/8</div>
+              <div class="port sfp">SFP1</div><div class="port sfp">SFP2</div>
+              <div class="port mgmt" title="Out-of-band management">MGT</div>
+              <div class="port console">CON</div>
+            </div>
+            <div class="port-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:#F5A623;"></div>Untrust zone (WAN)</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#4A9EFF;"></div>Trust zone (LAN)</div>
+              <div class="legend-item"><div class="legend-dot" style="background:#00CC6A;"></div>OOB management</div>
+            </div>
+          </div>
+          <p class="device-desc">Entry-level PA for small branches. Ports are assigned to zones — typically E1/1 to "untrust" (internet), E1/2–E1/8 to "trust" (LAN). Security policy controls inter-zone traffic.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>8× 1G copper + 2× SFP ports</span></li>
+            <li><div class="spec-dot"></div><span>500 Mbps App-ID (NGFW) throughput</span></li>
+            <li><div class="spec-dot"></div><span>Zone-based policy — App-ID + User-ID</span></li>
+            <li><div class="spec-dot"></div><span>WildFire sandboxing (cloud)</span></li>
+            <li><div class="spec-dot"></div><span>GlobalProtect VPN gateway</span></li>
+          </ul>
+        <a href="https://www.paloaltonetworks.com/network-security/pa-220" target="_blank" rel="noopener" class="device-official-btn palo">🔗 Palo Alto Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-palo">NGFW</span><span class="device-card-name">PA-450</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel</div>
+            <div class="port-row">
+              <div class="port wan">E1/1</div><div class="port wan">E1/2</div>
+              <div class="port eth">E1/3</div><div class="port eth">E1/4</div><div class="port eth">E1/5</div><div class="port eth">E1/6</div>
+              <div class="port sfp">SFP1</div><div class="port sfp">SFP2</div>
+              <div class="port ha" title="HA1 — High Availability heartbeat">HA1</div>
+              <div class="port ha" title="HA2 — State sync">HA2</div>
+              <div class="port mgmt">MGT</div><div class="port console">CON</div>
+            </div>
+            <div class="port-legend">
+              <div class="legend-item"><div class="legend-dot" style="background:#FF4D6A;"></div>HA ports (dedic.)</div>
+            </div>
+          </div>
+          <p class="device-desc">Mid-range branch/SMB firewall with dedicated HA ports for active/passive failover. Higher throughput than PA-220 with hardware SSL decryption acceleration.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>8× 1G + 2× SFP + 2× HA dedicated ports</span></li>
+            <li><div class="spec-dot"></div><span>3.8 Gbps App-ID throughput</span></li>
+            <li><div class="spec-dot"></div><span>1 Gbps SSL inspection throughput</span></li>
+            <li><div class="spec-dot"></div><span>Active/passive HA with sub-second failover</span></li>
+            <li><div class="spec-dot"></div><span>Hardware-based decryption acceleration</span></li>
+          </ul>
+        <a href="https://www.paloaltonetworks.com/network-security/pa-400-series" target="_blank" rel="noopener" class="device-official-btn palo">🔗 Palo Alto Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-palo">NGFW</span><span class="device-card-name">PA-3220</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — 1U Rack</div>
+            <div class="port-row">
+              <div class="port wan">E1/1</div><div class="port wan">E1/2</div>
+              <div class="port eth">E1/3</div><div class="port eth">E1/4</div><div class="port eth">E1/5</div><div class="port eth">E1/6</div><div class="port eth">E1/7</div><div class="port eth">E1/8</div>
+              <div class="port sfp">SFP1</div><div class="port sfp">SFP2</div><div class="port sfp">SFP3</div><div class="port sfp">SFP4</div>
+              <div class="port sfp" style="width:36px;font-size:7px;">10G-1</div><div class="port sfp" style="width:36px;font-size:7px;">10G-2</div>
+              <div class="port ha">HA1</div><div class="port ha">HA2</div>
+              <div class="port mgmt">MGT</div><div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">Mid-range enterprise firewall with custom ASICs for firewall, threat prevention, and decryption processing. Suitable for enterprise perimeter and data center edge.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>8× 1G + 4× SFP + 2× SFP+ (10G)</span></li>
+            <li><div class="spec-dot"></div><span>4.2 Gbps App-ID / 2 Gbps Threat Prevention</span></li>
+            <li><div class="spec-dot"></div><span>Active/active or active/passive HA</span></li>
+            <li><div class="spec-dot"></div><span>Dedicated processing per function (FW/IPS/SSL)</span></li>
+            <li><div class="spec-dot"></div><span>VSYS (virtual systems) for multi-tenancy</span></li>
+          </ul>
+        <a href="https://www.paloaltonetworks.com/network-security/pa-3200-series" target="_blank" rel="noopener" class="device-official-btn palo">🔗 Palo Alto Product Page ↗</a>
+          </div>
+      </div>
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-palo">NGFW</span><span class="device-card-name">PA-5260</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Front Panel — 2U Rack (High End)</div>
+            <div class="port-row">
+              <div class="port sfp" style="width:38px;font-size:7px;">100G-1</div>
+              <div class="port sfp" style="width:38px;font-size:7px;">100G-2</div>
+              <div class="port sfp" style="width:38px;font-size:7px;">100G-3</div>
+              <div class="port sfp" style="width:38px;font-size:7px;">100G-4</div>
+              <div class="port sfp">10G-1</div><div class="port sfp">10G-2</div><div class="port sfp">10G-3</div><div class="port sfp">10G-4</div>
+              <div class="port ha">HA1</div><div class="port ha">HA2</div>
+              <div class="port mgmt">MGT</div><div class="port console">CON</div>
+            </div>
+          </div>
+          <p class="device-desc">High-end data center / service provider NGFW. Modular interface card design. Used at internet exchange points and large enterprise data centers requiring 100G interfaces.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>4× 100G + up to 16× 10G via NPC cards</span></li>
+            <li><div class="spec-dot"></div><span>72 Gbps App-ID throughput</span></li>
+            <li><div class="spec-dot"></div><span>Chassis with redundant power + cooling</span></li>
+            <li><div class="spec-dot"></div><span>Up to 225 virtual systems (VSYS)</span></li>
+            <li><div class="spec-dot"></div><span>Panorama required for practical management</span></li>
+          </ul>
+        <a href="https://www.paloaltonetworks.com/network-security/pa-5200-series" target="_blank" rel="noopener" class="device-official-btn palo">🔗 Palo Alto Product Page ↗</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- PANORAMA -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Panorama — Centralized Management</h2>
+      <div class="divider palo"></div>
+    </div>
+    <div class="grid-auto">
+
+      <div class="device-card">
+        <div class="device-card-head"><span class="badge badge-palo">MANAGEMENT</span><span class="device-card-name">Panorama M-500</span></div>
+        <div class="device-card-body">
+          <div class="port-diagram">
+            <div class="port-diagram-label">Management Appliance — 1U Rack</div>
+            <div class="port-row">
+              <div class="port eth">GE1</div><div class="port eth">GE2</div>
+              <div class="port mgmt">MGT</div><div class="port console">CON</div><div class="port usb">USB</div>
+            </div>
+          </div>
+          <p class="device-desc">Centralized management server for all PA firewalls. Push policies, view logs from all firewalls in one place, manage software updates, and generate reports. Available as hardware or VM.</p>
+          <ul class="spec-list">
+            <li><div class="spec-dot"></div><span>Manages hundreds to thousands of PA firewalls</span></li>
+            <li><div class="spec-dot"></div><span>Device Groups — shared policy templates</span></li>
+            <li><div class="spec-dot"></div><span>Templates — shared network config (zones, IPs)</span></li>
+            <li><div class="spec-dot"></div><span>Centralized log aggregation + reporting</span></li>
+            <li><div class="spec-dot"></div><span>Available as VM (Panorama-VM on ESXi/KVM/Azure/AWS)</span></li>
+          </ul>
+        <a href="https://www.paloaltonetworks.com/network-security/panorama" target="_blank" rel="noopener" class="device-official-btn palo">🔗 Palo Alto Product Page ↗</a>
+          </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- WIRELESS NOTE -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Wireless (Prisma)</h2>
+      <div class="divider palo"></div>
+    </div>
+    <div class="alert palo">
+      <span class="alert-icon">☁️</span>
+      <p><strong>Palo Alto does not manufacture APs or WLCs.</strong> Their wireless play is entirely cloud-based through <strong>Prisma Access</strong>, which secures users on any WiFi network by tunneling all traffic through a cloud-based NGFW. For AP hardware, customers use Cisco or Fortinet alongside a PA perimeter firewall. See the <a href="wireless.html">Wireless page</a> for details on Prisma integration.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Orange <span>Business</span> — Network Knowledge Base &nbsp;·&nbsp; <a href="index.html" style="color:rgba(255,255,255,0.4);">Home</a></p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

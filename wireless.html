@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wireless — OB Network KB</title>
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-brand">
+    <div class="topnav-logo">OB</div>
+    <div class="topnav-brand-text">Orange <span>Business</span></div>
+  </a>
+  <div class="topnav-links">
+    <a href="index.html"          class="nav-link" id="nav-index">Home</a>
+    <a href="lan-wan-basics.html" class="nav-link" id="nav-lan">LAN / WAN</a>
+    <a href="ip-routing.html"     class="nav-link" id="nav-ip">IP Routing</a>
+    <a href="switching.html"      class="nav-link" id="nav-sw">Switching</a>
+    <a href="wireless.html"       class="nav-link active" id="nav-wifi">Wireless</a>
+    <a href="firewalls.html"      class="nav-link" id="nav-fw">Firewalls</a>
+    <a href="zscaler.html"        class="nav-link" id="nav-zs">Zscaler</a>
+    <a href="cisco.html"          class="nav-link vendor-cisco" id="nav-cisco">Cisco</a>
+    <a href="paloalto.html"       class="nav-link vendor-palo"  id="nav-pa">Palo Alto</a>
+    <a href="fortinet.html"       class="nav-link vendor-fort"  id="nav-ft">Fortinet</a>
+    <a href="glossary.html"       class="nav-link" id="nav-gl">Glossary</a>
+  </div>
+  <div class="topnav-badge">New Hire Guide</div>
+</nav>
+
+<div class="breadcrumb">
+  <a href="index.html">Home</a><span>/</span> Wireless
+</div>
+
+<div class="page-hero dark">
+  <div class="hero-content">
+    <div class="hero-tag">📡 WiFi</div>
+    <h1>Wireless <span>Networks</span></h1>
+    <p class="hero-sub">Access Points, Wireless LAN Controllers, WiFi standards, roaming, SSIDs, and enterprise wireless architecture across Cisco, Palo Alto, and Fortinet.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <!-- WIFI STANDARDS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>WiFi Standards — 802.11</h2>
+      <div class="divider"></div>
+      <p>Each generation of WiFi improves speed, capacity, and efficiency. Enterprise environments typically require at least WiFi 6 (802.11ax) on new deployments.</p>
+    </div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Standard</th><th>Marketing Name</th><th>Band</th><th>Max Speed</th><th>Key Feature</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>802.11a</td><td>WiFi 2</td><td>5 GHz</td><td>54 Mbps</td><td>First 5 GHz standard</td></tr>
+        <tr><td>802.11g</td><td>WiFi 3</td><td>2.4 GHz</td><td>54 Mbps</td><td>Widespread consumer adoption</td></tr>
+        <tr><td>802.11n</td><td>WiFi 4</td><td>2.4 / 5 GHz</td><td>600 Mbps</td><td>MIMO introduced</td></tr>
+        <tr><td>802.11ac</td><td>WiFi 5</td><td>5 GHz</td><td>3.5 Gbps</td><td>MU-MIMO, beamforming</td></tr>
+        <tr><td>802.11ax</td><td>WiFi 6 / 6E</td><td>2.4 / 5 / 6 GHz</td><td>9.6 Gbps</td><td>OFDMA, BSS Coloring, TWT</td></tr>
+        <tr><td>802.11be</td><td>WiFi 7</td><td>2.4 / 5 / 6 GHz</td><td>46 Gbps</td><td>Multi-Link Operation (MLO)</td></tr>
+      </tbody>
+    </table>
+    <div class="alert orange">
+      <span class="alert-icon">💡</span>
+      <p><strong>WiFi 6E</strong> adds the 6 GHz band — a clean, uncongested spectrum with no legacy devices. Ideal for high-density environments (offices, conference rooms). WiFi 6E APs are now the standard recommendation on new deployments.</p>
+    </div>
+  </div>
+
+  <!-- ENTERPRISE WIRELESS ARCHITECTURE -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Enterprise Wireless Architecture</h2>
+      <div class="divider"></div>
+    </div>
+
+    <div class="diagram-box">
+      <svg viewBox="0 0 700 240" xmlns="http://www.w3.org/2000/svg" style="font-family:'Sora',sans-serif;">
+        <!-- Cloud / Internet -->
+        <ellipse cx="350" cy="30" rx="90" ry="22" fill="#FFF0E6" stroke="#FF6200" stroke-width="1.5" stroke-dasharray="5,2"/>
+        <text x="350" y="34" text-anchor="middle" font-size="11" font-weight="600" fill="#CC4E00">Internet / Cloud Mgmt</text>
+        <line x1="350" y1="52" x2="350" y2="75" stroke="#FF6200" stroke-width="1.5"/>
+
+        <!-- WLC / Controller -->
+        <rect x="255" y="75" width="190" height="36" rx="8" fill="#1BA0D7"/>
+        <text x="350" y="98" text-anchor="middle" font-size="12" font-weight="600" fill="white">WLC / Cloud Controller</text>
+        <line x1="350" y1="111" x2="350" y2="130" stroke="#aaa" stroke-width="1.5"/>
+
+        <!-- Core Switch -->
+        <rect x="275" y="130" width="150" height="30" rx="6" fill="#FF6200"/>
+        <text x="350" y="149" text-anchor="middle" font-size="11" font-weight="600" fill="white">Core Switch (PoE)</text>
+
+        <!-- APs -->
+        <line x1="310" y1="160" x2="160" y2="195" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="330" y1="160" x2="280" y2="195" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="370" y1="160" x2="420" y2="195" stroke="#aaa" stroke-width="1.5"/>
+        <line x1="390" y1="160" x2="540" y2="195" stroke="#aaa" stroke-width="1.5"/>
+
+        <rect x="110" y="195" width="100" height="30" rx="6" fill="#E8F6FD" stroke="#1BA0D7" stroke-width="1.5"/>
+        <text x="160" y="214" text-anchor="middle" font-size="10" font-weight="600" fill="#1BA0D7">AP — Floor 1</text>
+        <rect x="230" y="195" width="100" height="30" rx="6" fill="#E8F6FD" stroke="#1BA0D7" stroke-width="1.5"/>
+        <text x="280" y="214" text-anchor="middle" font-size="10" font-weight="600" fill="#1BA0D7">AP — Floor 2</text>
+        <rect x="370" y="195" width="100" height="30" rx="6" fill="#E8F6FD" stroke="#1BA0D7" stroke-width="1.5"/>
+        <text x="420" y="214" text-anchor="middle" font-size="10" font-weight="600" fill="#1BA0D7">AP — Floor 3</text>
+        <rect x="490" y="195" width="100" height="30" rx="6" fill="#E8F6FD" stroke="#1BA0D7" stroke-width="1.5"/>
+        <text x="540" y="214" text-anchor="middle" font-size="10" font-weight="600" fill="#1BA0D7">AP — Lobby</text>
+
+        <!-- CAPWAP label -->
+        <text x="200" y="175" font-size="9" fill="#888" text-anchor="middle">CAPWAP tunnel</text>
+        <text x="500" y="175" font-size="9" fill="#888" text-anchor="middle">PoE uplink</text>
+      </svg>
+      <p class="diagram-caption">Centralized CAPWAP architecture: all APs tunnel traffic to the WLC for policy enforcement</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h3>Centralized (CAPWAP)</h3>
+        <p>APs tunnel all client traffic back to the <strong>WLC (Wireless LAN Controller)</strong> using CAPWAP (Control and Provisioning of Wireless Access Points). The WLC enforces all security policies, applies QoS, and manages roaming. Best for environments where all APs are near the WLC. Used by Cisco WLC, Fortinet FortiWLC.</p>
+      </div>
+      <div class="card">
+        <h3>FlexConnect / Local Mode</h3>
+        <p>In <strong>FlexConnect</strong> (Cisco), APs can switch traffic locally at the branch even if the WAN link to the WLC goes down. Only management traffic tunnels to the WLC. Critical for branch offices — clients stay connected during WAN outages.</p>
+      </div>
+      <div class="card">
+        <h3>Cloud-Managed</h3>
+        <p>Modern APs (Cisco Catalyst Center, Fortinet FortiCloud, Palo Alto Prisma Access) are managed from the cloud. No on-premises WLC hardware needed. Configuration, firmware updates, and monitoring happen through a cloud portal. Ideal for distributed multi-site deployments.</p>
+      </div>
+      <div class="card">
+        <h3>PoE — Powering APs</h3>
+        <p>Enterprise APs get both data and power from the Ethernet cable — <strong>PoE (802.3af)</strong> provides 15W, <strong>PoE+ (802.3at)</strong> provides 30W, and <strong>PoE++ (802.3bt)</strong> provides 60–90W. WiFi 6E APs typically require PoE+ or PoE++. The switch must have a PoE budget large enough to power all connected APs.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SSIDS AND VLANS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>SSIDs, VLANs &amp; Security</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>SSID to VLAN Mapping</h3>
+        <p>Each SSID (WiFi network name) maps to a VLAN. This is how an AP can broadcast both "Corp-WiFi" and "Guest-WiFi" simultaneously — each on a different VLAN, keeping traffic separated.</p>
+        <div class="code-block" style="margin-top:12px;margin-bottom:0;">
+          <pre><span class="cmt">Corp-WiFi  → VLAN 10 (192.168.10.0/24)</span>
+<span class="cmt">IoT-Devices → VLAN 40 (10.10.40.0/24)</span>
+<span class="cmt">Guest-WiFi  → VLAN 20 (192.168.20.0/24)</span>
+<span class="cmt">                ↓</span>
+<span class="cmt">Each tunneled to WLC or bridged locally</span></pre>
+        </div>
+      </div>
+      <div class="card">
+        <h3>Authentication Methods</h3>
+        <ul class="spec-list">
+          <li><div class="spec-dot"></div><span><strong>WPA3-Personal:</strong> Pre-shared key, SAE handshake (replaces PSK)</span></li>
+          <li><div class="spec-dot"></div><span><strong>WPA3-Enterprise:</strong> 802.1X + RADIUS — each user authenticates individually</span></li>
+          <li><div class="spec-dot"></div><span><strong>802.1X / EAP:</strong> Corporate standard — authenticates via Active Directory/LDAP</span></li>
+          <li><div class="spec-dot"></div><span><strong>Captive Portal:</strong> For guest WiFi — redirect to a web login page</span></li>
+          <li><div class="spec-dot"></div><span><strong>MAB (MAC Auth Bypass):</strong> For devices that can't do 802.1X (IoT)</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROAMING -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Roaming</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="grid-2">
+      <div class="card">
+        <h3>Layer 2 Roaming</h3>
+        <p>Client moves between APs in the same VLAN/subnet. The WLC updates the MAC address table. The client keeps its IP address — seamless for voice and video. Fast handoff using <strong>802.11r (Fast BSS Transition)</strong>.</p>
+      </div>
+      <div class="card">
+        <h3>Layer 3 Roaming</h3>
+        <p>Client moves between APs in different VLANs/subnets. The WLC creates a mobility tunnel to anchor the session — the client's original IP is preserved. More complex but allows roaming across buildings with different subnets.</p>
+      </div>
+      <div class="card">
+        <h3>802.11r — Fast Roaming</h3>
+        <p>Fast BSS Transition pre-authenticates the client at neighboring APs before it moves. Dramatically reduces roaming handoff time from ~100ms to ~20ms — critical for voice calls and video that break above 50ms disruption.</p>
+      </div>
+      <div class="card">
+        <h3>802.11k / 802.11v</h3>
+        <p><strong>802.11k</strong> lets APs report neighbor lists to clients — clients know which AP to roam to next. <strong>802.11v</strong> lets the network steer clients to less-congested APs (BSS Transition Management). Together they enable <strong>Band Steering</strong> (pushing 5 GHz-capable clients off 2.4 GHz).</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- VENDOR WIRELESS -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Vendor Wireless Solutions</h2>
+      <div class="divider"></div>
+    </div>
+    <div class="vendor-nav">
+      <button class="vendor-btn cisco active" onclick="showVendor('wifi-cisco', this)">🔵 Cisco</button>
+      <button class="vendor-btn palo"         onclick="showVendor('wifi-palo', this)">🔶 Palo Alto</button>
+      <button class="vendor-btn fort"         onclick="showVendor('wifi-fort', this)">🔴 Fortinet</button>
+    </div>
+
+    <!-- Cisco Wireless -->
+    <div id="vendor-wifi-cisco" class="vendor-panel active">
+      <div class="alert blue">
+        <span class="alert-icon">🔵</span>
+        <p><strong>Cisco Wireless:</strong> Cisco offers two product lines — <strong>Catalyst</strong> (enterprise, CW9162/9164/9166 series) and legacy <strong>Aironet</strong>. Controllers: hardware WLC (3504, 5520) or the software-based <strong>Cisco Catalyst Center</strong> (cloud) and embedded WLC on Catalyst 9000 switches.</p>
+      </div>
+      <div class="grid-auto">
+        <div class="device-card">
+          <div class="device-card-head">
+            <span class="badge badge-cisco">ACCESS POINT</span>
+            <span class="device-card-name">Catalyst CW9166I</span>
+          </div>
+          <div class="device-card-body">
+            <div class="port-diagram">
+              <div class="port-diagram-label">Rear Connectors</div>
+              <div class="port-row">
+                <div class="port poe" title="PoE+ Uplink">PoE+</div>
+                <div class="port eth" title="2.5G Ethernet">2.5G</div>
+                <div class="port console">CON</div>
+                <div class="port usb">USB</div>
+              </div>
+              <div class="port-legend">
+                <div class="legend-item"><div class="legend-dot" style="background:#00E5CC;"></div>PoE+ power + data</div>
+                <div class="legend-item"><div class="legend-dot" style="background:#4A9EFF;"></div>2.5G uplink</div>
+              </div>
+            </div>
+            <p class="device-desc">Flagship WiFi 6E tri-band AP. Supports 2.4 GHz, 5 GHz, and 6 GHz simultaneously. IoT radio for BLE/Zigbee built in.</p>
+            <ul class="spec-list">
+              <li><div class="spec-dot"></div><span>WiFi 6E (802.11ax) tri-band</span></li>
+              <li><div class="spec-dot"></div><span>Up to 7.7 Gbps aggregate throughput</span></li>
+              <li><div class="spec-dot"></div><span>Requires PoE++ (802.3bt) for full performance</span></li>
+              <li><div class="spec-dot"></div><span>Integrated IoT radio (BLE 5.0 + Zigbee)</span></li>
+              <li><div class="spec-dot"></div><span>Managed via Catalyst Center or cloud</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="device-card">
+          <div class="device-card-head">
+            <span class="badge badge-cisco">WLC</span>
+            <span class="device-card-name">Cisco 9800-L</span>
+          </div>
+          <div class="device-card-body">
+            <div class="port-diagram">
+              <div class="port-diagram-label">Front Panel</div>
+              <div class="port-row">
+                <div class="port eth" title="LAN Port 1">GE1</div>
+                <div class="port eth">GE2</div>
+                <div class="port sfp">SFP1</div>
+                <div class="port sfp">SFP2</div>
+                <div class="port mgmt">Mg</div>
+                <div class="port console">CON</div>
+                <div class="port usb">USB</div>
+              </div>
+            </div>
+            <p class="device-desc">Branch/mid-market Wireless LAN Controller running IOS-XE. Manages up to 250 APs and 5,000 clients. Also available as virtual (9800-CL) or embedded in Catalyst 9300.</p>
+            <ul class="spec-list">
+              <li><div class="spec-dot"></div><span>Manages up to 250 APs / 5,000 clients</span></li>
+              <li><div class="spec-dot"></div><span>Supports FlexConnect, local switching</span></li>
+              <li><div class="spec-dot"></div><span>HA SSO — sub-second failover to standby WLC</span></li>
+              <li><div class="spec-dot"></div><span>CAPWAP control plane + data plane</span></li>
+              <li><div class="spec-dot"></div><span>Cisco DNA integration for analytics</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="device-card">
+          <div class="device-card-head">
+            <span class="badge badge-cisco">WLC</span>
+            <span class="device-card-name">Cisco 9800-40</span>
+          </div>
+          <div class="device-card-body">
+            <div class="port-diagram">
+              <div class="port-diagram-label">Front Panel — 1U Rack</div>
+              <div class="port-row">
+                <div class="port eth">GE1</div>
+                <div class="port eth">GE2</div>
+                <div class="port sfp">10G-1</div>
+                <div class="port sfp">10G-2</div>
+                <div class="port sfp">10G-3</div>
+                <div class="port sfp">10G-4</div>
+                <div class="port mgmt">Mg</div>
+                <div class="port console">CON</div>
+              </div>
+            </div>
+            <p class="device-desc">Enterprise-grade WLC for large campus deployments. Scales to 2,000 APs and 32,000 clients. Rack-mounted with redundant power supply.</p>
+            <ul class="spec-list">
+              <li><div class="spec-dot"></div><span>Up to 2,000 APs / 32,000 clients</span></li>
+              <li><div class="spec-dot"></div><span>4x 10G SFP+ uplinks</span></li>
+              <li><div class="spec-dot"></div><span>Redundant hot-swappable power supply</span></li>
+              <li><div class="spec-dot"></div><span>N+1 / SSO high availability</span></li>
+              <li><div class="spec-dot"></div><span>Cisco TrustSec SGT support</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palo Alto Wireless -->
+    <div id="vendor-wifi-palo" class="vendor-panel">
+      <div class="alert palo">
+        <span class="alert-icon">🔶</span>
+        <p><strong>Palo Alto Wireless:</strong> Palo Alto Networks does not manufacture APs or WLCs. Instead, they integrate wireless security through <strong>Prisma Access</strong> (cloud-delivered security for WiFi users) and <strong>IoT Security</strong> for identifying wireless IoT devices seen through NGFWs. On-premises WiFi is typically Cisco or Fortinet, with a PA firewall at the edge enforcing App-ID policy for WiFi traffic.</p>
+      </div>
+      <div class="grid-2">
+        <div class="card">
+          <div class="card-icon" style="background:var(--palo-pale);">☁️</div>
+          <h3>Prisma Access — Wireless Security</h3>
+          <p>When employees connect to WiFi (corporate or otherwise), Prisma Access creates a secure tunnel from their device to a cloud-based security stack. All traffic is inspected by Palo Alto's App-ID, URL filtering, and threat prevention — regardless of which physical WiFi network they're on.</p>
+        </div>
+        <div class="card">
+          <div class="card-icon" style="background:var(--palo-pale);">🔍</div>
+          <h3>IoT Security for Wireless Devices</h3>
+          <p>PA firewalls use machine learning to identify wireless IoT devices (cameras, sensors, printers) that connect to the network — even if they can't authenticate via 802.1X. Profiles are applied automatically to control what those devices can access.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Fortinet Wireless -->
+    <div id="vendor-wifi-fort" class="vendor-panel">
+      <div class="alert fort">
+        <span class="alert-icon">🔴</span>
+        <p><strong>Fortinet Wireless:</strong> Fortinet offers a full wireless stack — <strong>FortiAP</strong> access points managed by a <strong>FortiGate firewall</strong> (acting as built-in WLC) or a dedicated <strong>FortiWLC</strong> appliance. FortiAPs integrate directly into the Security Fabric, allowing the FortiGate to apply UTM policies to wireless traffic.</p>
+      </div>
+      <div class="grid-auto">
+        <div class="device-card">
+          <div class="device-card-head">
+            <span class="badge badge-fort">ACCESS POINT</span>
+            <span class="device-card-name">FortiAP 431F</span>
+          </div>
+          <div class="device-card-body">
+            <div class="port-diagram">
+              <div class="port-diagram-label">Rear Panel</div>
+              <div class="port-row">
+                <div class="port poe" title="PoE++ Uplink">PoE++</div>
+                <div class="port eth">GE1</div>
+                <div class="port eth">GE2</div>
+                <div class="port console">CON</div>
+              </div>
+            </div>
+            <p class="device-desc">Tri-band WiFi 6 AP. Managed via FortiGate or FortiManager. Part of the Fortinet Security Fabric — wireless traffic is inspected by FortiGate NGFW policies.</p>
+            <ul class="spec-list">
+              <li><div class="spec-dot"></div><span>WiFi 6 (802.11ax) tri-band</span></li>
+              <li><div class="spec-dot"></div><span>4x4 MU-MIMO on 5 GHz, 4x4 on 2.4 GHz</span></li>
+              <li><div class="spec-dot"></div><span>Up to 3.95 Gbps aggregate</span></li>
+              <li><div class="spec-dot"></div><span>Managed directly from FortiGate via FortiLink</span></li>
+              <li><div class="spec-dot"></div><span>FortiGuard WIDS (wireless intrusion detection)</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="device-card">
+          <div class="device-card-head">
+            <span class="badge badge-fort">ACCESS POINT</span>
+            <span class="device-card-name">FortiAP 234F</span>
+          </div>
+          <div class="device-card-body">
+            <div class="port-diagram">
+              <div class="port-diagram-label">Rear Panel</div>
+              <div class="port-row">
+                <div class="port poe">PoE+</div>
+                <div class="port eth">GE1</div>
+                <div class="port console">CON</div>
+                <div class="port usb">USB</div>
+              </div>
+            </div>
+            <p class="device-desc">Indoor dual-band AP for standard office use. Compact ceiling-mount design. Cost-effective for general coverage areas.</p>
+            <ul class="spec-list">
+              <li><div class="spec-dot"></div><span>WiFi 6 dual-band (2.4 + 5 GHz)</span></li>
+              <li><div class="spec-dot"></div><span>2x2 MU-MIMO</span></li>
+              <li><div class="spec-dot"></div><span>Up to 1.73 Gbps aggregate</span></li>
+              <li><div class="spec-dot"></div><span>PoE+ powered (802.3at)</span></li>
+              <li><div class="spec-dot"></div><span>IoT BLE scanning (optional)</span></li>
+            </ul>
+          </div>
+        </div>
+        <div class="device-card">
+          <div class="device-card-head">
+            <span class="badge badge-fort">WLC</span>
+            <span class="device-card-name">FortiWLC 50D</span>
+          </div>
+          <div class="device-card-body">
+            <div class="port-diagram">
+              <div class="port-diagram-label">Front Panel</div>
+              <div class="port-row">
+                <div class="port eth">GE1</div>
+                <div class="port eth">GE2</div>
+                <div class="port mgmt">MGMT</div>
+                <div class="port console">CON</div>
+                <div class="port usb">USB</div>
+              </div>
+            </div>
+            <p class="device-desc">Dedicated Fortinet Wireless LAN Controller for high-density or multi-site deployments. Manages FortiAPs independently of the FortiGate. Supports seamless Layer 3 roaming.</p>
+            <ul class="spec-list">
+              <li><div class="spec-dot"></div><span>Manages up to 50 FortiAPs</span></li>
+              <li><div class="spec-dot"></div><span>Supports 802.11r/k/v fast roaming</span></li>
+              <li><div class="spec-dot"></div><span>Centralized CAPWAP + local bridging</span></li>
+              <li><div class="spec-dot"></div><span>High availability pair support</span></li>
+              <li><div class="spec-dot"></div><span>FortiManager integration for multi-site</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Orange <span>Business</span> — Network Knowledge Base &nbsp;·&nbsp; <a href="index.html" style="color:rgba(255,255,255,0.4);">Home</a></p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

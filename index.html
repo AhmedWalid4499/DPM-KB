@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Network Knowledge Base — Orange Business</title>
+<link rel="stylesheet" href="shared.css">
+</head>
+<body>
+
+<nav class="topnav">
+  <a href="index.html" class="topnav-brand">
+    <div class="topnav-logo">OB</div>
+    <div class="topnav-brand-text">Orange <span>Business</span></div>
+  </a>
+  <div class="topnav-links">
+    <a href="index.html"          class="nav-link active" id="nav-index">Home</a>
+    <a href="lan-wan-basics.html" class="nav-link" id="nav-lan">LAN / WAN</a>
+    <a href="ip-routing.html"     class="nav-link" id="nav-ip">IP Routing</a>
+    <a href="switching.html"      class="nav-link" id="nav-sw">Switching</a>
+    <a href="wireless.html"       class="nav-link" id="nav-wifi">Wireless</a>
+    <a href="firewalls.html"      class="nav-link" id="nav-fw">Firewalls</a>
+    <a href="zscaler.html"        class="nav-link" id="nav-zs">Zscaler</a>
+    <a href="cisco.html"          class="nav-link vendor-cisco" id="nav-cisco">Cisco</a>
+    <a href="paloalto.html"       class="nav-link vendor-palo"  id="nav-pa">Palo Alto</a>
+    <a href="fortinet.html"       class="nav-link vendor-fort"  id="nav-ft">Fortinet</a>
+    <a href="glossary.html"       class="nav-link" id="nav-gl">Glossary</a>
+  </div>
+  <div class="topnav-badge">New Hire Guide</div>
+</nav>
+
+<div class="breadcrumb" style="background:transparent;border:none;padding:0;"></div>
+
+<div class="page-hero dark">
+  <div class="hero-content">
+    <div class="hero-tag">🚀 Welcome to Orange Business</div>
+    <h1>Network<br><span>Knowledge Base</span></h1>
+    <p class="hero-sub">Everything a new hire needs to understand enterprise networking — from fundamentals to real vendor hardware. Pick a topic below to get started.</p>
+  </div>
+</div>
+
+<div class="content">
+
+  <div class="section">
+    <div class="section-header">
+      <h2>Networking Concepts</h2>
+      <div class="divider"></div>
+      <p>Start here if you're new to networking. Each page covers one topic in depth with diagrams, CLI examples, and plain-English explanations.</p>
+    </div>
+    <div class="topic-nav">
+      <a href="lan-wan-basics.html" class="topic-nav-card">
+        <div class="topic-nav-card-icon">🌐</div>
+        <div class="topic-nav-card-label">Foundation</div>
+        <div class="topic-nav-card-title">LAN &amp; WAN Basics</div>
+        <div class="topic-nav-card-sub">Network types, topology, OSI model</div>
+      </a>
+      <a href="ip-routing.html" class="topic-nav-card">
+        <div class="topic-nav-card-icon">🗺️</div>
+        <div class="topic-nav-card-label">Layer 3</div>
+        <div class="topic-nav-card-title">IP Routing</div>
+        <div class="topic-nav-card-sub">Subnetting, OSPF, BGP, EIGRP, static routes</div>
+      </a>
+      <a href="switching.html" class="topic-nav-card">
+        <div class="topic-nav-card-icon">🔌</div>
+        <div class="topic-nav-card-label">Layer 2</div>
+        <div class="topic-nav-card-title">Switching</div>
+        <div class="topic-nav-card-sub">VLANs, STP, trunking, stacking, QoS</div>
+      </a>
+      <a href="wireless.html" class="topic-nav-card">
+        <div class="topic-nav-card-icon">📡</div>
+        <div class="topic-nav-card-label">WiFi</div>
+        <div class="topic-nav-card-title">Wireless</div>
+        <div class="topic-nav-card-sub">APs, WLCs, 802.11ax, roaming, SSIDs</div>
+      </a>
+      <a href="firewalls.html" class="topic-nav-card">
+        <div class="topic-nav-card-icon">🛡️</div>
+        <div class="topic-nav-card-label">Security</div>
+        <div class="topic-nav-card-title">Firewalls &amp; Security</div>
+        <div class="topic-nav-card-sub">NGFW, NAT, VPN, IPS, zones, policies</div>
+      </a>
+      <a href="zscaler.html" class="topic-nav-card">
+        <div class="topic-nav-card-icon">☁️</div>
+        <div class="topic-nav-card-label">Cloud Security</div>
+        <div class="topic-nav-card-title">Zscaler</div>
+        <div class="topic-nav-card-sub">ZIA, ZPA, Zero Trust, SASE</div>
+      </a>
+      <a href="glossary.html" class="topic-nav-card">
+        <div class="topic-nav-card-icon">📖</div>
+        <div class="topic-nav-card-label">Reference</div>
+        <div class="topic-nav-card-title">Glossary</div>
+        <div class="topic-nav-card-sub">50+ networking terms explained simply</div>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="section-header">
+      <h2>Vendor Device Guides</h2>
+      <div class="divider"></div>
+      <p>Detailed hardware pages for the three vendors you'll encounter most at Orange Business.</p>
+    </div>
+    <div class="grid-3">
+      <a href="cisco.html" class="card" style="border-top:3px solid var(--cisco-blue);text-decoration:none;">
+        <div class="card-icon" style="background:var(--cisco-pale);">🔵</div>
+        <h3 style="color:var(--cisco-blue);">Cisco</h3>
+        <p>Catalyst switches, ISR routers, ASA/FTD firewalls, Catalyst APs, Cisco WLCs, Catalyst Center (DNAC), and Meraki.</p>
+        <span class="card-link" style="color:var(--cisco-blue);">View Cisco devices →</span>
+      </a>
+      <a href="paloalto.html" class="card" style="border-top:3px solid var(--palo-orange);text-decoration:none;">
+        <div class="card-icon" style="background:var(--palo-pale);">🔶</div>
+        <h3 style="color:var(--palo-orange);">Palo Alto Networks</h3>
+        <p>PA-Series NGFWs, Prisma Cloud security, GlobalProtect VPN, and Panorama management.</p>
+        <span class="card-link" style="color:var(--palo-orange);">View Palo Alto devices →</span>
+      </a>
+      <a href="fortinet.html" class="card" style="border-top:3px solid var(--fort-red);text-decoration:none;">
+        <div class="card-icon" style="background:var(--fort-pale);">🔴</div>
+        <h3 style="color:var(--fort-red);">Fortinet</h3>
+        <p>FortiGate firewalls, FortiSwitch, FortiAP access points, FortiWLC, FortiManager, and FortiAnalyzer.</p>
+        <span class="card-link" style="color:var(--fort-red);">View Fortinet devices →</span>
+      </a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="alert orange">
+      <span class="alert-icon">💡</span>
+      <p><strong>How to use this guide:</strong> Start with <a href="lan-wan-basics.html">LAN / WAN Basics</a> if you're new. Then move through IP Routing → Switching → Wireless → Firewalls → Zscaler. Use the vendor pages as a hardware reference when working on specific customer environments.</p>
+    </div>
+  </div>
+
+</div>
+
+<footer class="footer">
+  <p>Orange <span>Business</span> — Network Knowledge Base &nbsp;·&nbsp; Internal Use Only &nbsp;·&nbsp; New Hire Reference Guide</p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>
