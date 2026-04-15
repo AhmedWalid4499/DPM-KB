@@ -7,204 +7,136 @@
 <link rel="stylesheet" href="shared.css">
 
 <style>
-:root {
-  --ob-orange: #FF6200;
-  --ob-dark:   #1A1A1A;
-  --pre-col:   #1B6CA8;
-  --dur-col:   #0E8A4A;
-  --post-col:  #7C3AED;
-  --pre-pale:  #EEF5FF;
-  --dur-pale:  #EDFAF4;
-  --post-pale: #F4EEFF;
-  --pre-border:#BDD6F5;
-  --dur-border:#9FE0C3;
-  --post-border:#D4BAFF;
-}
+:root{--ob-orange:#FF6200;--pre:#1B6CA8;--dur:#0E8A4A;--post:#7C3AED;--pre-p:#EEF5FF;--dur-p:#EDFAF4;--post-p:#F4EEFF;}
+.proc-hero{background:linear-gradient(135deg,#0D1B2A 0%,#1A3350 60%,#0D1B2A 100%);padding:52px 40px 44px;text-align:center;}
+.proc-hero-tag{display:inline-block;background:rgba(255,98,0,0.25);border:1px solid rgba(255,98,0,0.5);color:#FFAA66;font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;padding:5px 14px;border-radius:20px;margin-bottom:16px;}
+.proc-hero h1{font-size:36px;font-weight:800;color:#fff;margin-bottom:12px;}
+.proc-hero h1 span{color:var(--ob-orange);}
+.proc-hero p{font-size:15px;color:rgba(255,255,255,0.6);max-width:640px;margin:0 auto;}
+.proc-content{max-width:1100px;margin:0 auto;padding:36px 28px 60px;}
+@media(max-width:600px){.proc-content{padding:20px 14px 40px;}}
 
-/* ── PROCESS PAGE LAYOUT ── */
-.proc-hero {
-  background: linear-gradient(135deg,#0D1B2A 0%,#1A3350 60%,#0D1B2A 100%);
-  padding: 52px 40px 44px; text-align: center;
-}
-.proc-hero-tag {
-  display:inline-block; background:rgba(255,98,0,0.25);
-  border:1px solid rgba(255,98,0,0.5); color:#FFAA66;
-  font-size:11px; font-weight:700; letter-spacing:1.2px;
-  text-transform:uppercase; padding:5px 14px; border-radius:20px; margin-bottom:16px;
-}
-.proc-hero h1 { font-size:36px; font-weight:800; color:#fff; margin-bottom:12px; }
-.proc-hero h1 span { color:var(--ob-orange); }
-.proc-hero p  { font-size:15px; color:rgba(255,255,255,0.6); max-width:620px; margin:0 auto; }
+/* intro box */
+.migration-intro{background:#fff;border:1px solid #E0E0E0;border-radius:16px;padding:28px 32px;margin-bottom:36px;box-shadow:0 2px 16px rgba(0,0,0,0.05);}
+.migration-intro h3{font-size:18px;font-weight:800;color:#1A1A1A;margin-bottom:14px;display:flex;align-items:center;gap:10px;}
+.migration-intro p{font-size:14px;color:#444;line-height:1.8;margin-bottom:12px;}
+.migration-intro p:last-child{margin-bottom:0;}
+.migration-intro-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;}
+@media(max-width:640px){.migration-intro-grid{grid-template-columns:1fr;}}
+.mig-card{border-radius:12px;padding:18px 20px;border:1px solid;}
+.mig-card-title{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;margin-bottom:8px;display:flex;align-items:center;gap:7px;}
+.mig-card p{font-size:13px;color:#555;line-height:1.7;margin:0;}
 
-/* ── PHASE HEADER ── */
-.phase-header {
-  display:flex; align-items:center; gap:14px;
-  padding:18px 28px 16px; margin-bottom:0;
-  border-radius:14px 14px 0 0;
-}
-.phase-badge {
-  font-size:11px; font-weight:700; letter-spacing:1px;
-  text-transform:uppercase; padding:5px 14px; border-radius:20px;
-  flex-shrink:0;
-}
-.phase-title { font-size:20px; font-weight:800; }
-.phase-count { font-size:12px; font-weight:600; margin-left:auto; opacity:0.6; flex-shrink:0; }
+/* summary grid */
+.summary-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:32px;}
+@media(max-width:700px){.summary-grid{grid-template-columns:1fr;}}
+.summary-card{border-radius:12px;padding:18px 20px;border:1px solid;}
+.summary-card-title{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:12px;display:flex;align-items:center;gap:8px;}
+.summary-chip{display:inline-flex;align-items:center;gap:5px;font-size:12px;font-weight:600;padding:4px 10px;border-radius:6px;margin:3px;border:1.5px solid;}
 
-.phase-pre  .phase-header { background:var(--pre-col);  color:#fff; }
-.phase-dur  .phase-header { background:var(--dur-col);  color:#fff; }
-.phase-post .phase-header { background:var(--post-col); color:#fff; }
-.phase-pre  .phase-badge  { background:rgba(255,255,255,0.2); color:#fff; }
-.phase-dur  .phase-badge  { background:rgba(255,255,255,0.2); color:#fff; }
-.phase-post .phase-badge  { background:rgba(255,255,255,0.2); color:#fff; }
+/* BPMN diagram wrapper */
+.bpmn-outer{background:#0D1117;border-radius:16px;padding:24px 20px 20px;margin-bottom:36px;}
+.bpmn-title{font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,0.3);margin-bottom:18px;text-align:center;}
+.bpmn-scroll{overflow-x:auto;padding-bottom:8px;}
+.bpmn-canvas{display:flex;flex-direction:column;gap:0;min-width:980px;}
 
-/* ── PHASE BLOCK ── */
-.phase-block {
-  border-radius:14px; overflow:hidden;
-  border:1px solid #E0E0E0;
-  margin-bottom:32px;
-  box-shadow:0 3px 18px rgba(0,0,0,0.06);
-}
-.phase-body { padding:0 0 8px; }
+/* swimlane row */
+.sl-row{display:flex;align-items:stretch;border-bottom:1px solid rgba(255,255,255,0.07);}
+.sl-row:last-child{border-bottom:none;}
+.sl-label{width:110px;flex-shrink:0;display:flex;align-items:center;justify-content:center;padding:12px 8px;border-right:2px solid rgba(255,255,255,0.1);}
+.sl-label-text{font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.8px;writing-mode:vertical-rl;transform:rotate(180deg);text-align:center;line-height:1.3;}
+.sl-body{flex:1;display:flex;align-items:center;gap:0;padding:14px 10px;min-height:80px;position:relative;}
 
-/* ── STEP CARD ── */
-.step-card {
-  display:flex; gap:0; align-items:stretch;
-  border-bottom:1px solid #F0F0F0; transition:background 0.15s;
-}
-.step-card:last-child { border-bottom:none; }
-.step-card:hover { background:#FAFBFF; }
+/* phase column grouping inside sl-body */
+.sl-phase-group{display:flex;align-items:center;gap:4px;padding:0 6px;position:relative;}
+.sl-phase-group:not(:last-child)::after{content:'';position:absolute;right:0;top:10%;height:80%;width:1px;background:rgba(255,255,255,0.08);}
 
-.step-num-col {
-  width:52px; flex-shrink:0;
-  display:flex; align-items:center; justify-content:center;
-  font-family:var(--mono,monospace); font-size:12px; font-weight:700;
-  color:rgba(255,255,255,0.7); padding:14px 0;
-}
-.phase-pre  .step-num-col { background:rgba(27,108,168,0.08); color:var(--pre-col); }
-.phase-dur  .step-num-col { background:rgba(14,138,74,0.08);  color:var(--dur-col); }
-.phase-post .step-num-col { background:rgba(124,58,237,0.08); color:var(--post-col); }
+/* BPMN node shapes */
+.bn{display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;position:relative;cursor:default;}
+.bn-box{border-radius:8px;border:1.5px solid;padding:7px 10px;font-size:10px;font-weight:600;line-height:1.35;min-width:96px;max-width:114px;transition:filter 0.15s,transform 0.15s;}
+.bn-box:hover{filter:brightness(1.15);transform:scale(1.04);}
+.bn-label{font-size:9px;color:rgba(255,255,255,0.3);margin-top:3px;max-width:110px;text-align:center;line-height:1.2;}
 
-.step-body-col {
-  flex:1; padding:14px 20px; min-width:0;
-}
-.step-action {
-  font-size:14px; font-weight:600; color:#1A1A1A; line-height:1.4;
-  margin-bottom:4px;
-}
-.step-note {
-  font-size:12px; color:#888; line-height:1.5;
-}
+/* node colour themes */
+.bn-pre .bn-box{background:rgba(27,108,168,0.2);border-color:rgba(27,108,168,0.55);color:#7DC6FF;}
+.bn-dur .bn-box{background:rgba(14,138,74,0.2);border-color:rgba(14,138,74,0.55);color:#5DE8AA;}
+.bn-post .bn-box{background:rgba(124,58,237,0.2);border-color:rgba(124,58,237,0.55);color:#C4AAFF;}
+.bn-tool .bn-box{background:rgba(255,200,0,0.12);border-color:rgba(255,200,0,0.4);color:#FFD770;font-style:italic;}
+.bn-event .bn-box{border-radius:50%!important;width:40px!important;height:40px!important;min-width:0!important;max-width:40px!important;padding:0!important;display:flex;align-items:center;justify-content:center;font-size:16px;}
+.bn-start .bn-box{background:rgba(255,98,0,0.25);border-color:rgba(255,98,0,0.6);border-width:2px;}
+.bn-end .bn-box{background:rgba(120,200,0,0.2);border-color:rgba(120,200,0,0.6);border-width:3px;}
 
-.step-tools-col {
-  padding:12px 16px 12px 0;
-  display:flex; flex-wrap:wrap; gap:6px; align-items:center;
-  min-width:0; flex-shrink:0; justify-content:flex-end; max-width:200px;
-}
-.step-tool-tag {
-  font-size:11px; font-weight:700; padding:3px 9px; border-radius:6px;
-  white-space:nowrap; border:1.5px solid; letter-spacing:0.2px;
-}
-.tool-snow    { color:#007AC9; border-color:#A0D4F5; background:#EEF8FF; }
-.tool-machx   { color:#C05A00; border-color:#F5C99A; background:#FFF4EA; }
-.tool-dnac    { color:#0A6BB5; border-color:#9DD0F5; background:#EEF6FF; }
-.tool-gold    { color:#8A6800; border-color:#F0D87A; background:#FFFBEA; }
-.tool-salto   { color:#5A0090; border-color:#D4A6F5; background:#F8F0FF; }
-.tool-flip    { color:#006B4F; border-color:#8FE0C5; background:#EDFAF5; }
-.tool-sp      { color:#1A4E8A; border-color:#A0C4F5; background:#EEF3FF; }
-.tool-auto    { color:#0A7A4A; border-color:#8FE0C5; background:#EDFAF8; font-style:italic; }
-.tool-default { color:#555; border-color:#CCC; background:#F5F5F5; }
+/* arrow between nodes */
+.bn-arrow{color:rgba(255,255,255,0.25);font-size:13px;padding:0 2px;flex-shrink:0;align-self:center;}
 
-/* ── FLOWCHART ── */
-.flowchart-wrap {
-  background:#0D1117; border-radius:14px; padding:28px 20px;
-  margin-bottom:32px; overflow-x:auto;
-}
-.flowchart-title {
-  font-size:11px; font-weight:700; letter-spacing:1.2px;
-  text-transform:uppercase; color:rgba(255,255,255,0.3); margin-bottom:24px; text-align:center;
-}
+/* special: gateway diamond */
+.bn-gw .bn-box{width:40px!important;height:40px!important;min-width:0!important;max-width:40px!important;padding:0!important;transform:rotate(45deg);border-radius:4px!important;display:flex;align-items:center;justify-content:center;}
+.bn-gw .bn-box span{transform:rotate(-45deg);font-size:13px;}
 
-/* ── SUMMARY CARDS ── */
-.summary-grid {
-  display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:32px;
-}
-@media(max-width:700px){ .summary-grid { grid-template-columns:1fr; } }
+/* tool badge inline */
+.bn-tool-badge{font-size:8px;font-weight:700;padding:2px 5px;border-radius:4px;margin-top:4px;white-space:nowrap;}
+.tbl-snow{color:#007AC9;background:#EEF8FF;border:1px solid #A0D4F5;}
+.tbl-machx{color:#C05A00;background:#FFF4EA;border:1px solid #F5C99A;}
+.tbl-dnac{color:#0A6BB5;background:#EEF6FF;border:1px solid #9DD0F5;}
+.tbl-gold{color:#8A6800;background:#FFFBEA;border:1px solid #F0D87A;}
+.tbl-salto{color:#5A0090;background:#F8F0FF;border:1px solid #D4A6F5;}
+.tbl-flip{color:#006B4F;background:#EDFAF5;border:1px solid #8FE0C5;}
+.tbl-sp{color:#1A4E8A;background:#EEF3FF;border:1px solid #A0C4F5;}
+.tbl-auto{color:#0A7A4A;background:#EDFAF8;border:1px solid #8FE0C5;font-style:italic;}
 
-.summary-card {
-  border-radius:12px; padding:18px 20px; border:1px solid;
-}
-.summary-card-title {
-  font-size:11px; font-weight:700; text-transform:uppercase;
-  letter-spacing:1px; margin-bottom:12px;
-  display:flex; align-items:center; gap:8px;
-}
-.summary-chip {
-  display:inline-flex; align-items:center; gap:5px;
-  font-size:12px; font-weight:600; padding:4px 10px;
-  border-radius:6px; margin:3px; border:1.5px solid;
-}
+/* phase legend bar */
+.bpmn-legend{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:10px;justify-content:center;}
+.bpmn-legend-item{display:flex;align-items:center;gap:6px;font-size:11px;font-weight:600;}
+.bpmn-legend-dot{width:12px;height:12px;border-radius:3px;flex-shrink:0;}
 
-/* ── CONTENT WRAPPER ── */
-.proc-content { max-width:960px; margin:0 auto; padding:36px 28px 60px; }
-@media(max-width:600px){ .proc-content { padding:20px 14px 40px; } }
-
-/* ── PROCESS TABS (LAN hub) ── */
-.proc-tab-bar {
-  display:flex; gap:0; background:#F0F2F5; border-radius:12px;
-  padding:4px; margin-bottom:32px; max-width:500px;
-}
-.proc-tab {
-  flex:1; padding:11px 16px; border-radius:9px; cursor:pointer;
-  font-size:14px; font-weight:600; text-align:center; transition:all 0.15s;
-  color:#888; user-select:none;
-}
-.proc-tab.active { background:#fff; color:var(--ob-orange); box-shadow:0 2px 8px rgba(0,0,0,0.08); }
-.proc-panel { display:none; }
-.proc-panel.visible { display:block; }
-
-/* ── CONNECTOR ARROW ── */
-.flow-arrow {
-  text-align:center; color:rgba(255,255,255,0.25);
-  font-size:18px; margin:2px 0; line-height:1;
-}
-/* ── FLOW NODES ── */
-.fn-row { display:flex; justify-content:center; margin-bottom:2px; }
-.fn {
-  border-radius:10px; padding:9px 18px; font-size:12px; font-weight:600;
-  text-align:center; max-width:320px; min-width:180px;
-  border:1.5px solid; line-height:1.4;
-}
-.fn-start  { background:rgba(255,98,0,0.25);  border-color:rgba(255,98,0,0.5);  color:#FFAA66; border-radius:30px; }
-.fn-pre    { background:rgba(27,108,168,0.18); border-color:rgba(27,108,168,0.4);color:#7DC6FF; }
-.fn-dur    { background:rgba(14,138,74,0.18);  border-color:rgba(14,138,74,0.4); color:#5DE8AA; }
-.fn-post   { background:rgba(124,58,237,0.18); border-color:rgba(124,58,237,0.4);color:#C4AAFF; }
-.fn-end    { background:rgba(120,200,0,0.2);   border-color:rgba(120,200,0,0.4); color:#A8E840; border-radius:30px; }
-.fn-tool   { background:rgba(255,255,255,0.06); border-color:rgba(255,255,255,0.15); color:rgba(255,255,255,0.5); font-size:10px; font-style:italic; }
-.fn-phase-label {
-  font-size:10px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
-  color:rgba(255,255,255,0.25); text-align:center; margin:10px 0 4px;
-}
+/* step list phases */
+.phase-block{border-radius:14px;overflow:hidden;border:1px solid #E0E0E0;margin-bottom:28px;box-shadow:0 3px 18px rgba(0,0,0,0.06);}
+.phase-header{display:flex;align-items:center;gap:14px;padding:16px 24px;border-bottom:1px solid rgba(255,255,255,0.1);}
+.phase-badge{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:4px 12px;border-radius:20px;flex-shrink:0;background:rgba(255,255,255,0.2);color:#fff;}
+.phase-title{font-size:18px;font-weight:800;color:#fff;}
+.phase-count{font-size:12px;margin-left:auto;opacity:0.65;flex-shrink:0;color:#fff;}
+.phase-pre .phase-header{background:var(--pre);}
+.phase-dur .phase-header{background:var(--dur);}
+.phase-post .phase-header{background:var(--post);}
+.phase-body{padding:0 0 6px;}
+.step-card{display:flex;align-items:stretch;border-bottom:1px solid #F2F2F2;transition:background 0.12s;}
+.step-card:last-child{border-bottom:none;}
+.step-card:hover{background:#FAFBFF;}
+.step-num{width:50px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:12px;font-weight:700;padding:14px 0;}
+.phase-pre .step-num{color:var(--pre);background:rgba(27,108,168,0.06);}
+.phase-dur .step-num{color:var(--dur);background:rgba(14,138,74,0.06);}
+.phase-post .step-num{color:var(--post);background:rgba(124,58,237,0.06);}
+.step-body{flex:1;padding:13px 18px;}
+.step-action{font-size:14px;font-weight:600;color:#1A1A1A;line-height:1.4;margin-bottom:3px;}
+.step-note{font-size:12px;color:#888;line-height:1.5;}
+.step-tools{padding:10px 14px 10px 0;display:flex;flex-wrap:wrap;gap:5px;align-items:center;justify-content:flex-end;max-width:190px;flex-shrink:0;}
+.tool-tag{font-size:11px;font-weight:700;padding:3px 8px;border-radius:5px;white-space:nowrap;border:1.5px solid;}
+.tt-snow{color:#007AC9;border-color:#A0D4F5;background:#EEF8FF;}
+.tt-machx{color:#C05A00;border-color:#F5C99A;background:#FFF4EA;}
+.tt-dnac{color:#0A6BB5;border-color:#9DD0F5;background:#EEF6FF;}
+.tt-gold{color:#8A6800;border-color:#F0D87A;background:#FFFBEA;}
+.tt-salto{color:#5A0090;border-color:#D4A6F5;background:#F8F0FF;}
+.tt-flip{color:#006B4F;border-color:#8FE0C5;background:#EDFAF5;}
+.tt-sp{color:#1A4E8A;border-color:#A0C4F5;background:#EEF3FF;}
+.tt-auto{color:#0A7A4A;border-color:#8FE0C5;background:#EDFAF8;font-style:italic;}
 </style>
 
 </head>
 <body>
 <nav class="topnav">
-  <a href="index.html" class="topnav-brand">
-    <div class="topnav-logo">OB</div>
-    <div class="topnav-brand-text">Orange <span>Business</span></div>
-  </a>
+  <a href="index.html" class="topnav-brand"><div class="topnav-logo">OB</div><div class="topnav-brand-text">Orange <span>Business</span></div></a>
   <div class="topnav-links">
-    <a href="index.html"          class="nav-link">Home</a>
+    <a href="index.html" class="nav-link">Home</a>
     <a href="lan-wan-basics.html" class="nav-link">LAN / WAN</a>
-    <a href="ip-routing.html"     class="nav-link">IP Routing</a>
-    <a href="switching.html"      class="nav-link">Switching</a>
-    <a href="wireless.html"       class="nav-link">Wireless</a>
-    <a href="firewalls.html"      class="nav-link">Firewalls</a>
-    <a href="zscaler.html"        class="nav-link">Zscaler</a>
-    <a href="cisco.html"          class="nav-link vendor-cisco">Cisco</a>
-    <a href="paloalto.html"       class="nav-link vendor-palo">Palo Alto</a>
-    <a href="fortinet.html"       class="nav-link vendor-fort">Fortinet</a>
-    <a href="glossary.html"       class="nav-link">Glossary</a>
+    <a href="ip-routing.html" class="nav-link">IP Routing</a>
+    <a href="switching.html" class="nav-link">Switching</a>
+    <a href="wireless.html" class="nav-link">Wireless</a>
+    <a href="firewalls.html" class="nav-link">Firewalls</a>
+    <a href="zscaler.html" class="nav-link">Zscaler</a>
+    <a href="cisco.html" class="nav-link vendor-cisco">Cisco</a>
+    <a href="paloalto.html" class="nav-link vendor-palo">Palo Alto</a>
+    <a href="fortinet.html" class="nav-link vendor-fort">Fortinet</a>
+    <a href="glossary.html" class="nav-link">Glossary</a>
   </div>
   <div class="topnav-badge">New Hire Guide</div>
 </nav>
@@ -213,283 +145,223 @@
   <a href="lan-process.html">LAN Process</a><span>/</span>
   AP Migration Process
 </div>
-
 <div class="proc-hero">
-  <div class="proc-hero-tag">📡 LAN Process</div>
+  <div class="proc-hero-tag">📡 LAN Process — Wireless</div>
   <h1>AP <span>Migration</span> Process</h1>
-  <p>End-to-end DPM process for Access Point (AP) deployment — from supply chain confirmation through to HOTO sign-off.</p>
+  <p>Orange Business — Delivery Project Manager end-to-end process guide</p>
 </div>
-
 <div class="proc-content">
-
-
-  <div class="summary-grid">
-    <div class="summary-card" style="background:#F8F9FA;border-color:#E0E0E0;">
-      <div class="summary-card-title" style="color:#1A1A1A;">📊 At a Glance</div>
-      
-      <span class="summary-chip" style="color:#1B6CA8;border-color:#BDD6F5;background:#EEF5FF;">📋 27 Total Steps</span>
-      <span class="summary-chip" style="color:#0E8A4A;border-color:#9FE0C3;background:#EDFAF4;">⚡ 2 Automated</span>
-      <span class="summary-chip" style="color:#7C3AED;border-color:#D4BAFF;background:#F4EEFF;">🔧 6 Tools Used</span>
+<div class="migration-intro">
+  <h3>📡 What is an AP Migration?</h3>
+  <p>An <strong>AP (Access Point) migration</strong> is the process of replacing old wireless access points at a customer site with new Cisco Catalyst APs that are managed by a Wireless LAN Controller (WLC). As the DPM, your job is not to do the technical work yourself — your job is to <strong>coordinate all the people and steps that need to happen in the right order</strong> so the customer's WiFi stays working and the project closes cleanly.</p>
+  <div class="migration-intro-grid">
+    <div class="mig-card" style="background:#EEF5FF;border-color:#BDD6F5;">
+      <div class="mig-card-title" style="color:#1B6CA8;">🤔 Why does it need a process?</div>
+      <p>Multiple teams are involved — Orange supply chain, the TIM who stages the APs, the customer who mounts them, and DXC/DHCP teams who need to be ready. If any step is missed or done out of order (like forgetting Option 43), the APs won't connect to the WLC and the migration fails. This process prevents that.</p>
     </div>
-    <div class="summary-card" style="background:#EEF5FF;border-color:#BDD6F5;">
-      <div class="summary-card-title" style="color:#1B6CA8;">🛠️ Tools Used</div>
-      <span class="step-tool-tag tool-dnac">🧠 DNAC / Catalyst Center</span><span class="step-tool-tag tool-gold">🏆 GOLD</span><span class="step-tool-tag tool-machx">🔧 MACHX</span><span class="step-tool-tag tool-salto">🔑 SALTO</span><span class="step-tool-tag tool-snow">❄️ ServiceNow</span><span class="step-tool-tag tool-sp">📁 SharePoint</span>
+    <div class="mig-card" style="background:#EDFAF4;border-color:#9FE0C3;">
+      <div class="mig-card-title" style="color:#0E8A4A;">✅ What does success look like?</div>
+      <p>All new APs are online and broadcasting all the customer's SSIDs. The customer has confirmed every service works. DNAC is updated, orders are closed in GOLD and SALTO, and the HOTO document is signed off. The customer is fully handed over to the support team.</p>
     </div>
-    <div class="summary-card" style="background:#FAFAFA;border-color:#E0E0E0;">
-      <div class="summary-card-title" style="color:#444;">👥 Teams Contacted</div>
-      <span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 Customer</span><span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 DHCP Team</span><span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 DXC (3rd Party)</span><span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 HOTO Manager</span><span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 OCD Team</span><span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 Solution Consultant (SC)</span><span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 Supply Chain</span><span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 TIM (Technical Integration Manager)</span>
+    <div class="mig-card" style="background:#FFF4EA;border-color:#F5C99A;">
+      <div class="mig-card-title" style="color:#C05A00;">⚠️ The most common failure point</div>
+      <p><strong>Option 43 not configured on the DHCP server.</strong> When an AP boots up, it asks DHCP "where is my WLC?" — Option 43 contains the answer. If it's missing, the AP gets an IP address but never finds the WLC, and sits there doing nothing. Always verify this before migration day.</p>
     </div>
-  </div>
-
-<div class="flowchart-wrap"><div class="flowchart-title">End-to-End Process Flow</div><div class="fn-row"><div class="fn fn-start">🚀 Project Kicked Off</div></div><div class="flow-arrow">↓</div><div class="fn-phase-label">Pre-Migration</div><div class="fn-row"><div class="fn fn-pre">Confirm with supply chain that order has arrived at customer s…</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-pre">Send customer and confirm with them</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-pre">Confirm with SC that runbook is prepared</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-tool">… 12 more steps …</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-pre">Send migration invitations to customer and TIM (PM and SC as o…</div></div><div class="flow-arrow">↓</div><div class="fn-phase-label">During Migration</div><div class="fn-row"><div class="fn fn-dur">Join the migration call</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-dur">Keep track of all APs that are migrated and pending migration</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-dur">Ask customer to do UAT for all SSIDs, then for all APs</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-tool">… 2 more steps …</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-dur">Get confirmation from customer that everything is working</div></div><div class="flow-arrow">↓</div><div class="fn-phase-label">Post-Migration</div><div class="fn-row"><div class="fn fn-post">Send Success Notification</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-post">Send CMDB Update<br><span style="font-size:10px;opacity:0.6;">ServiceNow</span></div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-post">Send DNAC Update<br><span style="font-size:10px;opacity:0.6;">DNAC / Catalyst Center</span></div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-tool">… 4 more steps …</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-post">Send HOTO Document to the HOTO Manager</div></div><div class="flow-arrow">↓</div><div class="fn-row"><div class="fn fn-end">✅ Migration Complete</div></div></div>
-
-
-  <div class="phase-block phase-pre">
-    <div class="phase-header">
-      <span class="phase-badge">🔵 Phase 1</span>
-      <span class="phase-title">Pre-Migration</span>
-      <span class="phase-count">15 steps</span>
-    </div>
-    <div class="phase-body">
-      <div class="step-card">
-        <div class="step-num-col">01</div>
-        <div class="step-body-col">
-          <div class="step-action">Confirm with supply chain that order has arrived at customer site</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">02</div>
-        <div class="step-body-col">
-          <div class="step-action">Send customer and confirm with them</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">03</div>
-        <div class="step-body-col">
-          <div class="step-action">Confirm with SC that runbook is prepared</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">04</div>
-        <div class="step-body-col">
-          <div class="step-action">Set up dry run with TIM and SC</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">05</div>
-        <div class="step-body-col">
-          <div class="step-action">Set up a call with the customer — align migration date, explain customer will mount the APs</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">06</div>
-        <div class="step-body-col">
-          <div class="step-action">Send customer to connect APs to switch</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">07</div>
-        <div class="step-body-col">
-          <div class="step-action">Send to the TIMs to stage the APs</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">08</div>
-        <div class="step-body-col">
-          <div class="step-action">Send customer the UAT Test document</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">09</div>
-        <div class="step-body-col">
-          <div class="step-action">Get confirmation from the customer on the migration date (by email)</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">10</div>
-        <div class="step-body-col">
-          <div class="step-action">Raise change request on ServiceNow (SNOW)</div>
-          
-        </div>
-        <div class="step-tools-col"><span class="step-tool-tag tool-snow">❄️ ServiceNow</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">11</div>
-        <div class="step-body-col">
-          <div class="step-action">Align any teams needed during migration (DXC, OCD, DHCP Team)</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">12</div>
-        <div class="step-body-col">
-          <div class="step-action">Check that Option 43 is configured</div>
-          <div class="step-note">Critical — AP-to-WLC discovery depends on this</div>
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">13</div>
-        <div class="step-body-col">
-          <div class="step-action">Raise MACHX for the TIMs</div>
-          
-        </div>
-        <div class="step-tools-col"><span class="step-tool-tag tool-machx">🔧 MACHX</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">14</div>
-        <div class="step-body-col">
-          <div class="step-action">Get the answered UAT document from the customer</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">15</div>
-        <div class="step-body-col">
-          <div class="step-action">Send migration invitations to customer and TIM (PM and SC as optional)</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
+    <div class="mig-card" style="background:#F4EEFF;border-color:#D4BAFF;">
+      <div class="mig-card-title" style="color:#7C3AED;">🗓️ Typical timeline</div>
+      <p>Pre-migration typically takes <strong>2–4 weeks</strong> — time is needed for staging, dry runs, customer scheduling, and change request approval. The migration itself is usually a few hours to one day per site depending on the number of APs. Post-migration closure should happen within 1–2 business days.</p>
     </div>
   </div>
-  <div class="phase-block phase-dur">
-    <div class="phase-header">
-      <span class="phase-badge">🟢 Phase 2</span>
-      <span class="phase-title">During Migration</span>
-      <span class="phase-count">5 steps</span>
-    </div>
-    <div class="phase-body">
-      <div class="step-card">
-        <div class="step-num-col">01</div>
-        <div class="step-body-col">
-          <div class="step-action">Join the migration call</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">02</div>
-        <div class="step-body-col">
-          <div class="step-action">Keep track of all APs that are migrated and pending migration</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">03</div>
-        <div class="step-body-col">
-          <div class="step-action">Ask customer to do UAT for all SSIDs, then for all APs</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">04</div>
-        <div class="step-body-col">
-          <div class="step-action">Ask customer to fully test all services connected to the APs</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">05</div>
-        <div class="step-body-col">
-          <div class="step-action">Get confirmation from customer that everything is working</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-    </div>
-  </div>
-  <div class="phase-block phase-post">
-    <div class="phase-header">
-      <span class="phase-badge">🟣 Phase 3</span>
-      <span class="phase-title">Post-Migration</span>
-      <span class="phase-count">7 steps</span>
-    </div>
-    <div class="phase-body">
-      <div class="step-card">
-        <div class="step-num-col">01</div>
-        <div class="step-body-col">
-          <div class="step-action">Send Success Notification</div>
-          
-        </div>
-        <div class="step-tools-col"></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">02</div>
-        <div class="step-body-col">
-          <div class="step-action">Send CMDB Update</div>
-          
-        </div>
-        <div class="step-tools-col"><span class="step-tool-tag tool-snow">❄️ ServiceNow</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">03</div>
-        <div class="step-body-col">
-          <div class="step-action">Send DNAC Update</div>
-          
-        </div>
-        <div class="step-tools-col"><span class="step-tool-tag tool-dnac">🧠 DNAC / Catalyst Center</span><span class="step-tool-tag tool-auto">⚡ Automated</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">04</div>
-        <div class="step-body-col">
-          <div class="step-action">Close GOLD Order</div>
-          
-        </div>
-        <div class="step-tools-col"><span class="step-tool-tag tool-gold">🏆 GOLD</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">05</div>
-        <div class="step-body-col">
-          <div class="step-action">Close Salto Order</div>
-          
-        </div>
-        <div class="step-tools-col"><span class="step-tool-tag tool-salto">🔑 SALTO</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">06</div>
-        <div class="step-body-col">
-          <div class="step-action">Upload HOTO Document and Runbook (including LLD) on SharePoint</div>
-          
-        </div>
-        <div class="step-tools-col"><span class="step-tool-tag tool-sp">📁 SharePoint</span></div>
-      </div>
-      <div class="step-card">
-        <div class="step-num-col">07</div>
-        <div class="step-body-col">
-          <div class="step-action">Send HOTO Document to the HOTO Manager</div>
-          
-        </div>
-        <div class="step-tools-col"><span class="step-tool-tag tool-auto">⚡ Automated</span></div>
-      </div>
-    </div>
-  </div>
-
 </div>
-
+<div class="summary-grid">
+  <div class="summary-card" style="background:#F8F9FA;border-color:#E0E0E0;">
+    <div class="summary-card-title" style="color:#1A1A1A;">📊 At a Glance</div>
+    <span class="summary-chip" style="color:#1B6CA8;border-color:#BDD6F5;background:#EEF5FF;">📋 27 Steps</span>
+    <span class="summary-chip" style="color:#0E8A4A;border-color:#9FE0C3;background:#EDFAF4;">⚡ 2 Automated</span>
+    <span class="summary-chip" style="color:#7C3AED;border-color:#D4BAFF;background:#F4EEFF;">🔧 5 Tools</span>
+  </div>
+  <div class="summary-card" style="background:#EEF5FF;border-color:#BDD6F5;">
+    <div class="summary-card-title" style="color:#1B6CA8;">🛠️ Tools</div>
+    <span class="summary-chip" style="color:#007AC9;border-color:#A0D4F5;background:#EEF8FF;">❄️ ServiceNow</span>
+    <span class="summary-chip" style="color:#C05A00;border-color:#F5C99A;background:#FFF4EA;">🔧 MACHX</span>
+    <span class="summary-chip" style="color:#0A6BB5;border-color:#9DD0F5;background:#EEF6FF;">🧠 DNAC</span>
+    <span class="summary-chip" style="color:#8A6800;border-color:#F0D87A;background:#FFFBEA;">🏆 GOLD</span>
+    <span class="summary-chip" style="color:#5A0090;border-color:#D4A6F5;background:#F8F0FF;">🔑 SALTO</span>
+    <span class="summary-chip" style="color:#1A4E8A;border-color:#A0C4F5;background:#EEF3FF;">📁 SharePoint</span>
+  </div>
+  <div class="summary-card" style="background:#FAFAFA;border-color:#E0E0E0;">
+    <div class="summary-card-title" style="color:#444;">👥 Teams</div>
+    <span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 Customer</span>
+    <span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 TIM</span>
+    <span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 SC</span>
+    <span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 DXC / OCD / DHCP</span>
+    <span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 HOTO Manager</span>
+  </div>
+</div>
+<div class="bpmn-outer">
+  <div class="bpmn-title">BPMN Process Flow — Swimlane View</div>
+  <div class="bpmn-legend">
+      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#1B6CA8;"></div>Pre-Migration</div>
+      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#0E8A4A;"></div>During Migration</div>
+      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#7C3AED;"></div>Post-Migration</div>
+      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#FFD770;"></div>System / Tool action</div>
+    </div>
+  <div class="bpmn-scroll"><div class="bpmn-canvas"><div class="sl-row" style="border-bottom:2px solid rgba(255,255,255,0.12);">
+      <div class="sl-label" style="background:transparent;border-right:2px solid rgba(255,255,255,0.1);"></div>
+      <div class="sl-body" style="padding:10px;">
+        <div class="sl-phase-group" style="flex:2;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7DC6FF;">🔵 Pre-Migration</span></div>
+        <div class="sl-phase-group" style="flex:1;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5DE8AA;">🟢 During Migration</span></div>
+        <div class="sl-phase-group" style="flex:1.5;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#C4AAFF;">🟣 Post-Migration</span></div>
+      </div>
+    </div><div class="sl-row">
+  <div class="sl-label" style="background:rgba(27,108,168,0.06);border-right-color:#1B6CA840;">
+    <div class="sl-label-text" style="color:#1B6CA8;">DPM</div>
+  </div>
+  <div class="sl-body"><div class="sl-phase-group" style="flex:2"><div class="bn bn-event bn-start"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Confirm<br>Order Arrived</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Contact<br>Customer</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Confirm<br>Runbook w/ SC</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Setup Dry Run<br>w/ TIM & SC</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Align Migration<br>Date w/ Customer</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Raise MACHX<br>for TIM</div><span class="bn-tool-badge tbl-machx">MACHX</span></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Send UAT<br>Document</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Raise Change<br>Request</div><span class="bn-tool-badge tbl-snow">SNOW</span></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Check Option 43<br>Configured</div><div class="bn-label">⚠️ Critical</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Get Confirmed<br>UAT Back</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Send Migration<br>Invitations</div></div></div><div class="sl-phase-group" style="flex:1"><div class="bn bn-event bn-dur"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Join Migration<br>Call</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Track Migrated<br>vs Pending APs</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Request Customer<br>SSID UAT</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Request Customer<br>Service Test</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Get Customer<br>Confirmation</div></div></div><div class="sl-phase-group" style="flex:1.5"><div class="bn bn-event bn-post"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send Success<br>Notification</div></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send CMDB<br>Update</div><span class="bn-tool-badge tbl-snow">SNOW</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send DNAC<br>Update</div><span class="bn-tool-badge tbl-dnac">DNAC</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Close GOLD<br>Order</div><span class="bn-tool-badge tbl-gold">GOLD</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Close SALTO<br>Order</div><span class="bn-tool-badge tbl-salto">SALTO</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Upload HOTO<br>& Runbook</div><span class="bn-tool-badge tbl-sp">SP</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send HOTO to<br>HOTO Manager</div></div><div class="bn-arrow">→</div><div class="bn bn-event bn-end"><div class="bn-box">⬛</div></div></div></div>
+</div><div class="sl-row">
+  <div class="sl-label" style="background:rgba(14,138,74,0.05);border-right-color:#0E8A4A40;">
+    <div class="sl-label-text" style="color:#0E8A4A;">Customer</div>
+  </div>
+  <div class="sl-body"><div class="sl-phase-group" style="flex:2"><div class="bn bn-pre"><div class="bn-box">Receive<br>Customer Confirm</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Customer Aligns<br>Date & Mounts APs</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Connect APs<br>to Switch</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Fill & Return<br>UAT Document</div></div></div><div class="sl-phase-group" style="flex:1"><div class="bn bn-dur"><div class="bn-box">Test All SSIDs</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Test All APs<br>per AP</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Confirm All<br>Services OK</div></div></div><div class="sl-phase-group" style="flex:1.5"></div></div>
+</div><div class="sl-row">
+  <div class="sl-label" style="background:rgba(230,115,0,0.05);border-right-color:#E6730040;">
+    <div class="sl-label-text" style="color:#E67300;">TIM</div>
+  </div>
+  <div class="sl-body"><div class="sl-phase-group" style="flex:2"><div class="bn bn-pre"><div class="bn-box">Prepare<br>Runbook</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Stage APs<br>Remotely</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Join Dry Run</div></div></div><div class="sl-phase-group" style="flex:1"></div><div class="sl-phase-group" style="flex:1.5"></div></div>
+</div></div></div>
+</div>
+<h2 style="font-size:20px;font-weight:800;color:#1A1A1A;margin-bottom:20px;padding-top:8px;">📋 Full Step-by-Step Checklist</h2>
+<div class="phase-block phase-pre">
+  <div class="phase-header">
+    <span class="phase-badge">🔵 Phase 1</span>
+    <span class="phase-title">Pre-Migration</span>
+    <span class="phase-count">15 steps</span>
+  </div>
+  <div class="phase-body"><div class="step-card">
+  <div class="step-num">01</div>
+  <div class="step-body"><div class="step-action">Confirm with supply chain that order has arrived at customer site</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">02</div>
+  <div class="step-body"><div class="step-action">Send customer and confirm with them</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">03</div>
+  <div class="step-body"><div class="step-action">Confirm with SC that runbook is prepared</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">04</div>
+  <div class="step-body"><div class="step-action">Set up dry run with TIM and SC</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">05</div>
+  <div class="step-body"><div class="step-action">Set up a call with the customer — align migration date, explain customer will mount the APs</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">06</div>
+  <div class="step-body"><div class="step-action">Send customer to connect APs to switch</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">07</div>
+  <div class="step-body"><div class="step-action">Send to the TIMs to stage the APs</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">08</div>
+  <div class="step-body"><div class="step-action">Send customer the UAT Test document</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">09</div>
+  <div class="step-body"><div class="step-action">Get confirmation from the customer on the migration date (by email)</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">10</div>
+  <div class="step-body"><div class="step-action">Raise change request on ServiceNow</div></div>
+  <div class="step-tools"><span class="tool-tag tt-snow">❄️ ServiceNow</span></div>
+</div><div class="step-card">
+  <div class="step-num">11</div>
+  <div class="step-body"><div class="step-action">Align any teams needed during migration (DXC, OCD, DHCP Team)</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">12</div>
+  <div class="step-body"><div class="step-action">Check that Option 43 is configured</div><div class="step-note">⚠️ Critical — AP cannot find WLC without this. Verify on the DHCP scope for the AP VLAN.</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">13</div>
+  <div class="step-body"><div class="step-action">Raise MACHX for the TIMs</div></div>
+  <div class="step-tools"><span class="tool-tag tt-machx">🔧 MACHX</span></div>
+</div><div class="step-card">
+  <div class="step-num">14</div>
+  <div class="step-body"><div class="step-action">Get the answered UAT document from the customer</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">15</div>
+  <div class="step-body"><div class="step-action">Send migration invitations to customer and TIM (PM and SC as optional)</div></div>
+  <div class="step-tools"></div>
+</div></div>
+</div><div class="phase-block phase-dur">
+  <div class="phase-header">
+    <span class="phase-badge">🟢 Phase 2</span>
+    <span class="phase-title">During Migration</span>
+    <span class="phase-count">5 steps</span>
+  </div>
+  <div class="phase-body"><div class="step-card">
+  <div class="step-num">01</div>
+  <div class="step-body"><div class="step-action">Join the migration call</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">02</div>
+  <div class="step-body"><div class="step-action">Keep track of all APs that are migrated and pending migration</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">03</div>
+  <div class="step-body"><div class="step-action">Ask customer to do UAT for all SSIDs, then for all APs</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">04</div>
+  <div class="step-body"><div class="step-action">Ask customer to fully test all services connected to the APs</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">05</div>
+  <div class="step-body"><div class="step-action">Get confirmation from customer that everything is working</div></div>
+  <div class="step-tools"></div>
+</div></div>
+</div><div class="phase-block phase-post">
+  <div class="phase-header">
+    <span class="phase-badge">🟣 Phase 3</span>
+    <span class="phase-title">Post-Migration</span>
+    <span class="phase-count">7 steps</span>
+  </div>
+  <div class="phase-body"><div class="step-card">
+  <div class="step-num">01</div>
+  <div class="step-body"><div class="step-action">Send Success Notification</div></div>
+  <div class="step-tools"></div>
+</div><div class="step-card">
+  <div class="step-num">02</div>
+  <div class="step-body"><div class="step-action">Send CMDB Update</div></div>
+  <div class="step-tools"><span class="tool-tag tt-snow">❄️ ServiceNow</span></div>
+</div><div class="step-card">
+  <div class="step-num">03</div>
+  <div class="step-body"><div class="step-action">Send DNAC Update</div></div>
+  <div class="step-tools"><span class="tool-tag tt-dnac">🧠 DNAC</span><span class="tool-tag tt-auto">⚡ Auto</span></div>
+</div><div class="step-card">
+  <div class="step-num">04</div>
+  <div class="step-body"><div class="step-action">Close GOLD Order</div></div>
+  <div class="step-tools"><span class="tool-tag tt-gold">🏆 GOLD</span></div>
+</div><div class="step-card">
+  <div class="step-num">05</div>
+  <div class="step-body"><div class="step-action">Close Salto Order</div></div>
+  <div class="step-tools"><span class="tool-tag tt-salto">🔑 SALTO</span></div>
+</div><div class="step-card">
+  <div class="step-num">06</div>
+  <div class="step-body"><div class="step-action">Upload HOTO Document and Runbook (including LLD) on SharePoint</div></div>
+  <div class="step-tools"><span class="tool-tag tt-sp">📁 SharePoint</span></div>
+</div><div class="step-card">
+  <div class="step-num">07</div>
+  <div class="step-body"><div class="step-action">Send HOTO Document to the HOTO Manager</div></div>
+  <div class="step-tools"><span class="tool-tag tt-auto">⚡ Auto</span></div>
+</div></div>
+</div>
+</div>
 <footer class="footer">
   <p>Orange <span>Business</span> — Network Knowledge Base &nbsp;·&nbsp;
   <a href="lan-process.html" style="color:rgba(255,255,255,0.4);">← LAN Process</a></p>
