@@ -33,8 +33,9 @@
 .process-choice-card {
   border-radius:18px; overflow:hidden; text-decoration:none !important;
   box-shadow:0 6px 32px rgba(0,0,0,0.10);
-  transition:transform 0.2s, box-shadow 0.2s; display:block;
+  transition:transform 0.2s, box-shadow 0.2s, outline 0.15s; display:block;
   color:inherit !important;
+  outline:3px solid transparent;
 }
 .process-choice-card:hover {
   transform:translateY(-5px);
@@ -42,6 +43,8 @@
   text-decoration:none !important;
   color:inherit !important;
 }
+.pcc-ap.process-choice-card:hover  { outline-color:rgba(27,108,168,0.5); }
+.pcc-sw.process-choice-card:hover  { outline-color:rgba(14,138,74,0.5); }
 /* suppress any inherited link underline on all children */
 .process-choice-card *,
 .process-choice-card:hover * {
@@ -52,10 +55,10 @@
 .pcc-subtitle { color:rgba(255,255,255,0.65) !important; }
 .pcc-tag      { color:#fff !important; }
 .pcc-body p   { color:#555 !important; }
-/* subtle body highlight on hover */
-.process-choice-card:hover .pcc-body    { background:#EEF6FF; }
-.pcc-sw.process-choice-card:hover .pcc-body { background:#EDFAF4; }
-.process-choice-card:hover .pcc-cta     { filter:brightness(1.12); }
+/* body highlight on hover — covers the white section */
+.pcc-ap.process-choice-card:hover .pcc-body { background:#E6F1FF; }
+.pcc-sw.process-choice-card:hover .pcc-body { background:#E4F8EF; }
+.process-choice-card:hover .pcc-cta { filter:brightness(1.12); }
 .pcc-header {
   padding:28px 28px 22px;
   display:flex; align-items:flex-start; gap:16px;
