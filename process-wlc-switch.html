@@ -102,7 +102,7 @@
 .step-card{display:flex;align-items:stretch;border-bottom:1px solid #F2F2F2;transition:background 0.12s;}
 .step-card:last-child{border-bottom:none;}
 .step-card:hover{background:#FAFBFF;}
-.step-num{width:50px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:12px;font-weight:700;padding:14px 0;}
+.step-num{width:44px!important;height:auto!important;border-radius:0!important;background:transparent!important;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-family:monospace;font-size:12px;font-weight:700;padding:14px 0;color:inherit;}
 .phase-pre .step-num{color:var(--pre);background:rgba(27,108,168,0.06);}
 .phase-dur .step-num{color:var(--dur);background:rgba(14,138,74,0.06);}
 .phase-post .step-num{color:var(--post);background:rgba(124,58,237,0.06);}
@@ -199,42 +199,6 @@
     <span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 DXC / ODC / DHCP</span>
     <span class="summary-chip" style="color:#444;border-color:#CCC;background:#F5F5F5;">👤 HOTO Manager</span>
   </div>
-</div>
-<div class="bpmn-outer">
-  <div class="bpmn-title">BPMN Process Flow — Swimlane View</div>
-  <div class="bpmn-legend">
-      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#1B6CA8;"></div>Pre-Migration</div>
-      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#0E8A4A;"></div>During Migration</div>
-      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#7C3AED;"></div>Post-Migration</div>
-    </div>
-  <div class="bpmn-scroll"><div class="bpmn-canvas"><div class="sl-row" style="border-bottom:2px solid rgba(255,255,255,0.12);">
-      <div class="sl-label" style="background:transparent;border-right:2px solid rgba(255,255,255,0.1);"></div>
-      <div class="sl-body" style="padding:10px;">
-        <div class="sl-phase-group" style="flex:2.2;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7DC6FF;">🔵 Pre-Migration</span></div>
-        <div class="sl-phase-group" style="flex:1;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5DE8AA;">🟢 During</span></div>
-        <div class="sl-phase-group" style="flex:1.5;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#C4AAFF;">🟣 Post-Migration</span></div>
-      </div>
-    </div><div class="sl-row">
-  <div class="sl-label" style="background:rgba(27,108,168,0.06);border-right-color:#1B6CA840;">
-    <div class="sl-label-text" style="color:#1B6CA8;">DPM</div>
-  </div>
-  <div class="sl-body"><div class="sl-phase-group" style="flex:2.2"><div class="bn bn-event bn-start"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Confirm<br>Order Arrived</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Contact<br>Customer</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Confirm Runbook<br>w/ SC</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Book Field<br>Engineer</div><span class="bn-tool-badge tbl-flip">FLIP</span><div class="bn-label">FLIP</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Raise MACHX<br>for TIM</div><span class="bn-tool-badge tbl-machx">MACHX</span></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Send Staging<br>Invitation</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">External Dry Run<br>w/ TIM, SC, Customer</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Send UAT<br>Document</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Raise Change<br>Request</div><span class="bn-tool-badge tbl-snow">SNOW</span></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Raise MACHX<br>for TIM (2nd)</div><span class="bn-tool-badge tbl-machx">MACHX</span></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Get Confirmed<br>UAT Back</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Send Migration<br>Invitations</div></div></div><div class="sl-phase-group" style="flex:1"><div class="bn bn-event bn-dur"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Join Migration<br>Call</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Track Switches<br>Migrated vs Pending</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Request Customer<br>Service Tests</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Get Customer<br>Confirmation</div></div></div><div class="sl-phase-group" style="flex:1.5"><div class="bn bn-event bn-post"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send Migration<br>Email / Success Notif</div></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send CMDB<br>Update</div><span class="bn-tool-badge tbl-snow">SNOW</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send DNAC<br>Update</div><span class="bn-tool-badge tbl-dnac">DNAC</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Close GOLD<br>Order</div><span class="bn-tool-badge tbl-gold">GOLD</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Close SALTO<br>Order</div><span class="bn-tool-badge tbl-salto">SALTO</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Upload HOTO<br>& Runbook</div><span class="bn-tool-badge tbl-sp">SP</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send HOTO to<br>HOTO Manager</div></div><div class="bn-arrow">→</div><div class="bn bn-event bn-end"><div class="bn-box">⬛</div></div></div></div>
-</div><div class="sl-row">
-  <div class="sl-label" style="background:rgba(14,138,74,0.05);border-right-color:#0E8A4A40;">
-    <div class="sl-label-text" style="color:#0E8A4A;">Customer</div>
-  </div>
-  <div class="sl-body"><div class="sl-phase-group" style="flex:2.2"><div class="bn bn-pre"><div class="bn-box">Confirm<br>Receipt</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Attend Dry Run<br>& Staging</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Confirm Migration<br>Date</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Fill & Return<br>UAT Document</div></div></div><div class="sl-phase-group" style="flex:1"><div class="bn bn-dur"><div class="bn-box">Test All Services<br>on Each Switch</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Confirm All<br>Services OK</div></div></div><div class="sl-phase-group" style="flex:1.5"></div></div>
-</div><div class="sl-row">
-  <div class="sl-label" style="background:rgba(230,115,0,0.05);border-right-color:#E6730040;">
-    <div class="sl-label-text" style="color:#E67300;">TIM</div>
-  </div>
-  <div class="sl-body"><div class="sl-phase-group" style="flex:2.2"><div class="bn bn-pre"><div class="bn-box">Prepare<br>Runbook</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Join Dry Run<br>& Staging Call</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Staging Session<br>(Configure Devices)</div></div></div><div class="sl-phase-group" style="flex:1"></div><div class="sl-phase-group" style="flex:1.5"></div></div>
-</div><div class="sl-row">
-  <div class="sl-label" style="background:rgba(155,44,44,0.05);border-right-color:#9B2C2C40;">
-    <div class="sl-label-text" style="color:#9B2C2C;">Field Eng.</div>
-  </div>
-  <div class="sl-body"><div class="sl-phase-group" style="flex:2.2"><div class="bn bn-pre"><div class="bn-box">Confirmed<br>& Available</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">On-Site for<br>Physical Work</div></div></div><div class="sl-phase-group" style="flex:1"><div class="bn bn-dur"><div class="bn-box">Physical Swap<br>of Hardware</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Confirm Cables<br>Connected</div></div></div><div class="sl-phase-group" style="flex:1.5"></div></div>
-</div></div></div>
 </div>
 <h2 style="font-size:20px;font-weight:800;color:#1A1A1A;margin-bottom:20px;padding-top:8px;">📋 Full Step-by-Step Checklist</h2>
 <div class="phase-block phase-pre">
@@ -371,6 +335,43 @@
   <div class="step-tools"><span class="tool-tag tt-auto">⚡ Auto</span></div>
 </div></div>
 </div>
+</div>
+<h2 style="font-size:20px;font-weight:800;color:#1A1A1A;margin-bottom:20px;padding-top:8px;margin-top:40px;">📊 BPMN Process Flow</h2>
+<div class="bpmn-outer">
+  <div class="bpmn-title">BPMN Process Flow — Swimlane View</div>
+  <div class="bpmn-legend">
+      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#1B6CA8;"></div>Pre-Migration</div>
+      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#0E8A4A;"></div>During Migration</div>
+      <div class="bpmn-legend-item"><div class="bpmn-legend-dot" style="background:#7C3AED;"></div>Post-Migration</div>
+    </div>
+  <div class="bpmn-scroll"><div class="bpmn-canvas"><div class="sl-row" style="border-bottom:2px solid rgba(255,255,255,0.12);">
+      <div class="sl-label" style="background:transparent;border-right:2px solid rgba(255,255,255,0.1);"></div>
+      <div class="sl-body" style="padding:10px;">
+        <div class="sl-phase-group" style="flex:2.2;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#7DC6FF;">🔵 Pre-Migration</span></div>
+        <div class="sl-phase-group" style="flex:1;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#5DE8AA;">🟢 During</span></div>
+        <div class="sl-phase-group" style="flex:1.5;justify-content:center;"><span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:#C4AAFF;">🟣 Post-Migration</span></div>
+      </div>
+    </div><div class="sl-row">
+  <div class="sl-label" style="background:rgba(27,108,168,0.06);border-right-color:#1B6CA840;">
+    <div class="sl-label-text" style="color:#1B6CA8;">DPM</div>
+  </div>
+  <div class="sl-body"><div class="sl-phase-group" style="flex:2.2"><div class="bn bn-event bn-start"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Confirm<br>Order Arrived</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Contact<br>Customer</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Confirm Runbook<br>w/ SC</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Book Field<br>Engineer</div><span class="bn-tool-badge tbl-flip">FLIP</span><div class="bn-label">FLIP</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Raise MACHX<br>for TIM</div><span class="bn-tool-badge tbl-machx">MACHX</span></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Send Staging<br>Invitation</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">External Dry Run<br>w/ TIM, SC, Customer</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Send UAT<br>Document</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Raise Change<br>Request</div><span class="bn-tool-badge tbl-snow">SNOW</span></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Raise MACHX<br>for TIM (2nd)</div><span class="bn-tool-badge tbl-machx">MACHX</span></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Get Confirmed<br>UAT Back</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Send Migration<br>Invitations</div></div></div><div class="sl-phase-group" style="flex:1"><div class="bn bn-event bn-dur"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Join Migration<br>Call</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Track Switches<br>Migrated vs Pending</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Request Customer<br>Service Tests</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Get Customer<br>Confirmation</div></div></div><div class="sl-phase-group" style="flex:1.5"><div class="bn bn-event bn-post"><div class="bn-box">▶</div></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send Migration<br>Email / Success Notif</div></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send CMDB<br>Update</div><span class="bn-tool-badge tbl-snow">SNOW</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send DNAC<br>Update</div><span class="bn-tool-badge tbl-dnac">DNAC</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Close GOLD<br>Order</div><span class="bn-tool-badge tbl-gold">GOLD</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Close SALTO<br>Order</div><span class="bn-tool-badge tbl-salto">SALTO</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Upload HOTO<br>& Runbook</div><span class="bn-tool-badge tbl-sp">SP</span></div><div class="bn-arrow">→</div><div class="bn bn-post"><div class="bn-box">Send HOTO to<br>HOTO Manager</div></div><div class="bn-arrow">→</div><div class="bn bn-event bn-end"><div class="bn-box">⬛</div></div></div></div>
+</div><div class="sl-row">
+  <div class="sl-label" style="background:rgba(14,138,74,0.05);border-right-color:#0E8A4A40;">
+    <div class="sl-label-text" style="color:#0E8A4A;">Customer</div>
+  </div>
+  <div class="sl-body"><div class="sl-phase-group" style="flex:2.2"><div class="bn bn-pre"><div class="bn-box">Confirm<br>Receipt</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Attend Dry Run<br>& Staging</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Confirm Migration<br>Date</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Fill & Return<br>UAT Document</div></div></div><div class="sl-phase-group" style="flex:1"><div class="bn bn-dur"><div class="bn-box">Test All Services<br>on Each Switch</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Confirm All<br>Services OK</div></div></div><div class="sl-phase-group" style="flex:1.5"></div></div>
+</div><div class="sl-row">
+  <div class="sl-label" style="background:rgba(230,115,0,0.05);border-right-color:#E6730040;">
+    <div class="sl-label-text" style="color:#E67300;">TIM</div>
+  </div>
+  <div class="sl-body"><div class="sl-phase-group" style="flex:2.2"><div class="bn bn-pre"><div class="bn-box">Prepare<br>Runbook</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Join Dry Run<br>& Staging Call</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">Staging Session<br>(Configure Devices)</div></div></div><div class="sl-phase-group" style="flex:1"></div><div class="sl-phase-group" style="flex:1.5"></div></div>
+</div><div class="sl-row">
+  <div class="sl-label" style="background:rgba(155,44,44,0.05);border-right-color:#9B2C2C40;">
+    <div class="sl-label-text" style="color:#9B2C2C;">Field Eng.</div>
+  </div>
+  <div class="sl-body"><div class="sl-phase-group" style="flex:2.2"><div class="bn bn-pre"><div class="bn-box">Confirmed<br>& Available</div></div><div class="bn-arrow">→</div><div class="bn bn-pre"><div class="bn-box">On-Site for<br>Physical Work</div></div></div><div class="sl-phase-group" style="flex:1"><div class="bn bn-dur"><div class="bn-box">Physical Swap<br>of Hardware</div></div><div class="bn-arrow">→</div><div class="bn bn-dur"><div class="bn-box">Confirm Cables<br>Connected</div></div></div><div class="sl-phase-group" style="flex:1.5"></div></div>
+</div></div></div>
 </div>
 <footer class="footer">
   <p>Orange <span>Business</span> — Network Knowledge Base &nbsp;·&nbsp;
