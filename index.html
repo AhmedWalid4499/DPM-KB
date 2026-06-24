@@ -89,6 +89,22 @@ a.node:hover { text-decoration:none !important; }
 .node-link-hint { display:block; margin-top:9px; font-size:10px; font-weight:700;
   letter-spacing:0.3px; color:var(--orange); opacity:0.85; }
 a.node:hover .node-link-hint { opacity:1; }
+
+/* ── SQUAD BUTTONS ── */
+.squad-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+@media(max-width:680px){ .squad-grid{ grid-template-columns:1fr; } }
+.squad-btn { display:flex; align-items:center; gap:16px; background:#fff; border:1px solid #ECECEC;
+  border-left:4px solid var(--c); border-radius:14px; padding:18px 20px;
+  text-decoration:none !important; color:inherit; transition:transform .16s, box-shadow .16s; }
+.squad-btn:hover { transform:translateY(-3px); box-shadow:0 14px 34px rgba(0,0,0,0.12); }
+.squad-ic { width:54px; height:54px; border-radius:14px; background:var(--cp); flex-shrink:0;
+  display:flex; align-items:center; justify-content:center; font-size:27px; }
+.squad-tx { flex:1; }
+.squad-nm { font-size:17px; font-weight:800; color:var(--black); }
+.squad-sub { font-size:12.5px; color:var(--gray-mid); margin-top:2px; }
+.squad-meta { flex-shrink:0; font-size:12px; font-weight:700; color:var(--c);
+  display:flex; align-items:center; gap:8px; }
+.squad-meta span { font-size:18px; line-height:1; }
 </style>
 </head>
 <body>
@@ -287,6 +303,49 @@ a.node:hover .node-link-hint { opacity:1; }
           </li>
         </ul>
       </div>
+    </div>
+  </div>
+
+  <!-- DPM SQUADS -->
+  <div class="section" id="squads">
+    <div class="section-header">
+      <h2>DPM Squads</h2>
+      <div class="divider"></div>
+      <p>Cross-team working groups that keep the DPM function running. Click a squad to see its members, emails, and clusters.</p>
+    </div>
+    <div class="squad-grid">
+      <a href="automation-squad.html" class="squad-btn" style="--c:#0E8AA6;--cp:#E6F6FA;">
+        <div class="squad-ic">⚙️</div>
+        <div class="squad-tx">
+          <div class="squad-nm">Automation Squad</div>
+          <div class="squad-sub">Automations &amp; dashboards</div>
+        </div>
+        <div class="squad-meta">4 members <span>→</span></div>
+      </a>
+      <a href="marketing-squad.html" class="squad-btn" style="--c:#D6336C;--cp:#FDEAF1;">
+        <div class="squad-ic">📣</div>
+        <div class="squad-tx">
+          <div class="squad-nm">Marketing Squad</div>
+          <div class="squad-sub">Marketing for the DPMs</div>
+        </div>
+        <div class="squad-meta">3 members <span>→</span></div>
+      </a>
+      <a href="hiring-squad.html" class="squad-btn" style="--c:#0E8A4A;--cp:#E6F7EF;">
+        <div class="squad-ic">🎯</div>
+        <div class="squad-tx">
+          <div class="squad-nm">Hiring Squad</div>
+          <div class="squad-sub">CV screening &amp; interviews</div>
+        </div>
+        <div class="squad-meta">1 member <span>→</span></div>
+      </a>
+      <a href="onboarding-squad.html" class="squad-btn" style="--c:#4F46E5;--cp:#ECEBFD;">
+        <div class="squad-ic">🚀</div>
+        <div class="squad-tx">
+          <div class="squad-nm">Onboarding Squad</div>
+          <div class="squad-sub">Ramping up new joiners</div>
+        </div>
+        <div class="squad-meta">2 members <span>→</span></div>
+      </a>
     </div>
   </div>
 
