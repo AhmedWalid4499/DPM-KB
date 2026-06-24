@@ -5,6 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Network Knowledge Base — Orange Business</title>
 <link rel="stylesheet" href="shared.css">
+<style>
+/* ── DPM ROLE INTRO ── */
+.role-lead { font-size:15px; color:#444; line-height:1.8; max-width:760px; margin-bottom:24px; }
+.role-lead strong { color:var(--black); }
+
+.lifecycle { display:flex; align-items:stretch; gap:0; flex-wrap:wrap; margin-bottom:8px; }
+.lc-step {
+  flex:1; min-width:150px; background:#fff; border:1px solid #ECECEC;
+  border-radius:12px; padding:16px 18px; position:relative;
+}
+.lc-step + .lc-step { margin-left:30px; }
+.lc-step + .lc-step::before {
+  content:'→'; position:absolute; left:-23px; top:50%; transform:translateY(-50%);
+  color:var(--orange); font-size:18px; font-weight:700;
+}
+.lc-step .lc-tag { font-size:10.5px; font-weight:700; letter-spacing:0.6px; text-transform:uppercase;
+  color:var(--orange-dark); background:var(--orange-pale); padding:2px 9px; border-radius:20px; }
+.lc-step h4 { font-size:14px; font-weight:700; margin:10px 0 4px; }
+.lc-step p { font-size:12.5px; color:var(--gray-mid); line-height:1.55; }
+@media(max-width:680px){
+  .lc-step + .lc-step { margin-left:0; margin-top:28px; }
+  .lc-step + .lc-step::before { left:50%; top:-22px; transform:translateX(-50%); content:'↓'; }
+}
+
+/* ── ORG TREE ── */
+.org-wrap { overflow-x:auto; padding:6px 0 6px; }
+.org-tree { min-width:700px; }
+.org-tree ul { display:flex; justify-content:center; position:relative; padding-top:26px; list-style:none; }
+.org-tree li { position:relative; padding:26px 10px 0; text-align:center; }
+.org-tree li::before, .org-tree li::after {
+  content:''; position:absolute; top:0; right:50%; width:50%; height:26px; border-top:2px solid #E2CDBA;
+}
+.org-tree li::after { right:auto; left:50%; border-left:2px solid #E2CDBA; }
+.org-tree li:only-child::before, .org-tree li:only-child::after { display:none; }
+.org-tree li:only-child { padding-top:26px; }
+.org-tree li:first-child::before, .org-tree li:last-child::after { border:0 none; }
+.org-tree li:last-child::before { border-right:2px solid #E2CDBA; border-radius:0 6px 0 0; }
+.org-tree li:first-child::after { border-radius:6px 0 0 0; }
+.org-tree ul ul::before {
+  content:''; position:absolute; top:0; left:50%; width:0; height:26px; border-left:2px solid #E2CDBA;
+}
+.node {
+  display:inline-block; background:#fff; border:1px solid #ECECEC; border-top:3px solid var(--orange);
+  border-radius:13px; padding:15px 16px 14px; box-shadow:0 2px 12px rgba(0,0,0,0.06);
+  min-width:178px; max-width:210px; transition:transform .18s, box-shadow .18s;
+}
+.node:hover { transform:translateY(-3px); box-shadow:0 12px 28px rgba(0,0,0,0.13); }
+.node .avatar { width:48px; height:48px; border-radius:50%; margin:0 auto 10px;
+  display:flex; align-items:center; justify-content:center; font-weight:700; font-size:15px;
+  color:#fff; letter-spacing:0.5px; }
+.node .nm { font-size:14px; font-weight:700; color:var(--black); line-height:1.25; }
+.node .ttl { font-size:11.5px; color:#777; line-height:1.45; margin-top:5px; }
+.node .lvl { display:inline-block; font-size:9.5px; font-weight:700; text-transform:uppercase;
+  letter-spacing:0.6px; padding:3px 9px; border-radius:20px; margin-top:11px; }
+
+.node.lead    { border-top-color:var(--orange); }
+.node.lead    .avatar { background:var(--orange); }
+.node.lead    .lvl { color:var(--orange-dark); background:var(--orange-pale); }
+.node.dach    { border-top-color:var(--purple); }
+.node.dach    .avatar { background:var(--purple); }
+.node.dach    .lvl { color:var(--purple); background:var(--purple-pale); }
+.node.north   { border-top-color:var(--cisco-blue); }
+.node.north   .avatar { background:var(--cisco-blue); }
+.node.north   .lvl { color:var(--cisco-blue); background:var(--cisco-pale); }
+.node.south   { border-top-color:var(--green); }
+.node.south   .avatar { background:var(--green); }
+.node.south   .lvl { color:var(--green); background:var(--green-pale); }
+.node.benelux { border-top-color:var(--palo-orange); }
+.node.benelux .avatar { background:var(--palo-orange); }
+.node.benelux .lvl { color:var(--palo-orange); background:var(--palo-pale); }
+</style>
 </head>
 <body>
 
@@ -21,9 +92,7 @@
     <a href="wireless.html"       class="nav-link" id="nav-wifi">Wireless</a>
     <a href="firewalls.html"      class="nav-link" id="nav-fw">Firewalls</a>
     <a href="zscaler.html"        class="nav-link" id="nav-zs">Zscaler</a>
-    <a href="cisco.html"          class="nav-link vendor-cisco" id="nav-cisco">Cisco</a>
-    <a href="paloalto.html"       class="nav-link vendor-palo"  id="nav-pa">Palo Alto</a>
-    <a href="fortinet.html"       class="nav-link vendor-fort"  id="nav-ft">Fortinet</a>
+    <a href="devices.html"        class="nav-link" id="nav-devices">Devices</a>
     <a href="glossary.html"       class="nav-link" id="nav-gl">Glossary</a>
   </div>
   <div class="topnav-badge">New Hire Guide</div>
@@ -35,17 +104,142 @@
   <div class="hero-content">
     <div class="hero-tag">🚀 Welcome to Orange Business</div>
     <h1>Network<br><span>Knowledge Base</span></h1>
-    <p class="hero-sub">Everything a new hire needs to understand enterprise networking — from fundamentals to real vendor hardware. Pick a topic below to get started.</p>
+    <p class="hero-sub">Your onboarding home base — understand the Delivery Project Manager role, meet the team, and learn enterprise networking from fundamentals to real vendor hardware.</p>
   </div>
 </div>
 
 <div class="content">
 
+  <!-- WHAT IS A DPM -->
+  <div class="section">
+    <div class="section-header">
+      <h2>What does a Delivery Project Manager do?</h2>
+      <div class="divider"></div>
+    </div>
+    <p class="role-lead">
+      A <strong>Delivery Project Manager (DPM)</strong> owns a customer's network delivery from the moment an order is placed through to final handover. You are the single point of accountability that turns a signed order into working infrastructure on the customer's site — keeping the project on schedule, on scope, and clearly communicated the whole way through.
+    </p>
+
+    <div class="grid-2" style="margin-bottom:28px;">
+      <div class="card">
+        <div class="card-icon" style="background:var(--orange-pale);">🗂️</div>
+        <h3>Own the delivery</h3>
+        <p>Drive each project from kickoff to HOTO sign-off — planning the timeline, tracking milestones, and managing order records in tools like GOLD, ServiceNow, and SALTO.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:var(--cisco-pale);">🤝</div>
+        <h3>Coordinate the teams</h3>
+        <p>Orchestrate everyone the delivery depends on — TIMs and engineering, Field Engineers booked via FLIP, logistics, and the customer's own technical contacts.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:var(--green-pale);">📊</div>
+        <h3>Manage scope &amp; risk</h3>
+        <p>Keep internal stakeholders and the customer aligned: confirm prerequisites, flag blockers early, run staging and dry runs, and document decisions as you go.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon" style="background:var(--purple-pale);">🔧</div>
+        <h3>Run the migration</h3>
+        <p>Execute LAN and WAN migrations — switches, WLCs and access points — manage UAT with the customer, then close out every system once the site is live.</p>
+      </div>
+    </div>
+
+    <div class="section-header" style="margin-bottom:16px;">
+      <h3 style="font-size:16px;">The delivery lifecycle</h3>
+      <p style="font-size:13px;color:var(--gray-mid);">Every DPM project follows the same three phases. The <a href="lan-process.html">LAN Process</a> guide breaks each one down step by step.</p>
+    </div>
+    <div class="lifecycle">
+      <div class="lc-step">
+        <span class="lc-tag">Phase 1</span>
+        <h4>Pre-migration</h4>
+        <p>Confirm supply, raise MACHX, validate prerequisites, stage hardware, and run dry runs with the customer.</p>
+      </div>
+      <div class="lc-step">
+        <span class="lc-tag">Phase 2</span>
+        <h4>Migration</h4>
+        <p>Execute the cutover on the agreed window, support the field/TIM teams, and run UAT on every migrated service.</p>
+      </div>
+      <div class="lc-step">
+        <span class="lc-tag">Phase 3</span>
+        <h4>Post-migration / HOTO</h4>
+        <p>Send the success notification, update DNAC/CMDB, upload the HOTO pack, and close the GOLD and SALTO orders.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- MEET THE TEAM -->
+  <div class="section">
+    <div class="section-header">
+      <h2>Meet the Team</h2>
+      <div class="divider"></div>
+      <p>Who's who in the Europe Delivery Project Managers organisation. More team members will be added over time.</p>
+    </div>
+
+    <div class="org-wrap">
+      <div class="org-tree">
+        <ul>
+          <li>
+            <div class="node lead">
+              <div class="avatar">MG</div>
+              <div class="nm">Mohamed Ghaith</div>
+              <div class="ttl">Head of Order to Bill</div>
+              <span class="lvl">Order to Bill</span>
+            </div>
+            <ul>
+              <li>
+                <div class="node lead">
+                  <div class="avatar">MT</div>
+                  <div class="nm">Mona Tamimy</div>
+                  <div class="ttl">Head of Europe Delivery Project Managers</div>
+                  <span class="lvl">Europe DPM</span>
+                </div>
+                <ul>
+                  <li>
+                    <div class="node north">
+                      <div class="avatar">KE</div>
+                      <div class="nm">Karim El Zarka</div>
+                      <div class="ttl">Team Manager, North Europe Transversal Team</div>
+                      <span class="lvl">North Europe</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node dach">
+                      <div class="avatar">MT</div>
+                      <div class="nm">Mona Tantawi</div>
+                      <div class="ttl">Head of Delivery Project Managers — DACH Territory</div>
+                      <span class="lvl">DACH</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node south">
+                      <div class="avatar">PS</div>
+                      <div class="nm">Peter Sabet</div>
+                      <div class="ttl">Team Manager, Southern Europe Transversal Team</div>
+                      <span class="lvl">Southern Europe</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="node benelux">
+                      <div class="avatar">ME</div>
+                      <div class="nm">Maryam Etry</div>
+                      <div class="ttl">Europe DPMs Manager, BENELUX</div>
+                      <span class="lvl">BENELUX</span>
+                    </div>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- NETWORKING CONCEPTS -->
   <div class="section">
     <div class="section-header">
       <h2>Networking Concepts</h2>
       <div class="divider"></div>
-      <p>Start here if you're new to networking. Each page covers one topic in depth with diagrams, CLI examples, and plain-English explanations.</p>
+      <p>New to networking? Start here. Each page covers one topic in depth with diagrams, CLI examples, and plain-English explanations.</p>
     </div>
     <div class="topic-nav">
       <a href="lan-wan-basics.html" class="topic-nav-card">
@@ -93,34 +287,22 @@
     </div>
   </div>
 
+  <!-- DEVICE GUIDES -->
   <div class="section">
     <div class="section-header">
       <h2>Vendor Device Guides</h2>
       <div class="divider"></div>
-      <p>Detailed hardware pages for the three vendors you'll encounter most at Orange Business.</p>
+      <p>Hardware reference for the three vendors you'll meet most — Cisco, Palo Alto, and Fortinet — all in one place.</p>
     </div>
-    <div class="grid-3">
-      <a href="cisco.html" class="card" style="border-top:3px solid var(--cisco-blue);text-decoration:none;">
-        <div class="card-icon" style="background:var(--cisco-pale);">🔵</div>
-        <h3 style="color:var(--cisco-blue);">Cisco</h3>
-        <p>Catalyst switches, ISR routers, ASA/FTD firewalls, Catalyst APs, Cisco WLCs, Catalyst Center (DNAC), and Meraki.</p>
-        <span class="card-link" style="color:var(--cisco-blue);">View Cisco devices →</span>
-      </a>
-      <a href="paloalto.html" class="card" style="border-top:3px solid var(--palo-orange);text-decoration:none;">
-        <div class="card-icon" style="background:var(--palo-pale);">🔶</div>
-        <h3 style="color:var(--palo-orange);">Palo Alto Networks</h3>
-        <p>PA-Series NGFWs, Prisma Cloud security, GlobalProtect VPN, and Panorama management.</p>
-        <span class="card-link" style="color:var(--palo-orange);">View Palo Alto devices →</span>
-      </a>
-      <a href="fortinet.html" class="card" style="border-top:3px solid var(--fort-red);text-decoration:none;">
-        <div class="card-icon" style="background:var(--fort-pale);">🔴</div>
-        <h3 style="color:var(--fort-red);">Fortinet</h3>
-        <p>FortiGate firewalls, FortiSwitch, FortiAP access points, FortiWLC, FortiManager, and FortiAnalyzer.</p>
-        <span class="card-link" style="color:var(--fort-red);">View Fortinet devices →</span>
-      </a>
-    </div>
+    <a href="devices.html" class="card" style="display:block;border-top:3px solid var(--orange);text-decoration:none;">
+      <div class="card-icon" style="background:var(--orange-pale);">🧩</div>
+      <h3>Device Guides</h3>
+      <p>Vendor summaries and a side-by-side comparison of Cisco, Palo Alto Networks, and Fortinet — with links straight into each vendor's full device reference (port diagrams and per-model specs).</p>
+      <span class="card-link">Open Device Guides →</span>
+    </a>
   </div>
 
+  <!-- DPM PROCESS GUIDES -->
   <div class="section">
     <div class="section-header">
       <h2>DPM Process Guides</h2>
@@ -143,10 +325,11 @@
     </div>
   </div>
 
+  <!-- HOW TO USE -->
   <div class="section">
     <div class="alert orange">
       <span class="alert-icon">💡</span>
-      <p><strong>How to use this guide:</strong> Start with <a href="lan-wan-basics.html">LAN / WAN Basics</a> if you're new. Then move through IP Routing → Switching → Wireless → Firewalls → Zscaler. Use the vendor pages as a hardware reference when working on specific customer environments.</p>
+      <p><strong>How to use this guide:</strong> Get familiar with the DPM role and the team above, then start with <a href="lan-wan-basics.html">LAN / WAN Basics</a> and move through IP Routing → Switching → Wireless → Firewalls → Zscaler. Use the <a href="devices.html">Device Guides</a> as a hardware reference when working on specific customer environments.</p>
     </div>
   </div>
 

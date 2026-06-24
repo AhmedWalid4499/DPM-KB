@@ -20,14 +20,7 @@ const NAV_HTML = `
   <a href="wireless.html"       class="nav-link">Wireless</a>
   <a href="firewalls.html"      class="nav-link">Firewalls</a>
   <a href="zscaler.html"        class="nav-link">Zscaler</a>
-  <div class="nav-dropdown">
-    <button class="nav-link nav-dropdown-btn">Devices &#9662;</button>
-    <div class="nav-dropdown-menu">
-      <a href="cisco.html"    class="nav-dropdown-item vendor-cisco">&#128309; Cisco</a>
-      <a href="paloalto.html" class="nav-dropdown-item vendor-palo">&#128312; Palo Alto</a>
-      <a href="fortinet.html" class="nav-dropdown-item vendor-fort">&#128308; Fortinet</a>
-    </div>
-  </div>
+  <a href="devices.html"        class="nav-link">Devices</a>
   <a href="glossary.html" class="nav-link">Glossary</a>
 </div>
 <div class="topnav-badge">New Hire Guide</div>
