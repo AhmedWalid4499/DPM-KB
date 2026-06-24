@@ -82,6 +82,13 @@
 .node.sme .nm { font-size:13px; }
 .node.sme .ttl { font-size:10.5px; }
 .node.sme .lvl { margin-top:9px; font-size:9px; }
+
+/* Manager nodes are links into their team pages */
+a.node { text-decoration:none !important; color:inherit; cursor:pointer; }
+a.node:hover { text-decoration:none !important; }
+.node-link-hint { display:block; margin-top:9px; font-size:10px; font-weight:700;
+  letter-spacing:0.3px; color:var(--orange); opacity:0.85; }
+a.node:hover .node-link-hint { opacity:1; }
 </style>
 </head>
 <body>
@@ -174,7 +181,7 @@
   </div>
 
   <!-- MEET THE TEAM -->
-  <div class="section">
+  <div class="section" id="team">
     <div class="section-header">
       <h2>Meet the Team</h2>
       <div class="divider"></div>
@@ -201,12 +208,13 @@
                 </div>
                 <ul>
                   <li>
-                    <div class="node north">
+                    <a class="node north" href="karim-elzarka.html">
                       <div class="avatar">KE</div>
                       <div class="nm">Karim El Zarka</div>
                       <div class="ttl">Team Manager, North Europe Transversal Team</div>
                       <span class="lvl">North Europe</span>
-                    </div>
+                      <span class="node-link-hint">View team →</span>
+                    </a>
                     <ul>
                       <li>
                         <div class="node north sme">
@@ -227,20 +235,22 @@
                     </ul>
                   </li>
                   <li>
-                    <div class="node dach">
+                    <a class="node dach" href="mona-tantawy.html">
                       <div class="avatar">MT</div>
                       <div class="nm">Mona Tantawi</div>
                       <div class="ttl">Head of Delivery Project Managers — DACH Territory</div>
                       <span class="lvl">DACH</span>
-                    </div>
+                      <span class="node-link-hint">View team →</span>
+                    </a>
                   </li>
                   <li>
-                    <div class="node south">
+                    <a class="node south" href="peter-sabet.html">
                       <div class="avatar">PS</div>
                       <div class="nm">Peter Sabet</div>
                       <div class="ttl">Team Manager, Southern Europe Transversal Team</div>
                       <span class="lvl">Southern Europe</span>
-                    </div>
+                      <span class="node-link-hint">View team →</span>
+                    </a>
                     <ul>
                       <li>
                         <div class="node south sme">
@@ -253,12 +263,13 @@
                     </ul>
                   </li>
                   <li>
-                    <div class="node benelux">
+                    <a class="node benelux" href="maryam-etry.html">
                       <div class="avatar">ME</div>
                       <div class="nm">Maryam Etry</div>
                       <div class="ttl">Europe DPMs Manager, BENELUX</div>
                       <span class="lvl">BENELUX</span>
-                    </div>
+                      <span class="node-link-hint">View team →</span>
+                    </a>
                     <ul>
                       <li>
                         <div class="node benelux sme">
