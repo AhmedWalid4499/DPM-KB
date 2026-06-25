@@ -10,6 +10,12 @@
     "marketing": [],
     "hiring": [],
     "onboarding": [],
-    "presales": []
+    "presales": [
+      {
+        "name": "Ahmed Osama",
+        "email": "ahmed.o.osama.ext@orange.com",
+        "cluster": "N&S EU (Inc. Trans)"
+      }
+    ]
   }
 }
