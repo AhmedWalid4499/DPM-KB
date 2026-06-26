@@ -1,21 +1,9 @@
 {
   "squads": {
-    "automation": [
-      {
-        "name": "Ahmed Osama",
-        "email": "ahmed.o.osama.ext@orange.com",
-        "cluster": "N&S EU (Inc. Trans)"
-      }
-    ],
+    "automation": [],
     "marketing": [],
     "hiring": [],
     "onboarding": [],
-    "presales": [
-      {
-        "name": "Ahmed Osama",
-        "email": "ahmed.o.osama.ext@orange.com",
-        "cluster": "N&S EU (Inc. Trans)"
-      }
-    ]
+    "presales": []
   }
 }
